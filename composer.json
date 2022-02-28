@@ -25,7 +25,7 @@
         "ext-openssl": "*"
     },
     "require-dev": {
-        "chiiya/code-style-php": "^1.1",
+        "chiiya/code-style-php": "^1.2",
         "nunomaduro/collision": "^6.0",
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5",
