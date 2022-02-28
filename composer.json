@@ -1,0 +1,58 @@
+{
+    "name": "chiiya/laravel-passes",
+    "description": "Laravel library for creating iOS and Android Wallet Passes",
+    "keywords": [
+        "chiiya",
+        "laravel",
+        "laravel-passes"
+    ],
+    "homepage": "https://github.com/chiiya/laravel-passes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elisha Witte",
+            "email": "github@chiiya.moe",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "google/auth": "^1.18",
+        "illuminate/contracts": "^9.0",
+        "spatie/data-transfer-object": "^3.7",
+        "spatie/laravel-package-tools": "^1.9.2"
+    },
+    "require-dev": {
+        "chiiya/code-style-php": "^1.1",
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.5",
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chiiya\\LaravelPasses\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chiiya\\LaravelPasses\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chiiya\\LaravelPasses\\LaravelPassesServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
