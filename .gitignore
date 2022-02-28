@@ -12,3 +12,9 @@ testbench.yaml
 vendor
 node_modules
 .php-cs-fixer.cache
+*.p12
+*.pem
+*.pkpass
+service-credentials.json
+.env
+/tests/certs

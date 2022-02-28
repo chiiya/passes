@@ -20,7 +20,9 @@
         "google/auth": "^1.18",
         "illuminate/contracts": "^9.0",
         "spatie/data-transfer-object": "^3.7",
-        "spatie/laravel-package-tools": "^1.9.2"
+        "spatie/laravel-package-tools": "^1.9.2",
+        "ext-zip": "*",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "chiiya/code-style-php": "^1.1",

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Code Coverage for /var/www/html/src/Apple/Components/Nfc.php</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../../_css/octicons.css" rel="stylesheet" type="text/css">
+  <link href="../../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../index.html">/var/www/html/src</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Apple</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Components</a></li>
+         <li class="breadcrumb-item active">Nfc.php</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="table-responsive">
+    <table class="table table-bordered">
+     <thead>
+      <tr>
+       <td>&nbsp;</td>
+       <td colspan="10"><div align="center"><strong>Code Coverage</strong></div></td>
+      </tr>
+      <tr>
+       <td>&nbsp;</td>
+       <td colspan="3"><div align="center"><strong>Lines</strong></div></td>
+       <td colspan="4"><div align="center"><strong>Functions and Methods</strong></div></td>
+       <td colspan="3"><div align="center"><strong>Classes and Traits</strong></div></td>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td class="">Total</td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+       <td class=" small"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+      </tr>
+
+      <tr>
+       <td class=""><abbr title="Chiiya\LaravelPasses\Apple\Components\Nfc">Nfc</abbr></td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+       <td class=" small">0</td>
+       <td class=" big"></td>
+       <td class=" small"><div align="right">n/a</div></td>
+       <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+      </tr>
+
+
+     </tbody>
+    </table>
+   </div>
+<table id="code" class="table table-borderless table-condensed">
+<tbody>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="1" href="#1">1</a></td><td class="col-11 codeLine"><span class="default">&lt;?php</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="2" href="#2">2</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="3" href="#3">3</a></td><td class="col-11 codeLine"><span class="keyword">namespace</span><span class="default">&nbsp;</span><span class="default">Chiiya\LaravelPasses\Apple\Components</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="4" href="#4">4</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="5" href="#5">5</a></td><td class="col-11 codeLine"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">Chiiya\LaravelPasses\Common\Component</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="6" href="#6">6</a></td><td class="col-11 codeLine"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">Chiiya\LaravelPasses\Common\Validation\Required</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="7" href="#7">7</a></td><td class="col-11 codeLine"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">Spatie\DataTransferObject\Attributes\Strict</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="8" href="#8">8</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="9" href="#9">9</a></td><td class="col-11 codeLine"><span class="default">#[</span><span class="default">Strict</span><span class="keyword">]</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="10" href="#10">10</a></td><td class="col-11 codeLine"><span class="keyword">class</span><span class="default">&nbsp;</span><span class="default">Nfc</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">Component</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="11" href="#11">11</a></td><td class="col-11 codeLine"><span class="keyword">{</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="12" href="#12">12</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="13" href="#13">13</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Required.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="14" href="#14">14</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;payload&nbsp;to&nbsp;be&nbsp;transmitted&nbsp;to&nbsp;the&nbsp;Apple&nbsp;Pay&nbsp;terminal.&nbsp;Must&nbsp;be&nbsp;64&nbsp;bytes&nbsp;or&nbsp;less.&nbsp;Messages&nbsp;longer</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="15" href="#15">15</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;than&nbsp;64&nbsp;bytes&nbsp;are&nbsp;truncated&nbsp;by&nbsp;the&nbsp;system.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="16" href="#16">16</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="17" href="#17">17</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">#[</span><span class="default">Required</span><span class="keyword">]</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="18" href="#18">18</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">?</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$message</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="19" href="#19">19</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="20" href="#20">20</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="21" href="#21">21</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Optional.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="22" href="#22">22</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;public&nbsp;encryption&nbsp;key&nbsp;used&nbsp;by&nbsp;the&nbsp;Value&nbsp;Added&nbsp;Services&nbsp;protocol.&nbsp;Use&nbsp;a&nbsp;Base64&nbsp;encoded&nbsp;X.509</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="23" href="#23">23</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;SubjectPublicKeyInfo&nbsp;structure&nbsp;containing&nbsp;a&nbsp;ECDH&nbsp;public&nbsp;key&nbsp;for&nbsp;group&nbsp;P256.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="24" href="#24">24</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="25" href="#25">25</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">?</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$encryptionPublicKey</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="26" href="#26">26</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="27" href="#27">27</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="28" href="#28">28</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Optional.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="29" href="#29">29</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;A&nbsp;Boolean&nbsp;value&nbsp;that&nbsp;indicates&nbsp;whether&nbsp;the&nbsp;NFC&nbsp;pass&nbsp;requires&nbsp;authentication.&nbsp;The&nbsp;default&nbsp;value&nbsp;is&nbsp;false.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="30" href="#30">30</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;A&nbsp;value&nbsp;of&nbsp;true&nbsp;requires&nbsp;the&nbsp;user&nbsp;to&nbsp;authenticate&nbsp;for&nbsp;each&nbsp;use&nbsp;of&nbsp;the&nbsp;NFC&nbsp;pass.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="31" href="#31">31</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="32" href="#32">32</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@since&nbsp;iOS&nbsp;v13.1</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="33" href="#33">33</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="34" href="#34">34</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">?</span><span class="default">bool</span><span class="default">&nbsp;</span><span class="default">$requiresAuthentication</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="35" href="#35">35</a></td><td class="col-11 codeLine"><span class="keyword">}</span></td></tr>
+
+</tbody>
+</table>
+
+
+   <footer>
+    <hr/>
+    <h4>Legend</h4>
+    <p><span class="success"><strong>Executed</strong></span><span class="danger"><strong>Not Executed</strong></span><span class="warning"><strong>Dead Code</strong></span></p>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.14</a> using <a href="https://secure.php.net/" target="_top">PHP 8.1.0</a> and <a href="https://phpunit.de/">PHPUnit 9.5.16</a> at Mon Feb 28 16:22:05 UTC 2022.</small>
+    </p>
+    <a title="Back to the top" id="toplink" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 11L6 5l-6 6h12z"/></svg>
+    </a>
+   </footer>
+  </div>
+  <script src="../../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../_js/popper.min.js" type="text/javascript"></script>
+  <script src="../../_js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../_js/file.js" type="text/javascript"></script>
+ </body>
+</html>

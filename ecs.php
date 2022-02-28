@@ -10,8 +10,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::PATHS, [
         __DIR__ . '/src',
         __DIR__ . '/config',
-        __DIR__ . '/database',
-        __DIR__ . '/resources/lang',
-        __DIR__ . '/routes',
+        __DIR__ . '/tests',
     ]);
 };
