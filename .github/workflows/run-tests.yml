@@ -31,6 +31,8 @@ jobs:
         run: |
           cp .env.example .env
           mkdir tests/certs
-          echo $CERTIFICATE_CONTENT | base64 --decode > tests/certs/certificate.p12
-          echo $WWDR_CONTENT | base64 --decode > tests/certs/wwdr.pem
+          echo "$CERTIFICATE_CONTENT" | base64 --decode > tests/certs/certificate.p12
+          echo "$WWDR_CONTENT" | base64 --decode > tests/certs/wwdr.pem
           vendor/bin/phpunit
+          rm tests/certs/certificate.p12
+          rm tests/certs/wwdr.pem
