@@ -50,7 +50,7 @@ abstract class BaseRepository
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();
-        $response = $this->client->post($this->buildResourceUrl(), json_encode($instance));
+        $response = $this->client->post($this->buildResourceUrl(), $instance);
 
         return new $class($response);
     }
@@ -62,7 +62,7 @@ abstract class BaseRepository
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();
-        $response = $this->client->put($this->buildEntityUrl($instance->id), json_encode($instance));
+        $response = $this->client->put($this->buildEntityUrl($instance->id), $instance);
 
         return new $class($response);
     }

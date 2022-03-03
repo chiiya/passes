@@ -6,6 +6,7 @@ use Chiiya\Passes\Google\ServiceCredentials;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
+use JsonSerializable;
 
 class GoogleClient implements ClientInterface
 {
@@ -19,14 +20,14 @@ class GoogleClient implements ClientInterface
         return $this->execute('GET', $url);
     }
 
-    public function post(string $url, string $body): array
+    public function post(string $url, JsonSerializable $data): array
     {
-        return $this->execute('POST', $url, $body);
+        return $this->execute('POST', $url, json_encode($data));
     }
 
-    public function put(string $url, string $body): array
+    public function put(string $url, JsonSerializable $data): array
     {
-        return $this->execute('PUT', $url, $body);
+        return $this->execute('PUT', $url, json_encode($data));
     }
 
     public function execute(string $method, string $url, ?string $body = null): array
