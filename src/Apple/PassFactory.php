@@ -87,9 +87,24 @@ class PassFactory
         StoreCard::class => [ImageType::LOGO, ImageType::ICON, ImageType::STRIP],
     ];
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
-        $this->tempDir = sys_get_temp_dir().DIRECTORY_SEPARATOR;
+        $this->tempDir = isset($config['temp_dir'])
+            ? rtrim($config['temp_dir'], DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR
+            : sys_get_temp_dir().DIRECTORY_SEPARATOR;
+
+        if (isset($config['output'])) {
+            $this->setOutput($config['output']);
+        }
+        if (isset($config['certificate'])) {
+            $this->setCertificate($config['certificate']);
+        }
+        if (isset($config['password'])) {
+            $this->setPassword($config['password']);
+        }
+        if (isset($config['wwdr'])) {
+            $this->setWwdr($config['wwdr']);
+        }
     }
 
     public function setTempDir(string $tempDir): self

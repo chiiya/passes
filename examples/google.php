@@ -13,7 +13,7 @@ use Chiiya\Passes\Google\Enumerators\Offer\RedemptionChannel;
 use Chiiya\Passes\Google\Enumerators\ReviewStatus;
 use Chiiya\Passes\Google\Enumerators\State;
 use Chiiya\Passes\Google\Http\GoogleClient;
-use Chiiya\Passes\Google\JWTBuilder;
+use Chiiya\Passes\Google\JWT;
 use Chiiya\Passes\Google\Passes\OfferClass;
 use Chiiya\Passes\Google\Passes\OfferObject;
 use Chiiya\Passes\Google\Repositories\OfferClassRepository;
@@ -60,5 +60,8 @@ $object = new OfferObject(
     ),
 );
 
-$builder = new JWTBuilder($credentials, ['https://example.org']);
-$jwt = $builder->create()->addOfferObject($object)->sign();
+$jwt = (new JWT([
+    'iss' => $credentials->client_email,
+    'key' => $credentials->private_key,
+    'origins' => ['https://example.org'],
+]))->addOfferObject($object)->sign();
