@@ -29,6 +29,7 @@ class JWT extends Component
      * Required.
      * Your OAuth 2.0 service account generated email address.
      */
+    #[Required]
     public string $iss;
 
     /**
@@ -45,12 +46,6 @@ class JWT extends Component
 
     /**
      * Required.
-     * Issued at time in seconds since epoch.
-     */
-    public int $iat;
-
-    /**
-     * Required.
      * Payload object. Refer to Generating the JWT Guide for an example of creating the payload.
      * Only one object or class should be included in the payload arrays.
      */
@@ -60,23 +55,18 @@ class JWT extends Component
      * Required.
      * Signing key. Should be the service account private key.
      */
+    #[Required]
     public string $key;
 
     /**
      * Required.
      * Array of domains to whitelist JWT saving functionality. The Google Pay API for Passes button will
-     * not render when the origins field is not defined. You could potentially get an "Load denied by X-Frame-Options"
+     * not render when the origins field is not defined. You could potentially get a "Load denied by X-Frame-Options"
      * or "Refused to display" messages in the browser console when the origins field is not defined.
      */
     #[Required]
     #[MinItems(1)]
     public array $origins = [];
-
-    public function __construct(...$args)
-    {
-        $this->iat = time();
-        parent::__construct($args);
-    }
 
     public function addOfferClass(OfferClass $class): static
     {
@@ -143,12 +133,14 @@ class JWT extends Component
      */
     public function sign(): string
     {
-        $payload = $this->except('key')->toArray();
+        $payload = array_merge($this->except('key')->toArray(), [
+            'iat' => time(),
+        ],);
 
         return Encoder::encode($payload, $this->key, 'RS256');
     }
 
-    private function addComponent(Component $component, string $type): static
+    protected function addComponent(Component $component, string $type): static
     {
         if (! array_key_exists($type, $this->payload)) {
             $this->payload[$type] = [];

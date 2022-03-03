@@ -15,7 +15,7 @@ class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         if (file_exists(realpath(__DIR__.'/../.env'))) {
-            $dotenv = Dotenv::createImmutable(realpath(__DIR__.'/../'));
+            $dotenv = Dotenv::createUnsafeImmutable(realpath(__DIR__.'/../'));
             $dotenv->load();
         }
     }

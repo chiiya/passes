@@ -38,9 +38,9 @@ abstract class BaseRepository
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();
-        $response = $this->client->execute('GET', $this->buildEntityUrl($id));
+        $response = $this->client->get($this->buildEntityUrl($id));
 
-        return $class::create($response);
+        return new $class($response);
     }
 
     /**
@@ -50,9 +50,9 @@ abstract class BaseRepository
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();
-        $response = $this->client->execute('POST', $this->buildResourceUrl(), json_encode($instance));
+        $response = $this->client->post($this->buildResourceUrl(), json_encode($instance));
 
-        return $class::create($response);
+        return new $class($response);
     }
 
     /**
@@ -62,9 +62,9 @@ abstract class BaseRepository
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();
-        $response = $this->client->execute('PUT', $this->buildEntityUrl($instance->id), json_encode($instance));
+        $response = $this->client->put($this->buildEntityUrl($instance->id), json_encode($instance));
 
-        return $class::create($response);
+        return new $class($response);
     }
 
     protected function buildResourceUrl(): string

@@ -4,7 +4,9 @@ namespace Chiiya\Passes\Google\Http;
 
 interface ClientInterface
 {
-    public function execute(string $method, string $url, ?string $body = null): array;
+    public function get(string $url): array;
 
-    public function setConfig(array $config): static;
+    public function post(string $url, string $body): array;
+
+    public function put(string $url, string $body): array;
 }

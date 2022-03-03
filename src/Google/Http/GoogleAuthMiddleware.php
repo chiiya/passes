@@ -2,6 +2,7 @@
 
 namespace Chiiya\Passes\Google\Http;
 
+use Chiiya\Passes\Google\ServiceCredentials;
 use Exception;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\Credentials\ServiceAccountCredentials;
@@ -45,10 +46,10 @@ class GoogleAuthMiddleware
      *
      * @throws Exception
      */
-    public static function createAuthTokenMiddleware(array $config): AuthTokenMiddleware
+    public static function createAuthTokenMiddleware(ServiceCredentials $credentials): AuthTokenMiddleware
     {
-        $credentials = new FetchAuthTokenCache(
-            self::createApplicationDefaultCredentials($config),
+        $fetcher = new FetchAuthTokenCache(
+            self::createApplicationDefaultCredentials($credentials),
             [],
             self::$cache,
         );
@@ -62,19 +63,17 @@ class GoogleAuthMiddleware
 
         $httpHandler = HttpHandlerFactory::build($client);
 
-        return new AuthTokenMiddleware($credentials, $httpHandler);
+        return new AuthTokenMiddleware($fetcher, $httpHandler);
     }
 
     /**
      * Create service account credentials from config.
      */
-    protected static function createApplicationDefaultCredentials(array $config): ServiceAccountCredentials
-    {
-        return new ServiceAccountCredentials([self::SCOPE], [
-            'client_id' => $config['client_id'],
-            'client_email' => $config['client_email'],
-            'private_key' => $config['private_key'],
+    protected static function createApplicationDefaultCredentials(
+        ServiceCredentials $credentials
+    ): ServiceAccountCredentials {
+        return new ServiceAccountCredentials([self::SCOPE], array_merge($credentials->toArray(), [
             'type' => 'service_account',
-        ]);
+        ]));
     }
 }

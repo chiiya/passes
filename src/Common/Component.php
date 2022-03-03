@@ -16,14 +16,6 @@ abstract class Component extends DataTransferObject implements JsonSerializable
     }
 
     /**
-     * Create a new component instance.
-     */
-    final public static function create(...$args): static
-    {
-        return new static(...$args);
-    }
-
-    /**
      * Remove null values and empty arrays from an array.
      */
     protected function removeEmptyValues(array $array): array

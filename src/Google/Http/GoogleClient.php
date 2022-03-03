@@ -2,6 +2,7 @@
 
 namespace Chiiya\Passes\Google\Http;
 
+use Chiiya\Passes\Google\ServiceCredentials;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -9,41 +10,46 @@ use GuzzleHttp\Psr7\Request;
 class GoogleClient implements ClientInterface
 {
     public function __construct(
-        protected ?Client $client = null,
-        protected array $config = [],
+        protected Client $client,
     ) {
+    }
+
+    public function get(string $url): array
+    {
+        return $this->execute('GET', $url);
+    }
+
+    public function post(string $url, string $body): array
+    {
+        return $this->execute('POST', $url, $body);
+    }
+
+    public function put(string $url, string $body): array
+    {
+        return $this->execute('PUT', $url, $body);
     }
 
     public function execute(string $method, string $url, ?string $body = null): array
     {
         $request = new Request($method, $url, $this->commonHeaders(), $body);
-        $response = $this->getClient()->send($request);
+        $response = $this->client->send($request);
 
         return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
-     * Set the service-credentials config.
+     * Create an authenticated Google client.
      */
-    public function setConfig(array $config): static
+    public static function createAuthenticatedClient(ServiceCredentials $credentials): static
     {
-        $this->config = $config;
+        $stack = HandlerStack::create();
+        $stack->push(GoogleAuthMiddleware::createAuthTokenMiddleware($credentials));
+        $client = new Client([
+            'handler' => $stack,
+            'auth' => 'google_auth',
+        ]);
 
-        return $this;
-    }
-
-    public function getClient(): Client
-    {
-        if (! $this->client) {
-            $stack = HandlerStack::create();
-            $stack->push(GoogleAuthMiddleware::createAuthTokenMiddleware($this->config));
-            $this->client = new Client([
-                'handler' => $stack,
-                'auth' => 'google_auth',
-            ]);
-        }
-
-        return $this->client;
+        return new static($client);
     }
 
     protected function commonHeaders(): array
