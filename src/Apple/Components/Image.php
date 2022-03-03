@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
 use SplFileInfo;
 

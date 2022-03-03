@@ -1,8 +1,8 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Common\Validation\Required;
+use Chiiya\Passes\Common\Validation\Required;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Attributes\Strict;
 use Spatie\DataTransferObject\Casters\ArrayCaster;

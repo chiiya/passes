@@ -1,12 +1,12 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Passes;
+namespace Chiiya\Passes\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Enumerators\TransitType;
-use Chiiya\LaravelPasses\Apple\Traits\HasFields;
-use Chiiya\LaravelPasses\Apple\Traits\HasGroupingIdentifier;
-use Chiiya\LaravelPasses\Common\Validation\Required;
-use Chiiya\LaravelPasses\Common\Validation\ValueIn;
+use Chiiya\Passes\Apple\Enumerators\TransitType;
+use Chiiya\Passes\Apple\Traits\HasFields;
+use Chiiya\Passes\Apple\Traits\HasGroupingIdentifier;
+use Chiiya\Passes\Common\Validation\Required;
+use Chiiya\Passes\Common\Validation\ValueIn;
 use Spatie\DataTransferObject\Arr;
 use Spatie\DataTransferObject\Attributes\Strict;
 

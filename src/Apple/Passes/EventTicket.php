@@ -1,9 +1,9 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Passes;
+namespace Chiiya\Passes\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Traits\HasFields;
-use Chiiya\LaravelPasses\Apple\Traits\HasGroupingIdentifier;
+use Chiiya\Passes\Apple\Traits\HasFields;
+use Chiiya\Passes\Apple\Traits\HasGroupingIdentifier;
 use Spatie\DataTransferObject\Arr;
 use Spatie\DataTransferObject\Attributes\Strict;
 

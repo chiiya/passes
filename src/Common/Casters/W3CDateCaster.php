@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Common\Casters;
+namespace Chiiya\Passes\Common\Casters;
 
 use DateTimeInterface;
 use Spatie\DataTransferObject\Caster;

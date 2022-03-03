@@ -1,0 +1,50 @@
+{
+    "kind": "walletobjects#offerClass",
+    "title": "15% off purchases",
+    "redemptionChannel": "instore",
+    "provider": "ACME",
+    "titleImage": {
+        "kind": "walletobjects#image",
+        "sourceUri": {
+            "uri": "https://example.org/title.png"
+        }
+    },
+    "helpUri": {
+        "uri": "https://example.org/help"
+    },
+    "localizedDetails": {
+        "kind": "walletobjects#localizedString",
+        "defaultValue": {
+            "kind": "walletobjects#translatedString",
+            "language": "en",
+            "value": "::value::"
+        }
+    },
+    "id": "1234567890123456789.coupon-15",
+    "version": "1",
+    "issuerName": "ACME",
+    "reviewStatus": "approved",
+    "imageModulesData": [
+        {
+            "mainImage": {
+                "kind": "walletobjects#image",
+                "sourceUri": {
+                    "uri": "https://example.org/wallet.png"
+                }
+            }
+        }
+    ],
+    "linksModuleData": {
+        "uris": [
+            {
+                "uri": "https://example.org/app",
+                "description": "App"
+            },
+            {
+                "uri": "https://example.org",
+                "description": "Homepage"
+            }
+        ]
+    },
+    "hexBackgroundColor": "#ffffff"
+}

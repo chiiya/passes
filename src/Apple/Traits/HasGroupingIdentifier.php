@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Traits;
+namespace Chiiya\Passes\Apple\Traits;
 
 trait HasGroupingIdentifier
 {

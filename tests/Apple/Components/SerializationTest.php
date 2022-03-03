@@ -1,11 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Location;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Location;
+use Chiiya\Passes\Tests\TestCase;
 
-class ComponentTest extends TestCase
+class SerializationTest extends TestCase
 {
     public function test_that_empty_values_are_removed(): void
     {
@@ -13,7 +13,7 @@ class ComponentTest extends TestCase
             'latitude' => 37.331,
             'longitude' => -122.029,
         ]);
-        $this->assertSame([
+        $this->assertSameArray([
             'latitude' => 37.331,
             'longitude' => -122.029,
             'altitude' => null,

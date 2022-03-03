@@ -1,16 +1,16 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple;
+namespace Chiiya\Passes\Apple;
 
-use Chiiya\LaravelPasses\Apple\Components\Image;
-use Chiiya\LaravelPasses\Apple\Enumerators\ImageType;
-use Chiiya\LaravelPasses\Apple\Passes\BoardingPass;
-use Chiiya\LaravelPasses\Apple\Passes\Coupon;
-use Chiiya\LaravelPasses\Apple\Passes\EventTicket;
-use Chiiya\LaravelPasses\Apple\Passes\GenericPass;
-use Chiiya\LaravelPasses\Apple\Passes\Pass;
-use Chiiya\LaravelPasses\Apple\Passes\StoreCard;
-use Chiiya\LaravelPasses\Exceptions\ValidationException;
+use Chiiya\Passes\Apple\Components\Image;
+use Chiiya\Passes\Apple\Enumerators\ImageType;
+use Chiiya\Passes\Apple\Passes\BoardingPass;
+use Chiiya\Passes\Apple\Passes\Coupon;
+use Chiiya\Passes\Apple\Passes\EventTicket;
+use Chiiya\Passes\Apple\Passes\GenericPass;
+use Chiiya\Passes\Apple\Passes\Pass;
+use Chiiya\Passes\Apple\Passes\StoreCard;
+use Chiiya\Passes\Exceptions\ValidationException;
 use FilesystemIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;

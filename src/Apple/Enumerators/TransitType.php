@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Enumerators;
+namespace Chiiya\Passes\Apple\Enumerators;
 
 final class TransitType
 {

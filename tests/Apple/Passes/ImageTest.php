@@ -1,8 +1,8 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Components\Image;
+use Chiiya\Passes\Apple\Components\Image;
 use PHPUnit\Framework\TestCase;
 
 class ImageTest extends TestCase

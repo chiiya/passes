@@ -1,10 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\PersonName;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\PersonName;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class PersonNameTest extends TestCase
 {
@@ -12,6 +12,6 @@ class PersonNameTest extends TestCase
     {
         $attributes = Components::personName();
         $component = new PersonName($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

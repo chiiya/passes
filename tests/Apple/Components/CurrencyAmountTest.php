@@ -1,10 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\CurrencyAmount;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\CurrencyAmount;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class CurrencyAmountTest extends TestCase
 {
@@ -12,6 +12,6 @@ class CurrencyAmountTest extends TestCase
     {
         $attributes = Components::currencyAmount();
         $component = new CurrencyAmount($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

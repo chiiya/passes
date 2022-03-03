@@ -1,4 +1,4 @@
-name: laravel-passes
+name: passes
 type: php
 docroot: ""
 php_version: "8.1"

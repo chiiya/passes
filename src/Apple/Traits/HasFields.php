@@ -1,11 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Traits;
+namespace Chiiya\Passes\Apple\Traits;
 
-use Chiiya\LaravelPasses\Apple\Components\AuxiliaryField;
-use Chiiya\LaravelPasses\Apple\Components\Field;
-use Chiiya\LaravelPasses\Apple\Components\SecondaryField;
-use Chiiya\LaravelPasses\Common\Validation\MaxItems;
+use Chiiya\Passes\Apple\Components\AuxiliaryField;
+use Chiiya\Passes\Apple\Components\Field;
+use Chiiya\Passes\Apple\Components\SecondaryField;
+use Chiiya\Passes\Common\Validation\MaxItems;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Casters\ArrayCaster;
 

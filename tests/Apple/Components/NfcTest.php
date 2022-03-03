@@ -1,9 +1,9 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Nfc;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Nfc;
+use Chiiya\Passes\Tests\TestCase;
 
 class NfcTest extends TestCase
 {
@@ -15,6 +15,6 @@ class NfcTest extends TestCase
             'requiresAuthentication' => false,
         ];
         $component = new Nfc($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

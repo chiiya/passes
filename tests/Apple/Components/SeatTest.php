@@ -1,10 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Seat;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Seat;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class SeatTest extends TestCase
 {
@@ -12,6 +12,6 @@ class SeatTest extends TestCase
     {
         $attributes = Components::seat();
         $component = new Seat($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Enumerators\DataDetector;
-use Chiiya\LaravelPasses\Apple\Enumerators\DateStyle;
-use Chiiya\LaravelPasses\Apple\Enumerators\NumberStyle;
-use Chiiya\LaravelPasses\Common\Component;
-use Chiiya\LaravelPasses\Common\Validation\Contains;
-use Chiiya\LaravelPasses\Common\Validation\Required;
-use Chiiya\LaravelPasses\Common\Validation\ValueIn;
+use Chiiya\Passes\Apple\Enumerators\DataDetector;
+use Chiiya\Passes\Apple\Enumerators\DateStyle;
+use Chiiya\Passes\Apple\Enumerators\NumberStyle;
+use Chiiya\Passes\Common\Component;
+use Chiiya\Passes\Common\Validation\Contains;
+use Chiiya\Passes\Common\Validation\Required;
+use Chiiya\Passes\Common\Validation\ValueIn;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]

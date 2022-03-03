@@ -1,0 +1,14 @@
+<?php
+
+namespace Chiiya\Passes\Google\Passes;
+
+class OfferObject extends BaseObject
+{
+    public const IDENTIFIER = 'offerObject';
+
+    /**
+     * Optional.
+     * A copy of the inherited fields of the parent class. These fields are retrieved during a GET.
+     */
+    public ?OfferClass $classReference;
+}

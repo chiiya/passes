@@ -1,8 +1,8 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Components\Localization;
+use Chiiya\Passes\Apple\Components\Localization;
 use PHPUnit\Framework\TestCase;
 
 class LocalizationTest extends TestCase

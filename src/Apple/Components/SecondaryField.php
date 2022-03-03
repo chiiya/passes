@@ -1,9 +1,9 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Enumerators\TextAlignment;
-use Chiiya\LaravelPasses\Common\Validation\ValueIn;
+use Chiiya\Passes\Apple\Enumerators\TextAlignment;
+use Chiiya\Passes\Common\Validation\ValueIn;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]

@@ -1,11 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Passes\StoreCard;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use Chiiya\LaravelPasses\Tests\ArrayHelper;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Passes\StoreCard;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class StoreCardTest extends TestCase
 {
@@ -15,6 +14,6 @@ class StoreCardTest extends TestCase
         $expected = array_merge(Components::passAttributes(), Components::nullablePassAttributes(), [
             'storeCard' => Components::fieldValues(),
         ]);
-        $this->assertSame(ArrayHelper::sort($expected), ArrayHelper::sort($pass->toArray()));
+        $this->assertSameArray($expected, $pass->toArray());
     }
 }

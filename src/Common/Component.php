@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Common;
+namespace Chiiya\Passes\Common;
 
 use JsonSerializable;
 use Spatie\DataTransferObject\DataTransferObject;
@@ -13,6 +13,14 @@ abstract class Component extends DataTransferObject implements JsonSerializable
     final public function jsonSerialize(): array
     {
         return $this->removeEmptyValues($this->toArray());
+    }
+
+    /**
+     * Create a new component instance.
+     */
+    final public static function create(...$args): static
+    {
+        return new static(...$args);
     }
 
     /**

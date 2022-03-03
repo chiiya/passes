@@ -1,10 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Field;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Field;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class FieldTest extends TestCase
 {
@@ -12,6 +12,6 @@ class FieldTest extends TestCase
     {
         $attributes = Components::fieldAttributes();
         $component = new Field($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

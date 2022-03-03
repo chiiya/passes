@@ -1,8 +1,8 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Common\Component;
+use Chiiya\Passes\Common\Component;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]

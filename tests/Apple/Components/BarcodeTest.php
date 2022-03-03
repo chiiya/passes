@@ -1,10 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Barcode;
-use Chiiya\LaravelPasses\Apple\Enumerators\BarcodeFormat;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Barcode;
+use Chiiya\Passes\Apple\Enumerators\BarcodeFormat;
+use Chiiya\Passes\Tests\TestCase;
 
 class BarcodeTest extends TestCase
 {
@@ -17,6 +17,6 @@ class BarcodeTest extends TestCase
             'altText' => 'Barcode: ABCD 123 EFGH 456 IJKL 789 MNOP',
         ];
         $component = new Barcode($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

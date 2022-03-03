@@ -1,16 +1,16 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple;
+namespace Chiiya\Passes\Tests\Apple;
 
-use Chiiya\LaravelPasses\Apple\Components\Field;
-use Chiiya\LaravelPasses\Apple\Components\Image;
-use Chiiya\LaravelPasses\Apple\Components\Localization;
-use Chiiya\LaravelPasses\Apple\Enumerators\ImageType;
-use Chiiya\LaravelPasses\Apple\Passes\Coupon;
-use Chiiya\LaravelPasses\Apple\Passes\EventTicket;
-use Chiiya\LaravelPasses\Apple\PassFactory;
-use Chiiya\LaravelPasses\Exceptions\ValidationException;
-use Chiiya\LaravelPasses\Tests\TestCase;
+use Chiiya\Passes\Apple\Components\Field;
+use Chiiya\Passes\Apple\Components\Image;
+use Chiiya\Passes\Apple\Components\Localization;
+use Chiiya\Passes\Apple\Enumerators\ImageType;
+use Chiiya\Passes\Apple\Passes\Coupon;
+use Chiiya\Passes\Apple\Passes\EventTicket;
+use Chiiya\Passes\Apple\PassFactory;
+use Chiiya\Passes\Exceptions\ValidationException;
+use Chiiya\Passes\Tests\TestCase;
 
 class PassFactoryTest extends TestCase
 {
@@ -42,9 +42,9 @@ class PassFactoryTest extends TestCase
                 ],
                 'images' => [new Image(realpath(__DIR__.'/Fixtures/icon.png'), 'icon')],
             ]));
-        $this->factory->setCertificate(config('passes.apple.certificate'));
-        $this->factory->setPassword(config('passes.apple.password'));
-        $this->factory->setWwdr(config('passes.apple.wwdr'));
+        $this->factory->setCertificate($_ENV['PASSES_APPLE_CERT']);
+        $this->factory->setPassword($_ENV['PASSES_APPLE_PASSWORD']);
+        $this->factory->setWwdr($_ENV['PASSES_APPLE_WWDR']);
         $this->factory->setOutput(__DIR__);
         $this->factory->setTempDir(realpath(__DIR__.'/../tmp'));
         $this->factory->create($pass);
@@ -105,7 +105,7 @@ class PassFactoryTest extends TestCase
             $failed = true;
             $this->assertCount(2, $exception->getErrors());
             $this->assertSame(
-                'Invalid image type `background` for pass type `Chiiya\LaravelPasses\Apple\Passes\Coupon`.',
+                'Invalid image type `background` for pass type `Chiiya\Passes\Apple\Passes\Coupon`.',
                 $exception->getErrors()[0]
             );
             $this->assertSame('The pass must have an icon image.', $exception->getErrors()[1]);

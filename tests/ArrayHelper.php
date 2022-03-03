@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests;
+namespace Chiiya\Passes\Tests;
 
 class ArrayHelper
 {

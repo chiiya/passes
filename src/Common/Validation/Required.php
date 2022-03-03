@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Common\Validation;
+namespace Chiiya\Passes\Common\Validation;
 
 use Attribute;
 use Spatie\DataTransferObject\Validation\ValidationResult;

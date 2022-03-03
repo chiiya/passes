@@ -1,7 +1,7 @@
 # Changelog
 
-All notable changes to `laravel-passes` will be documented in this file.
+All notable changes to `passes` will be documented in this file.
 
-## 1.0.0 - 202X-XX-XX
+## 0.0.1 - 2022-03-03
 
-- initial release
+- Initial release

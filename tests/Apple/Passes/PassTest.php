@@ -1,14 +1,13 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Components\Image;
-use Chiiya\LaravelPasses\Apple\Components\Localization;
-use Chiiya\LaravelPasses\Apple\Enumerators\BarcodeFormat;
-use Chiiya\LaravelPasses\Apple\Passes\Coupon;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use Chiiya\LaravelPasses\Tests\ArrayHelper;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Image;
+use Chiiya\Passes\Apple\Components\Localization;
+use Chiiya\Passes\Apple\Enumerators\BarcodeFormat;
+use Chiiya\Passes\Apple\Passes\Coupon;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class PassTest extends TestCase
 {
@@ -87,6 +86,6 @@ class PassTest extends TestCase
                 'wifiAccess' => [Components::wifiNetwork()],
             ]),
         ]);
-        $this->assertSame(ArrayHelper::sort($expected), ArrayHelper::sort($pass->toArray()));
+        $this->assertSameArray($expected, $pass->toArray());
     }
 }

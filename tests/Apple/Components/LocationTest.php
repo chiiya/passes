@@ -1,9 +1,9 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Location;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Location;
+use Chiiya\Passes\Tests\TestCase;
 
 class LocationTest extends TestCase
 {
@@ -16,6 +16,6 @@ class LocationTest extends TestCase
             'relevantText' => 'Store nearby on 3rd and Main.',
         ];
         $component = new Location($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

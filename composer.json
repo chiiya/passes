@@ -1,12 +1,16 @@
 {
-    "name": "chiiya/laravel-passes",
-    "description": "Laravel library for creating iOS and Android Wallet Passes",
+    "name": "chiiya/passes",
+    "description": "PHP library for creating iOS and Android Wallet Passes",
     "keywords": [
         "chiiya",
-        "laravel",
-        "laravel-passes"
+        "passes",
+        "wallet",
+        "apple",
+        "google",
+        "android",
+        "ios"
     ],
-    "homepage": "https://github.com/chiiya/laravel-passes",
+    "homepage": "https://github.com/chiiya/passes",
     "license": "MIT",
     "authors": [
         {
@@ -18,27 +22,23 @@
     "require": {
         "php": "^8.1",
         "google/auth": "^1.18",
-        "illuminate/contracts": "^9.0",
         "spatie/data-transfer-object": "^3.7",
-        "spatie/laravel-package-tools": "^1.9.2",
         "ext-zip": "*",
         "ext-openssl": "*"
     },
     "require-dev": {
         "chiiya/code-style-php": "^1.2",
-        "nunomaduro/collision": "^6.0",
-        "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5",
         "vlucas/phpdotenv": "^5.4"
     },
     "autoload": {
         "psr-4": {
-            "Chiiya\\LaravelPasses\\": "src"
+            "Chiiya\\Passes\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Chiiya\\LaravelPasses\\Tests\\": "tests"
+            "Chiiya\\Passes\\Tests\\": "tests"
         }
     },
     "config": {
@@ -46,13 +46,6 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpro/grumphp": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Chiiya\\LaravelPasses\\LaravelPassesServiceProvider"
-            ]
         }
     },
     "minimum-stability": "dev",

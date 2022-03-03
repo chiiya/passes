@@ -1,0 +1,81 @@
+{
+    "resources": [
+        {
+            "kind": "walletobjects#offerObject",
+            "classReference": {
+                "kind": "walletobjects#offerClass",
+                "title": "15% off purchases",
+                "redemptionChannel": "instore",
+                "provider": "ACME",
+                "titleImage": {
+                    "kind": "walletobjects#image",
+                    "sourceUri": {
+                        "uri": "https://example.org/title.png"
+                    }
+                },
+                "helpUri": {
+                    "uri": "https://example.org/help"
+                },
+                "localizedDetails": {
+                    "kind": "walletobjects#localizedString",
+                    "defaultValue": {
+                        "kind": "walletobjects#translatedString",
+                        "language": "en",
+                        "value": "::value::"
+                    }
+                },
+                "id": "1234567890123456789.coupon-15",
+                "version": "1",
+                "issuerName": "ACME",
+                "reviewStatus": "approved",
+                "imageModulesData": [
+                    {
+                        "mainImage": {
+                            "kind": "walletobjects#image",
+                            "sourceUri": {
+                                "uri": "https://example.org/wallet.png"
+                            }
+                        }
+                    }
+                ],
+                "linksModuleData": {
+                    "uris": [
+                        {
+                            "uri": "https://example.org/app",
+                            "description": "App"
+                        },
+                        {
+                            "uri": "https://example.org",
+                            "description": "Homepage"
+                        }
+                    ]
+                },
+                "hexBackgroundColor": "#ffffff"
+            },
+            "id": "1234567890123456789.002e4fb7-1c92-47cc-873f-46dba4a1b665",
+            "classId": "1234567890123456789.coupon-15",
+            "version": "1",
+            "state": "expired",
+            "barcode": {
+                "kind": "walletobjects#barcode",
+                "type": "ean13",
+                "value": "1464194291627"
+            },
+            "validTimeInterval": {
+                "kind": "walletobjects#timeInterval",
+                "start": {
+                    "date": "2020-12-21T00:00:00+01:00"
+                },
+                "end": {
+                    "date": "2021-01-04T23:59:59+01:00"
+                }
+            },
+            "hasUsers": true
+        }
+    ],
+    "pagination": {
+        "kind": "walletobjects#pagination",
+        "resultsPerPage": 1,
+        "nextPageToken": "KzM4ODAwMDAwMDAwMDE3ODU1NyNjb3Vwb24tZWR2ZW50c2thbGVuZGVyLTEtMmNlbnQjMDAyZDRmYjctMWM5Mi00N2NjLTg3M2UtNDZkYmE0YTFiNjY1"
+    }
+}

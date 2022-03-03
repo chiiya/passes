@@ -1,27 +1,27 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Fixtures;
+namespace Chiiya\Passes\Tests\Apple\Fixtures;
 
 use Carbon\Carbon;
-use Chiiya\LaravelPasses\Apple\Components\AuxiliaryField;
-use Chiiya\LaravelPasses\Apple\Components\Barcode;
-use Chiiya\LaravelPasses\Apple\Components\Beacon;
-use Chiiya\LaravelPasses\Apple\Components\CurrencyAmount;
-use Chiiya\LaravelPasses\Apple\Components\Field;
-use Chiiya\LaravelPasses\Apple\Components\Location;
-use Chiiya\LaravelPasses\Apple\Components\Nfc;
-use Chiiya\LaravelPasses\Apple\Components\PersonName;
-use Chiiya\LaravelPasses\Apple\Components\Seat;
-use Chiiya\LaravelPasses\Apple\Components\SecondaryField;
-use Chiiya\LaravelPasses\Apple\Components\SemanticLocation;
-use Chiiya\LaravelPasses\Apple\Components\Semantics;
-use Chiiya\LaravelPasses\Apple\Components\WifiNetwork;
-use Chiiya\LaravelPasses\Apple\Enumerators\BarcodeFormat;
-use Chiiya\LaravelPasses\Apple\Enumerators\DataDetector;
-use Chiiya\LaravelPasses\Apple\Enumerators\DateStyle;
-use Chiiya\LaravelPasses\Apple\Enumerators\EventType;
-use Chiiya\LaravelPasses\Apple\Enumerators\NumberStyle;
-use Chiiya\LaravelPasses\Apple\Enumerators\TextAlignment;
+use Chiiya\Passes\Apple\Components\AuxiliaryField;
+use Chiiya\Passes\Apple\Components\Barcode;
+use Chiiya\Passes\Apple\Components\Beacon;
+use Chiiya\Passes\Apple\Components\CurrencyAmount;
+use Chiiya\Passes\Apple\Components\Field;
+use Chiiya\Passes\Apple\Components\Location;
+use Chiiya\Passes\Apple\Components\Nfc;
+use Chiiya\Passes\Apple\Components\PersonName;
+use Chiiya\Passes\Apple\Components\Seat;
+use Chiiya\Passes\Apple\Components\SecondaryField;
+use Chiiya\Passes\Apple\Components\SemanticLocation;
+use Chiiya\Passes\Apple\Components\Semantics;
+use Chiiya\Passes\Apple\Components\WifiNetwork;
+use Chiiya\Passes\Apple\Enumerators\BarcodeFormat;
+use Chiiya\Passes\Apple\Enumerators\DataDetector;
+use Chiiya\Passes\Apple\Enumerators\DateStyle;
+use Chiiya\Passes\Apple\Enumerators\EventType;
+use Chiiya\Passes\Apple\Enumerators\NumberStyle;
+use Chiiya\Passes\Apple\Enumerators\TextAlignment;
 
 class Components
 {

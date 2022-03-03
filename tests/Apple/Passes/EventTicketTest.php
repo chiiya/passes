@@ -1,11 +1,10 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Passes\EventTicket;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use Chiiya\LaravelPasses\Tests\ArrayHelper;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Passes\EventTicket;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class EventTicketTest extends TestCase
 {
@@ -19,6 +18,6 @@ class EventTicketTest extends TestCase
             'eventTicket' => Components::fieldValues(),
             'groupingIdentifier' => 'ID-123',
         ]);
-        $this->assertSame(ArrayHelper::sort($expected), ArrayHelper::sort($pass->toArray()));
+        $this->assertSameArray($expected, $pass->toArray());
     }
 }

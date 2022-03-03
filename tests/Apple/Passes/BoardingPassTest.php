@@ -1,12 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Passes;
+namespace Chiiya\Passes\Tests\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Enumerators\TransitType;
-use Chiiya\LaravelPasses\Apple\Passes\BoardingPass;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use Chiiya\LaravelPasses\Tests\ArrayHelper;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Enumerators\TransitType;
+use Chiiya\Passes\Apple\Passes\BoardingPass;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class BoardingPassTest extends TestCase
 {
@@ -23,6 +22,6 @@ class BoardingPassTest extends TestCase
             ]),
             'groupingIdentifier' => 'ID-123',
         ]);
-        $this->assertSame(ArrayHelper::sort($expected), ArrayHelper::sort($pass->toArray()));
+        $this->assertSameArray($expected, $pass->toArray());
     }
 }

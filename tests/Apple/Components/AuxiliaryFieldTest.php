@@ -1,11 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\AuxiliaryField;
-use Chiiya\LaravelPasses\Apple\Enumerators\TextAlignment;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\AuxiliaryField;
+use Chiiya\Passes\Apple\Enumerators\TextAlignment;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class AuxiliaryFieldTest extends TestCase
 {
@@ -16,6 +16,6 @@ class AuxiliaryFieldTest extends TestCase
             'row' => 1,
         ]);
         $component = new AuxiliaryField($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

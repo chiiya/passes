@@ -1,6 +1,6 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Exceptions;
+namespace Chiiya\Passes\Exceptions;
 
 use RuntimeException;
 use Throwable;

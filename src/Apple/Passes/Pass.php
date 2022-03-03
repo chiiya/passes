@@ -1,20 +1,20 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Passes;
+namespace Chiiya\Passes\Apple\Passes;
 
-use Chiiya\LaravelPasses\Apple\Components\Barcode;
-use Chiiya\LaravelPasses\Apple\Components\Beacon;
-use Chiiya\LaravelPasses\Apple\Components\Image;
-use Chiiya\LaravelPasses\Apple\Components\Localization;
-use Chiiya\LaravelPasses\Apple\Components\Location;
-use Chiiya\LaravelPasses\Apple\Components\Nfc;
-use Chiiya\LaravelPasses\Apple\Components\Semantics;
-use Chiiya\LaravelPasses\Common\Casters\W3CDateCaster;
-use Chiiya\LaravelPasses\Common\Component;
-use Chiiya\LaravelPasses\Common\Validation\Contains;
-use Chiiya\LaravelPasses\Common\Validation\MaxItems;
-use Chiiya\LaravelPasses\Common\Validation\Required;
-use Chiiya\LaravelPasses\Common\Validation\RgbColor;
+use Chiiya\Passes\Apple\Components\Barcode;
+use Chiiya\Passes\Apple\Components\Beacon;
+use Chiiya\Passes\Apple\Components\Image;
+use Chiiya\Passes\Apple\Components\Localization;
+use Chiiya\Passes\Apple\Components\Location;
+use Chiiya\Passes\Apple\Components\Nfc;
+use Chiiya\Passes\Apple\Components\Semantics;
+use Chiiya\Passes\Common\Casters\W3CDateCaster;
+use Chiiya\Passes\Common\Component;
+use Chiiya\Passes\Common\Validation\Contains;
+use Chiiya\Passes\Common\Validation\MaxItems;
+use Chiiya\Passes\Common\Validation\Required;
+use Chiiya\Passes\Common\Validation\RgbColor;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Casters\ArrayCaster;
 

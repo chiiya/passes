@@ -1,11 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\SecondaryField;
-use Chiiya\LaravelPasses\Apple\Enumerators\TextAlignment;
-use Chiiya\LaravelPasses\Tests\Apple\Fixtures\Components;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\SecondaryField;
+use Chiiya\Passes\Apple\Enumerators\TextAlignment;
+use Chiiya\Passes\Tests\Apple\Fixtures\Components;
+use Chiiya\Passes\Tests\TestCase;
 
 class SecondaryFieldTest extends TestCase
 {
@@ -15,6 +15,6 @@ class SecondaryFieldTest extends TestCase
             'textAlignment' => TextAlignment::LEFT,
         ]);
         $component = new SecondaryField($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }

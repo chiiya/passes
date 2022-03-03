@@ -1,8 +1,8 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Common\Validation\ValueIn;
+use Chiiya\Passes\Common\Validation\ValueIn;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]

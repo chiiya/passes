@@ -1,11 +1,11 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Apple\Components;
+namespace Chiiya\Passes\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Enumerators\BarcodeFormat;
-use Chiiya\LaravelPasses\Common\Component;
-use Chiiya\LaravelPasses\Common\Validation\Required;
-use Chiiya\LaravelPasses\Common\Validation\ValueIn;
+use Chiiya\Passes\Apple\Enumerators\BarcodeFormat;
+use Chiiya\Passes\Common\Component;
+use Chiiya\Passes\Common\Validation\Required;
+use Chiiya\Passes\Common\Validation\ValueIn;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]

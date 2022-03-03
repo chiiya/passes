@@ -1,9 +1,9 @@
 <?php
 
-namespace Chiiya\LaravelPasses\Tests\Apple\Components;
+namespace Chiiya\Passes\Tests\Apple\Components;
 
-use Chiiya\LaravelPasses\Apple\Components\Beacon;
-use PHPUnit\Framework\TestCase;
+use Chiiya\Passes\Apple\Components\Beacon;
+use Chiiya\Passes\Tests\TestCase;
 
 class BeaconTest extends TestCase
 {
@@ -16,6 +16,6 @@ class BeaconTest extends TestCase
             'relevantText' => "You're near my store",
         ];
         $component = new Beacon($attributes);
-        $this->assertSame($attributes, $component->toArray());
+        $this->assertSameArray($attributes, $component->toArray());
     }
 }
