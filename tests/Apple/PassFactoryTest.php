@@ -42,9 +42,9 @@ class PassFactoryTest extends TestCase
                 ],
                 'images' => [new Image(realpath(__DIR__.'/Fixtures/icon.png'), 'icon')],
             ]));
-        $this->factory->setCertificate($_ENV['PASSES_APPLE_CERT']);
-        $this->factory->setPassword($_ENV['PASSES_APPLE_PASSWORD']);
-        $this->factory->setWwdr($_ENV['PASSES_APPLE_WWDR']);
+        $this->factory->setCertificate(getenv('PASSES_APPLE_CERT'));
+        $this->factory->setPassword(getenv('PASSES_APPLE_PASSWORD'));
+        $this->factory->setWwdr(getenv('PASSES_APPLE_WWDR'));
         $this->factory->setOutput(__DIR__);
         $this->factory->setTempDir(realpath(__DIR__.'/../tmp'));
         $this->factory->create($pass);
