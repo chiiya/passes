@@ -60,8 +60,5 @@ $object = new OfferObject(
     ),
 );
 
-$builder = new JWTBuilder($credentials);
-$jwt = $builder
-    ->createSignedJWT(['https://example.org'])
-    ->addOfferObject($object)
-    ->sign();
+$builder = new JWTBuilder($credentials, ['https://example.org']);
+$jwt = $builder->create()->addOfferObject($object)->sign();
