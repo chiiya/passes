@@ -28,8 +28,9 @@ jobs:
           WWDR_CONTENT: ${{ secrets.WWDR_CONTENT }}
           CERTIFICATE_CONTENT: ${{ secrets.CERTIFICATE_CONTENT }}
           PASSES_APPLE_PASSWORD: ${{ secrets.PASSES_APPLE_PASSWORD }}
+          PASSES_APPLE_CERT: ${{ secrets.PASSES_APPLE_CERT }}
+          PASSES_APPLE_WWDR: ${{ secrets.PASSES_APPLE_WWDR }}
         run: |
-          cp .env.example .env
           mkdir tests/certs
           echo "$CERTIFICATE_CONTENT" | base64 --decode > tests/certs/certificate.p12
           echo "$WWDR_CONTENT" | base64 --decode > tests/certs/wwdr.pem
