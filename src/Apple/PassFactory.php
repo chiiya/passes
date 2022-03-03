@@ -15,7 +15,7 @@ use FilesystemIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
-use SplFileObject;
+use SplFileInfo;
 use ZipArchive;
 
 class PassFactory
@@ -152,7 +152,7 @@ class PassFactory
     /**
      * Create and archive the .pkpass file.
      */
-    public function create(Pass $pass, ?string $name = null): string
+    public function create(Pass $pass, ?string $name = null): SplFileInfo
     {
         $this->validate($pass);
         $dir = $this->createTempDirectory($pass);
@@ -165,7 +165,7 @@ class PassFactory
         $this->zip($dir, $filename);
         $this->deleteDirectory($dir);
 
-        return new SplFileObject($filename);
+        return new SplFileInfo($filename);
     }
 
     /**
