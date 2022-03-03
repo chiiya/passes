@@ -1,8 +1,8 @@
 on: [push]
-name: Lint
+name: lint
 jobs:
   ecs:
-    name: Easy Coding Standard
+    name: ECS
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
