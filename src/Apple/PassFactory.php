@@ -48,22 +48,22 @@ class PassFactory
     /**
      * The output path.
      */
-    protected ?string $output;
+    protected ?string $output = null;
 
     /**
      * Path to the P12 certificate file.
      */
-    protected ?string $certificate;
+    protected ?string $certificate = null;
 
     /**
      * Password for the P12 certificate file.
      */
-    protected ?string $password;
+    protected ?string $password = null;
 
     /**
      * Path to the WWDR certificate file.
      */
-    protected ?string $wwdr;
+    protected ?string $wwdr = null;
 
     /**
      * Skip signing the .pkpass package.
