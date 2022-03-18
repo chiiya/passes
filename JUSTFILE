@@ -22,6 +22,8 @@ down:
 # [DDEV] Lint files
 @lint:
 	ddev exec "./vendor/bin/ecs check --fix"
+	ddev exec "./vendor/bin/php-cs-fixer fix"
+	ddev exec "./vendor/bin/rector process"
 
 # [DDEV] Run unit and integration tests
 @test:

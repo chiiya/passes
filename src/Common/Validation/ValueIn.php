@@ -6,13 +6,12 @@ use Attribute;
 use Spatie\DataTransferObject\Validation\ValidationResult;
 use Spatie\DataTransferObject\Validator;
 
-#[Attribute(Attribute::TARGET_PROPERTY|Attribute::IS_REPEATABLE)]
+#[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 class ValueIn implements Validator
 {
     public function __construct(
         private array $values,
-    ) {
-    }
+    ) {}
 
     public function validate(mixed $value): ValidationResult
     {

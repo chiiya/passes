@@ -17,14 +17,6 @@ grumphp:
   extensions: []
   tasks:
     composer: ~
-    git_blacklist:
-      keywords:
-        - ' dd('
-        - 'dump('
-        - 'die;'
-        - 'exit;'
-        - 'ini_set'
-        - 'error_reporting'
-        - 'set_time_limit'
-    ecs:
-      config: ecs.php
+    phpcsfixer:
+      config: '.php-cs-fixer.dist.php'
+    ecs: ~

@@ -106,11 +106,12 @@ class PassFactoryTest extends TestCase
             $this->assertCount(2, $exception->getErrors());
             $this->assertSame(
                 'Invalid image type `background` for pass type `Chiiya\Passes\Apple\Passes\Coupon`.',
-                $exception->getErrors()[0]
+                $exception->getErrors()[0],
             );
             $this->assertSame('The pass must have an icon image.', $exception->getErrors()[1]);
         }
-        if ($failed === false) {
+
+        if (! $failed) {
             $this->fail('No exception was thrown');
         }
     }
@@ -130,7 +131,7 @@ class PassFactoryTest extends TestCase
             ->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png'), ImageType::BACKGROUND));
         $this->expectException(ValidationException::class);
         $this->expectExceptionMessageMatches(
-            '/When specifying a strip image, no background image or thumbnail may be specified/'
+            '/When specifying a strip image, no background image or thumbnail may be specified/',
         );
         $this->factory->setSkipSignature(true);
         $this->factory->setOutput(__DIR__);
@@ -140,6 +141,6 @@ class PassFactoryTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->factory = new PassFactory();
+        $this->factory = new PassFactory;
     }
 }

@@ -12,7 +12,21 @@ class GoogleClient implements ClientInterface
 {
     public function __construct(
         protected Client $client,
-    ) {
+    ) {}
+
+    /**
+     * Create an authenticated Google client.
+     */
+    public static function createAuthenticatedClient(ServiceCredentials $credentials): static
+    {
+        $stack = HandlerStack::create();
+        $stack->push(GoogleAuthMiddleware::createAuthTokenMiddleware($credentials));
+        $client = new Client([
+            'handler' => $stack,
+            'auth' => 'google_auth',
+        ]);
+
+        return new static($client);
     }
 
     public function get(string $url): array
@@ -36,21 +50,6 @@ class GoogleClient implements ClientInterface
         $response = $this->client->send($request);
 
         return json_decode($response->getBody()->getContents(), true);
-    }
-
-    /**
-     * Create an authenticated Google client.
-     */
-    public static function createAuthenticatedClient(ServiceCredentials $credentials): static
-    {
-        $stack = HandlerStack::create();
-        $stack->push(GoogleAuthMiddleware::createAuthTokenMiddleware($credentials));
-        $client = new Client([
-            'handler' => $stack,
-            'auth' => 'google_auth',
-        ]);
-
-        return new static($client);
     }
 
     protected function commonHeaders(): array

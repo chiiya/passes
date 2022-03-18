@@ -14,7 +14,7 @@ use Chiiya\Passes\Google\Responses\OfferClassesResponse;
 class OfferClassRepository extends ClassRepository
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getIdentifier(): string
     {
@@ -22,7 +22,7 @@ class OfferClassRepository extends ClassRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getResponseClass(): string
     {
@@ -30,7 +30,7 @@ class OfferClassRepository extends ClassRepository
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getInstanceClass(): string
     {

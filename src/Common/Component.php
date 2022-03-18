@@ -24,6 +24,7 @@ abstract class Component extends DataTransferObject implements JsonSerializable
             if (is_array($value)) {
                 $array[$key] = $this->removeEmptyValues($value);
             }
+
             if ($array[$key] === null || (is_array($array[$key]) && count($array[$key]) === 0)) {
                 unset($array[$key]);
             }

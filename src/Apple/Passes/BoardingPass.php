@@ -13,7 +13,8 @@ use Spatie\DataTransferObject\Attributes\Strict;
 #[Strict]
 class BoardingPass extends Pass
 {
-    use HasFields, HasGroupingIdentifier;
+    use HasFields;
+    use HasGroupingIdentifier;
 
     /**
      * Required.

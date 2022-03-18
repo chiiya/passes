@@ -7,7 +7,8 @@ use Chiiya\Passes\Google\Components\Loyalty\LoyaltyPoints;
 
 class LoyaltyObject extends BaseObject
 {
-    public const IDENTIFIER = 'loyaltyObject';
+    /** @var string */
+    final public const IDENTIFIER = 'loyaltyObject';
 
     /**
      * Optional.

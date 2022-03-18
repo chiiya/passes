@@ -13,7 +13,8 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class FlightClass extends BaseClass
 {
-    public const IDENTIFIER = 'flightClass';
+    /** @var string */
+    final public const IDENTIFIER = 'flightClass';
 
     /**
      * Required.

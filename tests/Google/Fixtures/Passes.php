@@ -34,7 +34,7 @@ class Passes
                 uris: [
                     new Uri(uri: 'https://example.org/app', description: 'App'),
                     new Uri(uri: 'https://example.org', description: 'Homepage'),
-                ]
+                ],
             ),
             'hexBackgroundColor' => '#ffffff',
         ];
@@ -50,7 +50,7 @@ class Passes
             'barcode' => new Barcode(type: BarcodeType::EAN_13, value: '1464194291627'),
             'validTimeInterval' => new TimeInterval(
                 start: new DateTime(date: '2020-12-21T00:00:00+01:00'),
-                end: new DateTime(date: '2021-01-04T23:59:59+01:00')
+                end: new DateTime(date: '2021-01-04T23:59:59+01:00'),
             ),
             'hasUsers' => true,
         ];

@@ -19,7 +19,8 @@ use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class TransitObject extends BaseObject
 {
-    public const IDENTIFIER = 'transitObject';
+    /** @var string */
+    final public const IDENTIFIER = 'transitObject';
 
     /**
      * Optional.

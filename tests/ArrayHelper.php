@@ -8,6 +8,7 @@ class ArrayHelper
     {
         if (is_array($array)) {
             ksort($array);
+
             foreach ($array as $key => $value) {
                 $array[$key] = self::sort($value);
             }

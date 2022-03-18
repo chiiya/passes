@@ -11,7 +11,8 @@ use Chiiya\Passes\Google\Components\EventTicket\GroupingInfo;
 
 class EventTicketObject extends BaseObject
 {
-    public const IDENTIFIER = 'eventTicketObject';
+    /** @var string */
+    final public const IDENTIFIER = 'eventTicketObject';
 
     /**
      * Optional.

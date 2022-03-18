@@ -192,7 +192,7 @@ class Components
                 'key' => $key,
                 'value' => '::value::',
                 'textAlignment' => null,
-            ]
+            ],
         );
     }
 

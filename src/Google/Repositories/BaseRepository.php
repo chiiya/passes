@@ -9,27 +9,12 @@ use Chiiya\Passes\Google\Passes\BaseObject;
 
 abstract class BaseRepository
 {
-    public const BASE_URL = 'https://walletobjects.googleapis.com/walletobjects/v1/';
-
-    /**
-     * Get the resource URL identifier.
-     */
-    abstract protected function getIdentifier(): string;
-
-    /**
-     * Get the response class name.
-     */
-    abstract protected function getResponseClass(): string;
-
-    /**
-     * Get the instance class name.
-     */
-    abstract protected function getInstanceClass(): string;
+    /** @var string */
+    final public const BASE_URL = 'https://walletobjects.googleapis.com/walletobjects/v1/';
 
     public function __construct(
-        protected ClientInterface $client
-    ) {
-    }
+        protected ClientInterface $client,
+    ) {}
 
     /**
      * Get details for a single instance.
@@ -66,6 +51,21 @@ abstract class BaseRepository
 
         return new $class($response);
     }
+
+    /**
+     * Get the resource URL identifier.
+     */
+    abstract protected function getIdentifier(): string;
+
+    /**
+     * Get the response class name.
+     */
+    abstract protected function getResponseClass(): string;
+
+    /**
+     * Get the instance class name.
+     */
+    abstract protected function getInstanceClass(): string;
 
     protected function buildResourceUrl(): string
     {

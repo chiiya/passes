@@ -6,8 +6,6 @@ use Chiiya\Passes\Common\Component;
 
 class AppTarget extends Component
 {
-    /**
-     * Optional.
-     */
+    /** Optional. */
     public ?Uri $targetUri;
 }

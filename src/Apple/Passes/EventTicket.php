@@ -10,7 +10,8 @@ use Spatie\DataTransferObject\Attributes\Strict;
 #[Strict]
 class EventTicket extends Pass
 {
-    use HasFields, HasGroupingIdentifier;
+    use HasFields;
+    use HasGroupingIdentifier;
 
     public function toArray(): array
     {

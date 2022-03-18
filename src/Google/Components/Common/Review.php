@@ -6,8 +6,6 @@ use Chiiya\Passes\Common\Component;
 
 class Review extends Component
 {
-    /**
-     * The review comments.
-     */
+    /** The review comments. */
     public ?string $comments;
 }
