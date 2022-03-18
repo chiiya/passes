@@ -7,7 +7,8 @@ use Chiiya\Passes\Google\Components\Common\LocalizedString;
 
 class GiftCardClass extends BaseClass
 {
-    public const IDENTIFIER = 'giftCardClass';
+    /** @var string */
+    final public const IDENTIFIER = 'giftCardClass';
 
     /**
      * Optional.

@@ -21,9 +21,11 @@ use Firebase\JWT\JWT as Encoder;
 
 class JWT extends Component
 {
-    public const AUDIENCE = 'google';
+    /** @var string */
+    final public const AUDIENCE = 'google';
 
-    public const TYPE = 'savetoandroidpay';
+    /** @var string */
+    final public const TYPE = 'savetoandroidpay';
 
     /**
      * Required.
@@ -135,7 +137,7 @@ class JWT extends Component
     {
         $payload = array_merge($this->except('key')->toArray(), [
             'iat' => time(),
-        ],);
+        ]);
 
         return Encoder::encode($payload, $this->key, 'RS256');
     }

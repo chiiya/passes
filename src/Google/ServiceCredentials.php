@@ -8,9 +8,7 @@ use Spatie\DataTransferObject\DataTransferObject;
 class ServiceCredentials extends DataTransferObject
 {
     public string $client_id;
-
     public string $client_email;
-
     public string $private_key;
 
     public static function parse(string $path): static

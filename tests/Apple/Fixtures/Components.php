@@ -2,7 +2,6 @@
 
 namespace Chiiya\Passes\Tests\Apple\Fixtures;
 
-use Carbon\Carbon;
 use Chiiya\Passes\Apple\Components\AuxiliaryField;
 use Chiiya\Passes\Apple\Components\Barcode;
 use Chiiya\Passes\Apple\Components\Beacon;
@@ -22,6 +21,7 @@ use Chiiya\Passes\Apple\Enumerators\DateStyle;
 use Chiiya\Passes\Apple\Enumerators\EventType;
 use Chiiya\Passes\Apple\Enumerators\NumberStyle;
 use Chiiya\Passes\Apple\Enumerators\TextAlignment;
+use DateTimeImmutable;
 
 class Components
 {
@@ -89,7 +89,7 @@ class Components
             'userInfo' => [
                 'user_id' => 1,
             ],
-            'expirationDate' => Carbon::parse('2025-12-31 23:59:59'),
+            'expirationDate' => DateTimeImmutable::createFromFormat('Y-m-d H:i:s', '2025-12-31 23:59:59'),
             'voided' => false,
             'beacons' => [$beacon],
             'locations' => [$location],
@@ -192,7 +192,7 @@ class Components
                 'key' => $key,
                 'value' => '::value::',
                 'textAlignment' => null,
-            ]
+            ],
         );
     }
 
@@ -292,7 +292,7 @@ class Components
             'boardingSequenceNumber' => '::boardingSequenceNumber::',
             'carNumber' => '::carNumber::',
             'confirmationNumber' => '::confirmationNumber::',
-            'currentArrivalDate' => Carbon::create(2022, 1, 1, 8, 0, 0),
+            'currentArrivalDate' => new DateTimeImmutable('2022-01-01 08:00:00'),
             'currentBoardingDate' => '::currentBoardingDate::',
             'currentDepartureDate' => '::currentDepartureDate::',
             'departureAirportCode' => '::departureAirportCode::',

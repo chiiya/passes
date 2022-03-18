@@ -15,19 +15,21 @@ use Psr\Cache\CacheItemPoolInterface;
 
 class GoogleAuthMiddleware
 {
-    public const BASE_URI = 'https://walletobjects.googleapis.com/';
-
-    public const SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
-
     private static ?CacheItemPoolInterface $cache;
+
+    /** @var string */
+    final public const BASE_URI = 'https://walletobjects.googleapis.com/';
+
+    /** @var string */
+    final public const SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
 
     /**
      * Get credentials cache instance. Defaults to memory cache.
      */
     public static function getCache(): CacheItemPoolInterface
     {
-        if (! self::$cache) {
-            self::$cache = new MemoryCacheItemPool();
+        if (self::$cache === null) {
+            self::$cache = new MemoryCacheItemPool;
         }
 
         return self::$cache;
@@ -54,7 +56,7 @@ class GoogleAuthMiddleware
             self::$cache,
         );
 
-        if (! ($client = HttpClientCache::getHttpClient())) {
+        if (($client = HttpClientCache::getHttpClient()) === null) {
             $client = new Client([
                 'base_uri' => self::BASE_URI,
             ]);
@@ -70,7 +72,7 @@ class GoogleAuthMiddleware
      * Create service account credentials from config.
      */
     protected static function createApplicationDefaultCredentials(
-        ServiceCredentials $credentials
+        ServiceCredentials $credentials,
     ): ServiceAccountCredentials {
         return new ServiceAccountCredentials([self::SCOPE], array_merge($credentials->toArray(), [
             'type' => 'service_account',

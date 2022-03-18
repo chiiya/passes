@@ -6,7 +6,7 @@ use Attribute;
 use Spatie\DataTransferObject\Validation\ValidationResult;
 use Spatie\DataTransferObject\Validator;
 
-#[Attribute(Attribute::TARGET_PROPERTY|Attribute::IS_REPEATABLE)]
+#[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 class Required implements Validator
 {
     public function validate(mixed $value): ValidationResult

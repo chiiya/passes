@@ -18,7 +18,8 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class EventTicketClass extends BaseClass
 {
-    public const IDENTIFIER = 'eventTicketClass';
+    /** @var string */
+    final public const IDENTIFIER = 'eventTicketClass';
 
     /**
      * Optional.

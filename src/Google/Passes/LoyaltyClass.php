@@ -10,7 +10,8 @@ use Chiiya\Passes\Google\Components\Loyalty\DiscoverableProgram;
 
 class LoyaltyClass extends BaseClass
 {
-    public const IDENTIFIER = 'loyaltyClass';
+    /** @var string */
+    final public const IDENTIFIER = 'loyaltyClass';
 
     /**
      * Required.

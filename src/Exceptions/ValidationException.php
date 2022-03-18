@@ -7,9 +7,7 @@ use Throwable;
 
 class ValidationException extends RuntimeException
 {
-    /**
-     * Validation error messages.
-     */
+    /** Validation error messages. */
     protected array $errors;
 
     public function __construct($message = '', array $errors = [], $code = 0, ?Throwable $previous = null)

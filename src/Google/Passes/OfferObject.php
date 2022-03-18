@@ -4,7 +4,8 @@ namespace Chiiya\Passes\Google\Passes;
 
 class OfferObject extends BaseObject
 {
-    public const IDENTIFIER = 'offerObject';
+    /** @var string */
+    final public const IDENTIFIER = 'offerObject';
 
     /**
      * Optional.

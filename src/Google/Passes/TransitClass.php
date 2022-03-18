@@ -12,7 +12,8 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class TransitClass extends BaseClass
 {
-    public const IDENTIFIER = 'transitClass';
+    /** @var string */
+    final public const IDENTIFIER = 'transitClass';
 
     /**
      * Optional.

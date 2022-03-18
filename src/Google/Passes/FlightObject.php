@@ -10,7 +10,8 @@ use Chiiya\Passes\Google\Components\Flight\ReservationInfo;
 
 class FlightObject extends BaseObject
 {
-    public const IDENTIFIER = 'flightObject';
+    /** @var string */
+    final public const IDENTIFIER = 'flightObject';
 
     /**
      * Optional.

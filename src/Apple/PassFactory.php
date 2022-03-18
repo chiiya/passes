@@ -22,57 +22,51 @@ class PassFactory
 {
     /**
      * Pass file extension.
+     *
+     * @var string
      */
-    public const PASS_EXTENSION = '.pkpass';
+    final public const PASS_EXTENSION = '.pkpass';
 
     /**
      * Localization directory extension.
+     *
+     * @var string
      */
-    public const LOCALIZATION_EXTENSION = '.lproj';
+    final public const LOCALIZATION_EXTENSION = '.lproj';
 
     /**
      * Localization strings file name.
+     *
+     * @var string
      */
-    public const STRINGS_FILENAME = 'pass.strings';
+    final public const STRINGS_FILENAME = 'pass.strings';
 
     /**
      * Manifest file name.
+     *
+     * @var string
      */
-    public const MANIFEST_FILENAME = 'manifest.json';
+    final public const MANIFEST_FILENAME = 'manifest.json';
 
-    /**
-     * Temporary directory for creating the archive.
-     */
+    /** Temporary directory for creating the archive. */
     protected string $tempDir;
 
-    /**
-     * The output path.
-     */
+    /** The output path. */
     protected ?string $output = null;
 
-    /**
-     * Path to the P12 certificate file.
-     */
+    /** Path to the P12 certificate file. */
     protected ?string $certificate = null;
 
-    /**
-     * Password for the P12 certificate file.
-     */
+    /** Password for the P12 certificate file. */
     protected ?string $password = null;
 
-    /**
-     * Path to the WWDR certificate file.
-     */
+    /** Path to the WWDR certificate file. */
     protected ?string $wwdr = null;
 
-    /**
-     * Skip signing the .pkpass package.
-     */
+    /** Skip signing the .pkpass package. */
     protected bool $skipSignature = false;
 
-    /**
-     * Allowed images for each pass type.
-     */
+    /** Allowed images for each pass type. */
     protected array $allowedImages = [
         BoardingPass::class => [ImageType::LOGO, ImageType::ICON, ImageType::FOOTER],
         Coupon::class => [ImageType::LOGO, ImageType::ICON, ImageType::STRIP],
@@ -96,12 +90,15 @@ class PassFactory
         if (isset($config['output'])) {
             $this->setOutput($config['output']);
         }
+
         if (isset($config['certificate'])) {
             $this->setCertificate($config['certificate']);
         }
+
         if (isset($config['password'])) {
             $this->setPassword($config['password']);
         }
+
         if (isset($config['wwdr'])) {
             $this->setWwdr($config['wwdr']);
         }
@@ -174,6 +171,7 @@ class PassFactory
     public function deleteDirectory(string $directory): void
     {
         $items = new FilesystemIterator($directory);
+
         foreach ($items as $item) {
             if ($item->isDir() && ! $item->isLink()) {
                 $this->deleteDirectory($item->getPathname());
@@ -212,21 +210,27 @@ class PassFactory
         $class = $pass::class;
         $hasIcon = false;
         $errors = [];
+
         foreach ($pass->getImages() as $image) {
             $name = $this->getImageName($image);
+
             if ($this->normalizeName($name) === 'icon') {
                 $hasIcon = true;
             }
+
             if (mb_strtolower($image->getExtension()) !== 'png') {
                 $errors[] = $image->getFilename().': expected .png extension, found .'.$image->getExtension();
             }
+
             if (! $this->isValidImage($name, $class)) {
                 $errors[] = 'Invalid image type `'.$name.'` for pass type `'.$class.'`.';
             }
         }
+
         if ($pass instanceof EventTicket) {
             $errors = $this->validateEventTicket($pass, $errors);
         }
+
         if (! $hasIcon) {
             $errors[] = 'The pass must have an icon image.';
         }
@@ -242,14 +246,15 @@ class PassFactory
     {
         $hasStrip = count(
             array_filter($pass->getImages(), fn (Image $image) => $this->normalizeName(
-                $this->getImageName($image)
-            ) === ImageType::STRIP)
+                $this->getImageName($image),
+            ) === ImageType::STRIP),
         ) > 0;
         $hasThumbnailOrBackground = count(array_filter($pass->getImages(), function (Image $image) {
             $name = $this->normalizeName($this->getImageName($image));
 
             return $name === ImageType::THUMBNAIL || $name === ImageType::BACKGROUND;
         })) > 0;
+
         if ($hasStrip && $hasThumbnailOrBackground) {
             $errors[] = 'When specifying a strip image, no background image or thumbnail may be specified.';
         }
@@ -283,7 +288,7 @@ class PassFactory
     {
         $dir = $this->tempDir.$pass->serialNumber.DIRECTORY_SEPARATOR;
 
-        if (! @mkdir($dir, 0755) && ! is_dir($dir)) {
+        if (! @mkdir($dir, 0o755) && ! is_dir($dir)) {
             throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
         }
 
@@ -312,7 +317,9 @@ class PassFactory
     protected function getImageName(Image $image): string
     {
         if ($image->getName() !== null) {
-            return $image->getScale() > 1 ? $image->getName().'@'.$image->getScale().'x' : $image->getName();
+            return $image->getScale() > 1
+                ? $image->getName().'@'.$image->getScale().'x'
+                : $image->getName();
         }
 
         return $image->getBasename('.'.$image->getExtension());
@@ -325,10 +332,12 @@ class PassFactory
     {
         foreach ($pass->getLocalizations() as $localization) {
             $localizationDir = $dir.$localization->language.self::LOCALIZATION_EXTENSION;
-            if (! mkdir($localizationDir, 0755) && ! is_dir($localizationDir)) {
+
+            if (! mkdir($localizationDir, 0o755) && ! is_dir($localizationDir)) {
                 throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
             }
             $strings = '';
+
             foreach ($localization->strings as $key => $value) {
                 $strings .= '"'.addslashes($key).'" = "'.addslashes($value).'";'.PHP_EOL;
             }
@@ -348,6 +357,7 @@ class PassFactory
     {
         $manifest = [];
         $files = new FilesystemIterator($dir);
+
         foreach ($files as $file) {
             if ($file->isFile()) {
                 $path = realpath($file);
@@ -391,8 +401,8 @@ class PassFactory
             $certData,
             $privateKey,
             [],
-            PKCS7_BINARY|PKCS7_DETACHED,
-            $this->wwdr
+            PKCS7_BINARY | PKCS7_DETACHED,
+            $this->wwdr,
         );
 
         $signature = file_get_contents($signatureFile);
@@ -421,15 +431,16 @@ class PassFactory
      */
     protected function zip(string $source, string $path): void
     {
-        $zip = new ZipArchive();
-        if (! $zip->open($path, ZipArchive::CREATE|ZipArchive::OVERWRITE)) {
+        $zip = new ZipArchive;
+
+        if (! $zip->open($path, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
             throw new RuntimeException(sprintf('Could not create ZIP file at "%s"', $path));
         }
 
         /** @var RecursiveDirectoryIterator|RecursiveIteratorIterator $iterator */
         $iterator = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($source, FilesystemIterator::SKIP_DOTS),
-            RecursiveIteratorIterator::SELF_FIRST
+            RecursiveIteratorIterator::SELF_FIRST,
         );
 
         while ($iterator->valid()) {

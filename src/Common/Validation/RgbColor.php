@@ -6,7 +6,7 @@ use Attribute;
 use Spatie\DataTransferObject\Validation\ValidationResult;
 use Spatie\DataTransferObject\Validator;
 
-#[Attribute(Attribute::TARGET_PROPERTY|Attribute::IS_REPEATABLE)]
+#[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 class RgbColor implements Validator
 {
     public function validate(mixed $value): ValidationResult
@@ -25,13 +25,16 @@ class RgbColor implements Validator
         }
 
         $value = str_replace(' ', '', $value);
+
         if (! str_starts_with($value, 'rgb(')) {
             return false;
         }
         $items = explode(',', mb_substr($value, 4, -1));
+
         if (count($items) !== 3) {
             return false;
         }
+
         foreach ($items as $item) {
             if ((int) $item < 0 || (int) $item > 255) {
                 return false;

@@ -22,8 +22,6 @@ class FirstRowOption extends Component
     #[CastWith(LegacyValueCaster::class, TransitOption::class)]
     public ?string $transitOption;
 
-    /**
-     * Optional.
-     */
+    /** Optional. */
     public ?FieldSelector $fieldOption;
 }

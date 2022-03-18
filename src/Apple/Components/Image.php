@@ -6,26 +6,14 @@ use SplFileInfo;
 
 class Image extends SplFileInfo
 {
-    /**
-     * Optional name to use in pass archive.
-     */
-    protected ?string $name;
-
-    /**
-     * Optional image scale for retina displays (@1x, @2x or @3x).
-     */
-    protected ?int $scale;
-
-    /**
-     * Image constructor.
-     *
-     * @param $file_name
-     */
-    public function __construct($file_name, ?string $name = null, int $scale = 1)
-    {
-        parent::__construct($file_name);
-        $this->name = $name;
-        $this->scale = $scale;
+    public function __construct(
+        string $filename,
+        /** Optional name to use in pass archive. */
+        protected ?string $name = null,
+        /** Optional image scale for retina displays (@1x, @2x or @3x). */
+        protected ?int $scale = 1,
+    ) {
+        parent::__construct($filename);
     }
 
     public function getName(): ?string

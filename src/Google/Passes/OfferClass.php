@@ -14,7 +14,8 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class OfferClass extends BaseClass
 {
-    public const IDENTIFIER = 'offerClass';
+    /** @var string */
+    final public const IDENTIFIER = 'offerClass';
 
     /**
      * Required.

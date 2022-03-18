@@ -8,7 +8,8 @@ use Chiiya\Passes\Google\Components\Common\Money;
 
 class GiftCardObject extends BaseObject
 {
-    public const IDENTIFIER = 'giftCardObject';
+    /** @var string */
+    final public const IDENTIFIER = 'giftCardObject';
 
     /**
      * Optional.

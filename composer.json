@@ -27,7 +27,8 @@
         "ext-openssl": "*"
     },
     "require-dev": {
-        "chiiya/code-style-php": "^1.2",
+        "chiiya/code-style-php": "^2.6",
+        "phpro/grumphp": "^1.9",
         "phpunit/phpunit": "^9.5",
         "vlucas/phpdotenv": "^5.4"
     },
