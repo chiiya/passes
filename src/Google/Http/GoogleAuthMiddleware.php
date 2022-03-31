@@ -50,6 +50,8 @@ class GoogleAuthMiddleware
      */
     public static function createAuthTokenMiddleware(ServiceCredentials $credentials): AuthTokenMiddleware
     {
+        self::$cache = new MemoryCacheItemPool;
+
         $fetcher = new FetchAuthTokenCache(
             self::createApplicationDefaultCredentials($credentials),
             [],
