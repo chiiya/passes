@@ -15,7 +15,7 @@ use Psr\Cache\CacheItemPoolInterface;
 
 class GoogleAuthMiddleware
 {
-    private static ?CacheItemPoolInterface $cache;
+    private static ?CacheItemPoolInterface $cache = null;
 
     /** @var string */
     final public const BASE_URI = 'https://walletobjects.googleapis.com/';
@@ -50,12 +50,10 @@ class GoogleAuthMiddleware
      */
     public static function createAuthTokenMiddleware(ServiceCredentials $credentials): AuthTokenMiddleware
     {
-        self::$cache = new MemoryCacheItemPool;
-
         $fetcher = new FetchAuthTokenCache(
             self::createApplicationDefaultCredentials($credentials),
             [],
-            self::$cache,
+            self::getCache(),
         );
 
         if (($client = HttpClientCache::getHttpClient()) === null) {
