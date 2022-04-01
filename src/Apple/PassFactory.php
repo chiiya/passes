@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Chiiya\Passes\Apple;
 
@@ -358,11 +360,11 @@ class PassFactory
         $manifest = [];
         $files = new FilesystemIterator($dir);
 
+        /** @var SplFileInfo $file */
         foreach ($files as $file) {
             if ($file->isFile()) {
-                $path = realpath($file);
                 $relative = str_replace($dir, '', $file->getPathname());
-                $manifest[$relative] = sha1_file($path);
+                $manifest[$relative] = sha1_file($file->getRealPath());
             }
         }
         file_put_contents($dir.self::MANIFEST_FILENAME, json_encode($manifest, JSON_PRETTY_PRINT));
