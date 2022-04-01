@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Chiiya\Passes\Tests;
 
@@ -14,7 +16,9 @@ class TestCase extends BaseTestCase
 
     protected function setUp(): void
     {
-        if (file_exists(realpath(__DIR__.'/../.env'))) {
+        $path = realpath(__DIR__.'/../.env');
+
+        if ($path !== false && file_exists($path)) {
             $dotenv = Dotenv::createUnsafeImmutable(realpath(__DIR__.'/../'));
             $dotenv->load();
         }
