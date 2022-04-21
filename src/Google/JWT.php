@@ -80,6 +80,11 @@ class JWT extends Component
         return $this->addComponent($object, 'offerObjects');
     }
 
+    public function addSkinnyOfferObject(OfferObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'offerObjects');
+    }
+
     public function addLoyaltyClass(LoyaltyClass $class): static
     {
         return $this->addComponent($class, 'loyaltyClasses');
@@ -88,6 +93,11 @@ class JWT extends Component
     public function addLoyaltyObject(LoyaltyObject $object): static
     {
         return $this->addComponent($object, 'loyaltyObjects');
+    }
+
+    public function addSkinnyLoyaltyObject(LoyaltyObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'loyaltyObjects');
     }
 
     public function addGiftCardClass(GiftCardClass $class): static
@@ -100,6 +110,11 @@ class JWT extends Component
         return $this->addComponent($object, 'giftCardObjects');
     }
 
+    public function addSkinnyGiftCardObject(GiftCardObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'giftCardObjects');
+    }
+
     public function addEventTicketClass(EventTicketClass $class): static
     {
         return $this->addComponent($class, 'eventTicketClasses');
@@ -108,6 +123,11 @@ class JWT extends Component
     public function addEventTicketObject(EventTicketObject $object): static
     {
         return $this->addComponent($object, 'eventTicketObjects');
+    }
+
+    public function addSkinnyEventTicketObject(EventTicketObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'eventTicketObjects');
     }
 
     public function addFlightClass(FlightClass $class): static
@@ -120,6 +140,11 @@ class JWT extends Component
         return $this->addComponent($object, 'flightObjects');
     }
 
+    public function addSkinnyFlightObject(FlightObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'flightObjects');
+    }
+
     public function addTransitClass(TransitClass $class): static
     {
         return $this->addComponent($class, 'transitClasses');
@@ -128,6 +153,11 @@ class JWT extends Component
     public function addTransitObject(TransitObject $object): static
     {
         return $this->addComponent($object, 'transitObjects');
+    }
+
+    public function addSkinnyTransitObject(TransitObject $object): static
+    {
+        return $this->addComponent($object->only('id'), 'transitObjects');
     }
 
     /**
@@ -148,7 +178,7 @@ class JWT extends Component
             $this->payload[$type] = [];
         }
 
-        $this->payload[$type][] = $component;
+        $this->payload[$type][] = $component->except('classReference');
 
         return $this;
     }
