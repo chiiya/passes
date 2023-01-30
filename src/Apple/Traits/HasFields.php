@@ -11,37 +11,27 @@ use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 trait HasFields
 {
-    /**
-     * @var SecondaryField[]
-     */
+    /** @var SecondaryField[] */
     #[CastWith(ArrayCaster::class, SecondaryField::class)]
     #[MaxItems(3)]
     public array $headerFields = [];
 
-    /**
-     * @var Field[]
-     */
+    /** @var Field[] */
     #[CastWith(ArrayCaster::class, Field::class)]
     #[MaxItems(2)]
     public array $primaryFields = [];
 
-    /**
-     * @var SecondaryField[]
-     */
+    /** @var SecondaryField[] */
     #[CastWith(ArrayCaster::class, SecondaryField::class)]
     #[MaxItems(4)]
     public array $secondaryFields = [];
 
-    /**
-     * @var AuxiliaryField[]
-     */
+    /** @var AuxiliaryField[] */
     #[CastWith(ArrayCaster::class, AuxiliaryField::class)]
     #[MaxItems(5)]
     public array $auxiliaryFields = [];
 
-    /**
-     * @var Field[]
-     */
+    /** @var Field[] */
     #[CastWith(ArrayCaster::class, Field::class)]
     public array $backFields = [];
 
