@@ -16,6 +16,7 @@ use Chiiya\Passes\Google\Components\Common\LinksModuleData;
 use Chiiya\Passes\Google\Components\Common\Message;
 use Chiiya\Passes\Google\Components\Common\TextModuleData;
 use Chiiya\Passes\Google\Components\Common\TimeInterval;
+use Chiiya\Passes\Google\Components\EventTicket\GroupingInfo;
 use Chiiya\Passes\Google\Enumerators\State;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Casters\ArrayCaster;
@@ -81,6 +82,12 @@ abstract class BaseObject extends Component
     #[CastWith(ArrayCaster::class, LatLongPoint::class)]
     #[MaxItems(20)]
     public array $locations = [];
+
+    /**
+     * Optional.
+     * Grouping info for event tickets.
+     */
+    public ?GroupingInfo $groupingInfo;
 
     /**
      * Optional.

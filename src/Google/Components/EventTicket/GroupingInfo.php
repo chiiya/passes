@@ -13,4 +13,11 @@ class GroupingInfo extends Component
      * passes with same sort index, the sorting behavior is undefined.
      */
     public ?int $sortIndex;
+
+    /**
+     * Optional
+     * Optional grouping ID for grouping the passes with the same ID visually together. Grouping with different
+     * types of passes is allowed.
+     */
+    public ?string $groupingId;
 }
