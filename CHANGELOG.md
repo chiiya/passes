@@ -2,6 +2,18 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v0.3.1 - 2023-01-30
+
+### What's Changed
+
+- Add GroupingInfo->groupingId as per docs by @kerattila in https://github.com/chiiya/passes/pull/11
+
+### New Contributors
+
+- @kerattila made their first contribution in https://github.com/chiiya/passes/pull/11
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/0.3.0...0.3.1
+
 ## v0.3.0 - 2022-04-21
 
 ## What's Changed
