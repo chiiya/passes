@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Chiiya\Passes\Google\Components\EventTicket;
+namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
 
@@ -15,7 +15,7 @@ class GroupingInfo extends Component
     public ?int $sortIndex;
 
     /**
-     * Optional
+     * Optional.
      * Optional grouping ID for grouping the passes with the same ID visually together. Grouping with different
      * types of passes is allowed.
      */
