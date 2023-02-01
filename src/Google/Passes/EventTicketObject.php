@@ -7,7 +7,6 @@ use Chiiya\Passes\Google\Components\Common\LocalizedString;
 use Chiiya\Passes\Google\Components\Common\Money;
 use Chiiya\Passes\Google\Components\EventTicket\EventReservationInfo;
 use Chiiya\Passes\Google\Components\EventTicket\EventSeat;
-use Chiiya\Passes\Google\Components\EventTicket\GroupingInfo;
 
 class EventTicketObject extends BaseObject
 {
@@ -57,12 +56,6 @@ class EventTicketObject extends BaseObject
      * The face value of the ticket, matching what would be printed on a physical version of the ticket.
      */
     public ?Money $faceValue;
-
-    /**
-     * Optional.
-     * Grouping info for event tickets.
-     */
-    public ?GroupingInfo $groupingInfo;
 
     /**
      * Optional.

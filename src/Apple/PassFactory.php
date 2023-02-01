@@ -377,7 +377,7 @@ class PassFactory
             return;
         }
 
-        if (! $p12 = file_get_contents($this->certificate)) {
+        if (! ($p12 = file_get_contents($this->certificate))) {
             throw new RuntimeException(sprintf('The certificate at "%s" could not be read', $this->certificate));
         }
 

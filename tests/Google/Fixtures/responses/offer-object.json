@@ -68,5 +68,9 @@
             "date": "2021-01-04T23:59:59+01:00"
         }
     },
+    "groupingInfo": {
+        "sortIndex": 1,
+        "groupingId": "example"
+    },
     "hasUsers": true
 }

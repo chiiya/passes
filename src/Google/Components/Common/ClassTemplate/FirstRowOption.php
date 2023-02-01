@@ -10,9 +10,7 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class FirstRowOption extends Component
 {
-    /**
-     * Optional.
-     */
+    /** Optional. */
     #[ValueIn([
         TransitOption::ORIGIN_AND_DESTINATION_CODES,
         TransitOption::ORIGIN_AND_DESTINATION_NAMES,

@@ -4,6 +4,7 @@ namespace Chiiya\Passes\Tests\Google\Fixtures;
 
 use Chiiya\Passes\Google\Components\Common\Barcode;
 use Chiiya\Passes\Google\Components\Common\DateTime;
+use Chiiya\Passes\Google\Components\Common\GroupingInfo;
 use Chiiya\Passes\Google\Components\Common\Image;
 use Chiiya\Passes\Google\Components\Common\ImageModuleData;
 use Chiiya\Passes\Google\Components\Common\LinksModuleData;
@@ -53,6 +54,7 @@ class Passes
                 end: new DateTime(date: '2021-01-04T23:59:59+01:00'),
             ),
             'hasUsers' => true,
+            'groupingInfo' => new GroupingInfo(sortIndex: 1, groupingId: 'example'),
         ];
     }
 }

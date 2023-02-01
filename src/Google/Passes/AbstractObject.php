@@ -9,6 +9,7 @@ use Chiiya\Passes\Common\Validation\Required;
 use Chiiya\Passes\Common\Validation\ValueIn;
 use Chiiya\Passes\Google\Components\Common\AppLinkData;
 use Chiiya\Passes\Google\Components\Common\Barcode;
+use Chiiya\Passes\Google\Components\Common\GroupingInfo;
 use Chiiya\Passes\Google\Components\Common\Image;
 use Chiiya\Passes\Google\Components\Common\ImageModuleData;
 use Chiiya\Passes\Google\Components\Common\LinksModuleData;
@@ -64,6 +65,12 @@ class AbstractObject extends Component
      * Available only to Smart Tap enabled partners. Contact support for additional guidance.
      */
     public ?string $smartTapRedemptionValue;
+
+    /**
+     * Optional.
+     * Grouping info for event tickets.
+     */
+    public ?GroupingInfo $groupingInfo;
 
     /**
      * Optional.

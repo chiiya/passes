@@ -11,9 +11,7 @@ use Spatie\DataTransferObject\DataTransferObject;
 #[Strict]
 class Localization extends DataTransferObject
 {
-    /**
-     * Localization language key (`en`, `es`, ...).
-     */
+    /** Localization language key (`en`, `es`, ...). */
     #[Required]
     public ?string $language;
 
