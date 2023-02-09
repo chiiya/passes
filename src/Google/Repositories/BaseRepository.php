@@ -6,9 +6,6 @@ use Chiiya\Passes\Common\Component;
 use Chiiya\Passes\Google\Http\ClientInterface;
 use Chiiya\Passes\Google\Passes\AbstractClass;
 use Chiiya\Passes\Google\Passes\AbstractObject;
-use Chiiya\Passes\Google\Passes\BaseClass;
-use Chiiya\Passes\Google\Passes\BaseObject;
-use Chiiya\Passes\Google\Passes\GenericObject;
 
 abstract class BaseRepository
 {

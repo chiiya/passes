@@ -13,9 +13,7 @@ use Chiiya\Passes\Common\Validation\Required;
  */
 class Notifications extends Component
 {
-    #[Required]
     public ?ExpiryNotification $expiryNotification;
 
-    #[Required]
     public ?UpcomingNotification $upcomingNotification;
 }
