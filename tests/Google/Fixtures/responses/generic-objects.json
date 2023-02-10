@@ -51,6 +51,32 @@
                     "uri": "https:\/\/domain.com\/hero-image.png"
                 }
             },
+            "rotatingBarcode": {
+                "alternateText": "alternate-text",
+                "renderEncoding": "utf8",
+                "showCodeText": {
+                    "defaultValue": {
+                        "language": "en",
+                        "value": "show-code-text-en"
+                    }
+                },
+                "totpDetails": {
+                    "algorithm": "TOTP_SHA1",
+                    "parameters": [
+                        {
+                            "key":  "key-1",
+                            "valueLength": "123"
+                        },
+                        {
+                            "key":  "key-2",
+                            "valueLength": "124"
+                        }
+                    ],
+                    "periodMillis": "1000"
+                },
+                "type": "QR_CODE",
+                "valuePattern": "12345"
+            },
             "validTimeInterval": {
                 "kind": "walletobjects#timeInterval",
                 "start": {

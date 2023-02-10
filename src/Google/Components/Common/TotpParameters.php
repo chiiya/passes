@@ -20,4 +20,13 @@ class TotpParameters extends Component
      */
     #[Required]
     public ?int $valueLength;
+
+    /**
+     * Helper method for creating new localized string, eg:
+     * TotpParameters::make('key', 123).
+     */
+    public static function make(string $key, int $valueLength): static
+    {
+        return new static(key: $key, valueLength: $valueLength);
+    }
 }

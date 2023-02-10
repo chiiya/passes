@@ -29,7 +29,8 @@
             "callbackOptions": {
                 "url": "https://domain.com/callback",
                 "updateRequestUrl": "https://domain.com/update-callback"
-            }
+            },
+            "viewUnlockRequirement": "UNLOCK_REQUIRED_TO_VIEW"
         }
     ],
     "pagination": {

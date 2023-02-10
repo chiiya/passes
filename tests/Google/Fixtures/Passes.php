@@ -10,8 +10,11 @@ use Chiiya\Passes\Google\Components\Common\Image;
 use Chiiya\Passes\Google\Components\Common\ImageModuleData;
 use Chiiya\Passes\Google\Components\Common\LinksModuleData;
 use Chiiya\Passes\Google\Components\Common\LocalizedString;
+use Chiiya\Passes\Google\Components\Common\RotatingBarcode;
 use Chiiya\Passes\Google\Components\Common\TextModuleData;
 use Chiiya\Passes\Google\Components\Common\TimeInterval;
+use Chiiya\Passes\Google\Components\Common\TotpDetails;
+use Chiiya\Passes\Google\Components\Common\TotpParameters;
 use Chiiya\Passes\Google\Components\Common\Uri;
 use Chiiya\Passes\Google\Components\Generic\Notifications;
 use Chiiya\Passes\Google\Components\Generic\UpcomingNotification;
@@ -20,6 +23,8 @@ use Chiiya\Passes\Google\Enumerators\BarcodeType;
 use Chiiya\Passes\Google\Enumerators\Offer\RedemptionChannel;
 use Chiiya\Passes\Google\Enumerators\ReviewStatus;
 use Chiiya\Passes\Google\Enumerators\State;
+use Chiiya\Passes\Google\Enumerators\TotpAlgorithm;
+use Chiiya\Passes\Google\Enumerators\ViewUnlockRequirement;
 
 class Passes
 {
@@ -82,7 +87,8 @@ class Passes
             "callbackOptions" => new CallbackOptions(
                 url: "https://domain.com/callback",
                 updateRequestUrl: "https://domain.com/update-callback"
-            )
+            ),
+            "viewUnlockRequirement" => ViewUnlockRequirement::UNLOCK_REQUIRED_TO_VIEW
         ];
     }
 
@@ -127,6 +133,21 @@ class Passes
             ],
             'groupingInfo' => new GroupingInfo(
                 groupingId: 'group-1'
+            ),
+            'rotatingBarcode' => new RotatingBarcode(
+                type: BarcodeType::QR_CODE,
+                renderEncoding: BarcodeRenderEncoding::UTF_8,
+                valuePattern: '12345',
+                totpDetails: new TotpDetails(
+                    periodMillis: 1000,
+                    algorithm: TotpAlgorithm::TOTP_SHA1,
+                    parameters: [
+                        TotpParameters::make('key-1', 123),
+                        TotpParameters::make('key-2', 124)
+                    ]
+                ),
+                alternateText: 'alternate-text',
+                showCodeText: LocalizedString::make('en', 'show-code-text-en'),
             )
         ];
     }
