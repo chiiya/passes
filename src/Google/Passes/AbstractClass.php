@@ -14,6 +14,7 @@ use Chiiya\Passes\Google\Components\Common\LinksModuleData;
 use Chiiya\Passes\Google\Components\Common\SecurityAnimation;
 use Chiiya\Passes\Google\Components\Common\TextModuleData;
 use Chiiya\Passes\Google\Enumerators\MultipleDevicesAndHoldersAllowedStatus;
+use Chiiya\Passes\Google\Enumerators\ViewUnlockRequirement;
 use Spatie\DataTransferObject\Attributes\CastWith;
 use Spatie\DataTransferObject\Casters\ArrayCaster;
 
@@ -99,4 +100,15 @@ abstract class AbstractClass extends Component
      * the end-user. All objects of this class are eligible for the callback.
      */
     public ?CallbackOptions $callbackOptions;
+
+    /**
+     * Optional
+     * Defines what unlock mechanism, if any, is required to view the card.
+     */
+    #[ValueIn([
+        ViewUnlockRequirement::VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED,
+        ViewUnlockRequirement::UNLOCK_NOT_REQUIRED,
+        ViewUnlockRequirement::UNLOCK_REQUIRED_TO_VIEW,
+    ])]
+    protected ?string $viewUnlockRequirement;
 }

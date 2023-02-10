@@ -13,6 +13,7 @@ use Chiiya\Passes\Google\Components\Common\GroupingInfo;
 use Chiiya\Passes\Google\Components\Common\Image;
 use Chiiya\Passes\Google\Components\Common\ImageModuleData;
 use Chiiya\Passes\Google\Components\Common\LinksModuleData;
+use Chiiya\Passes\Google\Components\Common\RotatingBarcode;
 use Chiiya\Passes\Google\Components\Common\TextModuleData;
 use Chiiya\Passes\Google\Components\Common\TimeInterval;
 use Chiiya\Passes\Google\Enumerators\State;
@@ -112,6 +113,12 @@ class AbstractObject extends Component
      * if present, will be displayed. If hero image of the class is also not present, nothing will be displayed.
      */
     public ?Image $heroImage;
+
+    /**
+     * Optional
+     * The rotating barcode settings/details.
+     */
+    public ?RotatingBarcode $rotatingBarcode;
 
     /**
      * Optional.
