@@ -19,11 +19,14 @@ composer require chiiya/passes
 
 First, acquire the necessary credentials and certificates as described in [documentation/requirements.md](documentation/requirements.md).
 
-### Apple
-For an example, check out [examples/apple.php](examples/apple.php).
+### Apple Examples
 
-### Google
-For an example, check out [examples/google.php](examples/google.php).
+- [examples/apple_coupon.php](examples/apple_coupon.php)
+
+### Google Examples
+
+- [examples/google_offer.php](examples/google_offer.php)
+- [examples/google_generic_pass.php](examples/google_generic_pass.php)
 
 ## Testing
 
