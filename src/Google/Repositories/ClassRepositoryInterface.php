@@ -3,8 +3,8 @@
 namespace Chiiya\Passes\Google\Repositories;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Google\Passes\BaseClass;
-use Chiiya\Passes\Google\Passes\BaseObject;
+use Chiiya\Passes\Google\Passes\AbstractClass;
+use Chiiya\Passes\Google\Passes\AbstractObject;
 
 interface ClassRepositoryInterface
 {
@@ -14,5 +14,5 @@ interface ClassRepositoryInterface
 
     public function create(Component $instance): Component;
 
-    public function update(BaseClass|BaseObject $instance): Component;
+    public function update(AbstractClass|AbstractObject $instance): Component;
 }

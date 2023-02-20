@@ -1,0 +1,40 @@
+{
+    "resources": [
+        {
+            "id": "1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002",
+            "imageModulesData": [
+                {
+                    "mainImage": {
+                        "kind": "walletobjects#image",
+                        "sourceUri": {
+                            "uri": "https:\/\/domain.com\/sample.png"
+                        }
+                    }
+                }
+            ],
+            "enableSmartTap": false,
+            "linksModuleData": {
+                "uris": [
+                    {
+                        "uri": "https:\/\/domain.com\/link-1",
+                        "description": "Sample link 1"
+                    },
+                    {
+                        "uri": "https:\/\/domain.com\/link-2",
+                        "description": "Sample link 2"
+                    }
+                ]
+            },
+            "multipleDevicesAndHoldersAllowedStatus": "oneUserAllDevices",
+            "callbackOptions": {
+                "url": "https://domain.com/callback",
+                "updateRequestUrl": "https://domain.com/update-callback"
+            },
+            "viewUnlockRequirement": "UNLOCK_REQUIRED_TO_VIEW"
+        }
+    ],
+    "pagination": {
+        "kind": "walletobjects#pagination",
+        "resultsPerPage": 1
+    }
+}

@@ -4,8 +4,8 @@ namespace Chiiya\Passes\Google\Repositories;
 
 use Chiiya\Passes\Common\Component;
 use Chiiya\Passes\Google\Http\ClientInterface;
-use Chiiya\Passes\Google\Passes\BaseClass;
-use Chiiya\Passes\Google\Passes\BaseObject;
+use Chiiya\Passes\Google\Passes\AbstractClass;
+use Chiiya\Passes\Google\Passes\AbstractObject;
 
 abstract class BaseRepository
 {
@@ -43,7 +43,7 @@ abstract class BaseRepository
     /**
      * Update an instance.
      */
-    final public function update(BaseClass|BaseObject $instance): Component
+    final public function update(AbstractClass|AbstractObject $instance): Component
     {
         /** @var Component $class */
         $class = $this->getInstanceClass();

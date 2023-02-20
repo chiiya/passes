@@ -9,6 +9,8 @@ use Chiiya\Passes\Google\Passes\EventTicketClass;
 use Chiiya\Passes\Google\Passes\EventTicketObject;
 use Chiiya\Passes\Google\Passes\FlightClass;
 use Chiiya\Passes\Google\Passes\FlightObject;
+use Chiiya\Passes\Google\Passes\GenericClass;
+use Chiiya\Passes\Google\Passes\GenericObject;
 use Chiiya\Passes\Google\Passes\GiftCardClass;
 use Chiiya\Passes\Google\Passes\GiftCardObject;
 use Chiiya\Passes\Google\Passes\LoyaltyClass;
@@ -158,6 +160,16 @@ class JWT extends Component
     public function addSkinnyTransitObject(TransitObject $object): static
     {
         return $this->addComponent($object->only('id'), 'transitObjects');
+    }
+
+    public function addGenericClass(GenericClass $class): static
+    {
+        return $this->addComponent($class, 'genericClasses');
+    }
+
+    public function addGenericObject(GenericObject $object): static
+    {
+        return $this->addComponent($object, 'genericObjects');
     }
 
     /**

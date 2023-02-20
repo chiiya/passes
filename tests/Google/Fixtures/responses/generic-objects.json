@@ -1,0 +1,112 @@
+{
+    "resources": [
+        {
+            "cardTitle": {
+                "kind": "walletobjects#localizedString",
+                "defaultValue": {
+                    "kind": "walletobjects#translatedString",
+                    "language": "en",
+                    "value": "Card title"
+                }
+            },
+            "subheader": {
+                "kind": "walletobjects#localizedString",
+                "defaultValue": {
+                    "kind": "walletobjects#translatedString",
+                    "language": "en",
+                    "value": "Subheader"
+                }
+            },
+            "header": {
+                "kind": "walletobjects#localizedString",
+                "defaultValue": {
+                    "kind": "walletobjects#translatedString",
+                    "language": "en",
+                    "value": "Header"
+                }
+            },
+            "logo": {
+                "kind": "walletobjects#image",
+                "sourceUri": {
+                    "uri": "https:\/\/domain.com\/logo.png"
+                }
+            },
+            "hexBackgroundColor": "#333",
+            "notifications": {
+                "upcomingNotification": {
+                    "enableNotification": true
+                }
+            },
+            "id": "1234567891234567891.fb1e9730-a83b-11ed-afa1-0242ac120002",
+            "classId": "1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002",
+            "barcode": {
+                "kind": "walletobjects#barcode",
+                "type": "qrCode",
+                "value": "123456789",
+                "renderEncoding": "utf8"
+            },
+            "heroImage": {
+                "kind": "walletobjects#image",
+                "sourceUri": {
+                    "uri": "https:\/\/domain.com\/hero-image.png"
+                }
+            },
+            "rotatingBarcode": {
+                "alternateText": "alternate-text",
+                "renderEncoding": "utf8",
+                "showCodeText": {
+                    "defaultValue": {
+                        "language": "en",
+                        "value": "show-code-text-en"
+                    }
+                },
+                "totpDetails": {
+                    "algorithm": "TOTP_SHA1",
+                    "parameters": [
+                        {
+                            "key":  "key-1",
+                            "valueLength": "123"
+                        },
+                        {
+                            "key":  "key-2",
+                            "valueLength": "124"
+                        }
+                    ],
+                    "periodMillis": "1000"
+                },
+                "type": "QR_CODE",
+                "valuePattern": "12345"
+            },
+            "validTimeInterval": {
+                "kind": "walletobjects#timeInterval",
+                "start": {
+                    "date": "2023-01-01T12:00:00+00:00"
+                },
+                "end": {
+                    "date": "2023-01-01T13:00:00+00:00"
+                }
+            },
+            "textModulesData": [
+                {
+                    "header": "header-1",
+                    "body": "body-1",
+                    "id": "id-1"
+                },
+                {
+                    "header": "header-2",
+                    "body": "body-2",
+                    "id": "id-2"
+                }
+            ],
+            "groupingInfo": {
+                "groupingId": "group-1"
+            },
+            "state": "active",
+            "hasUsers": true
+        }
+    ],
+    "pagination": {
+        "kind": "walletobjects#pagination",
+        "resultsPerPage": 1
+    }
+}

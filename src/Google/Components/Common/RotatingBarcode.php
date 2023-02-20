@@ -10,10 +10,10 @@ use Chiiya\Passes\Google\Enumerators\BarcodeRenderEncoding;
 use Chiiya\Passes\Google\Enumerators\BarcodeType;
 use Spatie\DataTransferObject\Attributes\CastWith;
 
-class Barcode extends Component
+class RotatingBarcode extends Component
 {
     /**
-     * Required.
+     * Required
      * The type of barcode.
      */
     #[Required]
@@ -36,7 +36,7 @@ class Barcode extends Component
     public ?string $type;
 
     /**
-     * Optional.
+     * Optional
      * The render encoding for the barcode. When specified, barcode is rendered in the given encoding.
      * Otherwise best known encoding is chosen by Google.
      */
@@ -46,10 +46,21 @@ class Barcode extends Component
 
     /**
      * Required.
-     * The value encoded in the barcode.
+     * String encoded barcode value.
+     * This string supports the following substitutions:
+     * {totp_value_n}: Replaced with the TOTP value (see TotpDetails.parameters).
+     * {totp_timestamp_millis}: Replaced with the timestamp (millis since epoch) at which the barcode was generated.
+     * {totp_timestamp_seconds}: Replaced with the timestamp (seconds since epoch) at which the barcode was generated.
      */
     #[Required]
-    public ?string $value;
+    public ?string $valuePattern;
+
+    /**
+     * Required
+     * Details used to evaluate the {totp_value_n} substitutions.
+     */
+    #[Required]
+    public ?TotpDetails $totpDetails;
 
     /**
      * Optional.
