@@ -41,6 +41,7 @@ class RotatingBarcode extends Component
      * Otherwise best known encoding is chosen by Google.
      */
     #[ValueIn([BarcodeRenderEncoding::UTF_8, BarcodeRenderEncoding::RENDER_ENCODING_UNSPECIFIED])]
+    #[CastWith(LegacyValueCaster::class, BarcodeRenderEncoding::class)]
     public ?string $renderEncoding;
 
     /**
