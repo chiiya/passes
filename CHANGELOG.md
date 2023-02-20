@@ -2,6 +2,14 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v0.4.0 - 2023-02-20
+
+### What's Changed
+
+- Add Google GenericPass functionality by @kerattila in https://github.com/chiiya/passes/pull/14
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/0.3.1...0.4.0
+
 ## v0.3.1 - 2023-01-30
 
 ### What's Changed
