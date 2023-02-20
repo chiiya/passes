@@ -12,9 +12,6 @@ final class AnimationType
 
     public static function values(): array
     {
-        return [
-            self::ANIMATION_UNSPECIFIED,
-            self::FOIL_SHIMMER
-        ];
+        return [self::ANIMATION_UNSPECIFIED, self::FOIL_SHIMMER];
     }
 }

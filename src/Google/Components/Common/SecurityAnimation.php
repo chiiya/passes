@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Chiiya\Passes\Google\Components\Common;
 
@@ -14,9 +14,6 @@ class SecurityAnimation extends Component
      * Type of animation.
      */
     #[Required]
-    #[ValueIn([
-        AnimationType::ANIMATION_UNSPECIFIED,
-        AnimationType::FOIL_SHIMMER
-    ])]
+    #[ValueIn([AnimationType::ANIMATION_UNSPECIFIED, AnimationType::FOIL_SHIMMER])]
     public ?string $animationType;
 }

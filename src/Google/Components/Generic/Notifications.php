@@ -3,7 +3,6 @@
 namespace Chiiya\Passes\Google\Components\Generic;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
 
 /**
  * Indicates if the object needs to have notification enabled.
@@ -14,6 +13,5 @@ use Chiiya\Passes\Common\Validation\Required;
 class Notifications extends Component
 {
     public ?ExpiryNotification $expiryNotification;
-
     public ?UpcomingNotification $upcomingNotification;
 }

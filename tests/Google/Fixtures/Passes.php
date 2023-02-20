@@ -67,36 +67,33 @@ class Passes
             'groupingInfo' => new GroupingInfo(sortIndex: 1, groupingId: 'example'),
         ];
     }
+
     public static function genericClass(): array
     {
         return [
-            "id" => "1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002",
-            "imageModulesData" => [
-                new ImageModuleData(
-                    mainImage: Image::make("https://domain.com/sample.png")
-                )
-            ],
-            "enableSmartTap" => false,
-            "linksModuleData" => new LinksModuleData(
+            'id' => '1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002',
+            'imageModulesData' => [new ImageModuleData(mainImage: Image::make('https://domain.com/sample.png'))],
+            'enableSmartTap' => false,
+            'linksModuleData' => new LinksModuleData(
                 uris: [
-                    new Uri(uri: "https://domain.com/link-1", description: 'Sample link 1'),
-                    new Uri(uri: "https://domain.com/link-2", description: 'Sample link 2')
-                ]
+                    new Uri(uri: 'https://domain.com/link-1', description: 'Sample link 1'),
+                    new Uri(uri: 'https://domain.com/link-2', description: 'Sample link 2'),
+                ],
             ),
-            "multipleDevicesAndHoldersAllowedStatus" => "oneUserAllDevices",
-            "callbackOptions" => new CallbackOptions(
-                url: "https://domain.com/callback",
-                updateRequestUrl: "https://domain.com/update-callback"
+            'multipleDevicesAndHoldersAllowedStatus' => 'oneUserAllDevices',
+            'callbackOptions' => new CallbackOptions(
+                url: 'https://domain.com/callback',
+                updateRequestUrl: 'https://domain.com/update-callback',
             ),
-            "viewUnlockRequirement" => ViewUnlockRequirement::UNLOCK_REQUIRED_TO_VIEW
+            'viewUnlockRequirement' => ViewUnlockRequirement::UNLOCK_REQUIRED_TO_VIEW,
         ];
     }
 
     public static function genericObject(): array
     {
         return [
-            "id" => "1234567891234567891.fb1e9730-a83b-11ed-afa1-0242ac120002",
-            "classId" => "1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002",
+            'id' => '1234567891234567891.fb1e9730-a83b-11ed-afa1-0242ac120002',
+            'classId' => '1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002',
             'cardTitle' => LocalizedString::make('en', 'Card title'),
             'subheader' => LocalizedString::make('en', 'Subheader'),
             'hasUsers' => true,
@@ -112,28 +109,16 @@ class Passes
             ),
             'validTimeInterval' => new TimeInterval(
                 start: new DateTime(date: '2023-01-01T12:00:00+00:00'),
-                end: new DateTime(date: '2023-01-01T13:00:00+00:00')
+                end: new DateTime(date: '2023-01-01T13:00:00+00:00'),
             ),
             'notifications' => new Notifications(
-                upcomingNotification: new UpcomingNotification(
-                    enableNotification: true
-                ),
+                upcomingNotification: new UpcomingNotification(enableNotification: true),
             ),
             'textModulesData' => [
-                new TextModuleData(
-                    id: 'id-1',
-                    header: 'header-1',
-                    body: 'body-1',
-                ),
-                new TextModuleData(
-                    id: 'id-2',
-                    header: 'header-2',
-                    body: 'body-2',
-                )
+                new TextModuleData(id: 'id-1', header: 'header-1', body: 'body-1'),
+                new TextModuleData(id: 'id-2', header: 'header-2', body: 'body-2'),
             ],
-            'groupingInfo' => new GroupingInfo(
-                groupingId: 'group-1'
-            ),
+            'groupingInfo' => new GroupingInfo(groupingId: 'group-1'),
             'rotatingBarcode' => new RotatingBarcode(
                 type: BarcodeType::QR_CODE,
                 renderEncoding: BarcodeRenderEncoding::UTF_8,
@@ -141,14 +126,11 @@ class Passes
                 totpDetails: new TotpDetails(
                     periodMillis: 1000,
                     algorithm: TotpAlgorithm::TOTP_SHA1,
-                    parameters: [
-                        TotpParameters::make('key-1', 123),
-                        TotpParameters::make('key-2', 124)
-                    ]
+                    parameters: [TotpParameters::make('key-1', 123), TotpParameters::make('key-2', 124)],
                 ),
                 alternateText: 'alternate-text',
                 showCodeText: LocalizedString::make('en', 'show-code-text-en'),
-            )
+            ),
         ];
     }
 }
