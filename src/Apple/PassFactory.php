@@ -428,7 +428,7 @@ class PassFactory
             $error .= $text;
         }
 
-        // General error
+        // If an error occurred that wasn't due to a legacy p12 file, the workaround won't help, so give up now
         if (! str_contains($error, 'digital envelope routines::unsupported')) {
             throw new RuntimeException(
                 sprintf('Invalid certificate file: "%s". Error: %s', $this->certificate, $error),
