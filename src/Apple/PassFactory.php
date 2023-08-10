@@ -333,7 +333,7 @@ class PassFactory
         foreach ($pass->getLocalizations() as $localization) {
             $localizationDir = $dir.$localization->language.self::LOCALIZATION_EXTENSION;
 
-            if (! mkdir($localizationDir, 0o755) && ! is_dir($localizationDir)) {
+            if (! is_dir($localizationDir) && ! mkdir($localizationDir, 0o755) && ! is_dir($localizationDir)) {
                 throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
             }
             $strings = '';
