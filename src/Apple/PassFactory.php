@@ -430,7 +430,9 @@ class PassFactory
 
         // General error
         if (! str_contains($error, 'digital envelope routines::unsupported')) {
-            throw new RuntimeException(sprintf('Invalid certificate file: "%s"', $this->certificate));
+            throw new RuntimeException(
+                sprintf('Invalid certificate file: "%s". Error: %s', $this->certificate, $error),
+            );
         }
 
         // Try an alternative route using shell_exec to allow legacy support
