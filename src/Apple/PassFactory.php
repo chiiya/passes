@@ -288,7 +288,7 @@ class PassFactory
     {
         $dir = $this->tempDir.$pass->serialNumber.DIRECTORY_SEPARATOR;
 
-        if (! @mkdir($dir, 0o755) && ! is_dir($dir)) {
+        if (! is_dir($dir) && ! mkdir($dir, 0o755) && ! is_dir($dir)) {
             throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
         }
 
