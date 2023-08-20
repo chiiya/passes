@@ -2,6 +2,21 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v0.5.0 - 2023-08-20
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/chiiya/passes/pull/16
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/chiiya/passes/pull/17
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/chiiya/passes/pull/18
+- Implement a workaround for compatibility with legacy openssl pkcs12 files by @Synchro in https://github.com/chiiya/passes/pull/19
+
+### New Contributors
+
+- @Synchro made their first contribution in https://github.com/chiiya/passes/pull/19
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/0.4.0...0.5.0
+
 ## v0.4.0 - 2023-02-20
 
 ### What's Changed
