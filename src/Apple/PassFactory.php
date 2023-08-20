@@ -16,6 +16,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
 use SplFileInfo;
+use Throwable;
 use ZipArchive;
 
 class PassFactory
@@ -459,7 +460,7 @@ class PassFactory
                     return ['cert' => $certMatches[0], 'pkey' => $keyMatches[0]];
                 }
             }
-        } catch (\Throwable) {
+        } catch (Throwable) {
             // no need to do anything
         }
 
