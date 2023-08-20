@@ -288,7 +288,7 @@ class PassFactory
     {
         $dir = $this->tempDir.$pass->serialNumber.DIRECTORY_SEPARATOR;
 
-        if (! @mkdir($dir, 0o755) && ! is_dir($dir)) {
+        if (! is_dir($dir) && ! mkdir($dir, 0o755) && ! is_dir($dir)) {
             throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
         }
 
@@ -333,7 +333,7 @@ class PassFactory
         foreach ($pass->getLocalizations() as $localization) {
             $localizationDir = $dir.$localization->language.self::LOCALIZATION_EXTENSION;
 
-            if (! mkdir($localizationDir, 0o755) && ! is_dir($localizationDir)) {
+            if (! is_dir($localizationDir) && ! mkdir($localizationDir, 0o755) && ! is_dir($localizationDir)) {
                 throw new RuntimeException(sprintf('Directory "%s" could not be created', $dir));
             }
             $strings = '';
@@ -385,11 +385,7 @@ class PassFactory
             throw new RuntimeException(sprintf('The WWDR certificate at "%s" could not be read', $this->wwdr));
         }
 
-        $certs = [];
-
-        if (! openssl_pkcs12_read($p12, $certs, $this->password)) {
-            throw new RuntimeException(sprintf('Invalid certificate file: "%s"', $this->certificate));
-        }
+        $certs = $this->openssl_pkcs12_read_wrapper($p12, $this->password);
 
         $certData = openssl_x509_read($certs['cert']);
         $privateKey = openssl_pkey_get_private($certs['pkey'], $this->password);
@@ -408,6 +404,66 @@ class PassFactory
         $signature = file_get_contents($signatureFile);
         $signature = $this->convertPEMtoDER($signature);
         file_put_contents($signatureFile, $signature);
+    }
+
+    /**
+     * Wrapper for the openssl_pkcs12_read function allowing for fallback to a shell_exec call
+     * to work around a problem reading legacy p12 files in newer versions of PHP.
+     * Adapted from an implementation in the php-pkpass project.
+     *
+     * @see https://github.com/includable/php-pkpass/issues/122
+     */
+    protected function openssl_pkcs12_read_wrapper(string $pkcs12, string $passphrase): array
+    {
+        $certs = [];
+        // If the openssl_pkcs12_read function works ok, go with that
+        if (openssl_pkcs12_read($pkcs12, $certs, $passphrase)) {
+            return $certs;
+        }
+
+        // That failed, get error message
+        $error = '';
+
+        while ($text = openssl_error_string()) {
+            $error .= $text;
+        }
+
+        // If an error occurred that wasn't due to a legacy p12 file, the workaround won't help, so give up now
+        if (! str_contains($error, 'digital envelope routines::unsupported')) {
+            throw new RuntimeException(
+                sprintf('Invalid certificate file: "%s". Error: %s', $this->certificate, $error),
+            );
+        }
+
+        // Try an alternative route using shell_exec to allow legacy support
+        try {
+            $value = @shell_exec(
+                'openssl pkcs12 -in '.escapeshellarg($this->certificate)
+                .' -passin '.escapeshellarg('pass:'.$passphrase)
+                .' -passout '.escapeshellarg('pass:'.$passphrase)
+                .' -legacy',
+            );
+
+            if ($value) {
+                $certMatches = [];
+                $keyMatches = [];
+                // Search separately so that they can appear in either order
+                if (
+                    preg_match('/-----BEGIN CERTIFICATE-----.*-----END CERTIFICATE-----/s', $value, $certMatches)
+                    && preg_match(
+                        '/-----BEGIN ENCRYPTED PRIVATE KEY-----.*-----END ENCRYPTED PRIVATE KEY-----/s',
+                        $value,
+                        $keyMatches,
+                    )
+                ) {
+                    return ['cert' => $certMatches[0], 'pkey' => $keyMatches[0]];
+                }
+            }
+        } catch (\Throwable) {
+            // no need to do anything
+        }
+
+        throw new RuntimeException(sprintf('Invalid certificate file: "%s". Error: %s', $this->certificate, $error));
     }
 
     /**
