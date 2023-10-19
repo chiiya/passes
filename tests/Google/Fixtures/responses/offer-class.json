@@ -9,6 +9,12 @@
             "uri": "https://example.org/title.png"
         }
     },
+    "wideTitleImage": {
+        "kind": "walletobjects#image",
+        "sourceUri": {
+            "uri": "https://example.org/wide-title.png"
+        }
+    },
     "helpUri": {
         "uri": "https://example.org/help"
     },

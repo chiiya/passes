@@ -38,6 +38,12 @@ class GenericObject extends AbstractObject
 
     /**
      * Optional.
+     * The wide logo of the pass. When provided, this will be used in place of the logo in the top left of the card view.
+     */
+    public ?Image $wideLogo;
+
+    /**
+     * Optional.
      * The background color for the card. If not set, the dominant color of the hero image is used, and if no hero
      * image is set, the dominant color of the logo is used and if logo is not set, a color would be chosen by Google.
      */

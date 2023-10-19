@@ -31,6 +31,12 @@ class LoyaltyClass extends BaseClass
 
     /**
      * Optional.
+     * The wide logo of the loyalty program or company. When provided, this will be used in place of the program logo in the top left of the card view.
+     */
+    public ?Image $wideProgramLogo;
+
+    /**
+     * Optional.
      * The account name label, such as "Member Name." Recommended maximum length is 15 characters to
      * ensure full string is displayed on smaller screens.
      */
