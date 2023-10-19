@@ -26,6 +26,12 @@ class GiftCardClass extends BaseClass
 
     /**
      * Optional.
+     * The wide logo of the gift card program or company. When provided, this will be used in place of the program logo in the top left of the card view.
+     */
+    public ?Image $wideProgramLogo;
+
+    /**
+     * Optional.
      * The label to display for the PIN, such as "4-digit PIN".
      */
     public ?string $pinLabel;
