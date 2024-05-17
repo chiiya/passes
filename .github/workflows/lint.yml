@@ -4,11 +4,9 @@ jobs:
   lint:
     name: Linting
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
       - name: Setup PHP
@@ -25,6 +23,6 @@ jobs:
       - name: Rector Action
         run: ./vendor/bin/rector process
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Lint files
