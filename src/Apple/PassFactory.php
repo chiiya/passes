@@ -271,7 +271,7 @@ class PassFactory
         $allowed = $this->allowedImages[$class] ?? [];
 
         return in_array($name, $allowed, true)
-            || in_array($this->normalizeName($name), $allowed, true);
+               || in_array($this->normalizeName($name), $allowed, true);
     }
 
     /**
@@ -417,6 +417,7 @@ class PassFactory
     protected function openssl_pkcs12_read_wrapper(string $pkcs12, string $passphrase): array
     {
         $certs = [];
+
         // If the openssl_pkcs12_read function works ok, go with that
         if (openssl_pkcs12_read($pkcs12, $certs, $passphrase)) {
             return $certs;
@@ -437,31 +438,40 @@ class PassFactory
         }
 
         // Try an alternative route using shell_exec to allow legacy support
-        try {
-            $value = @shell_exec(
-                'openssl pkcs12 -in '.escapeshellarg($this->certificate)
-                .' -passin '.escapeshellarg('pass:'.$passphrase)
-                .' -passout '.escapeshellarg('pass:'.$passphrase)
-                .' -legacy',
-            );
+        // Try the shell_exec method with and without the -legacy flag
+        $commands = [
+            'openssl pkcs12 -in '.escapeshellarg($this->certificate)
+            .' -passin '.escapeshellarg('pass:'.$passphrase)
+            .' -passout '.escapeshellarg('pass:'.$passphrase),
+            'openssl pkcs12 -in '.escapeshellarg($this->certificate)
+            .' -passin '.escapeshellarg('pass:'.$passphrase)
+            .' -passout '.escapeshellarg('pass:'.$passphrase)
+            .' -legacy',
+        ];
 
-            if ($value) {
-                $certMatches = [];
-                $keyMatches = [];
-                // Search separately so that they can appear in either order
-                if (
-                    preg_match('/-----BEGIN CERTIFICATE-----.*-----END CERTIFICATE-----/s', $value, $certMatches)
-                    && preg_match(
-                        '/-----BEGIN ENCRYPTED PRIVATE KEY-----.*-----END ENCRYPTED PRIVATE KEY-----/s',
-                        $value,
-                        $keyMatches,
-                    )
-                ) {
-                    return ['cert' => $certMatches[0], 'pkey' => $keyMatches[0]];
+        foreach ($commands as $count => $command) {
+            try {
+                $value = @shell_exec($command);
+
+                if ($value) {
+                    $certMatches = [];
+                    $keyMatches = [];
+
+                    // Search separately so that they can appear in either order
+                    if (
+                        preg_match('/-----BEGIN CERTIFICATE-----.*-----END CERTIFICATE-----/s', $value, $certMatches)
+                        && preg_match(
+                            '/-----BEGIN ENCRYPTED PRIVATE KEY-----.*-----END ENCRYPTED PRIVATE KEY-----/s',
+                            $value,
+                            $keyMatches,
+                        )
+                    ) {
+                        return ['cert' => $certMatches[0], 'pkey' => $keyMatches[0]];
+                    }
                 }
+            } catch (Throwable) {
+                // no need to do anything
             }
-        } catch (Throwable) {
-            // no need to do anything
         }
 
         throw new RuntimeException(sprintf('Invalid certificate file: "%s". Error: %s', $this->certificate, $error));
