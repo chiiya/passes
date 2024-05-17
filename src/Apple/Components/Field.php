@@ -57,7 +57,7 @@ class Field extends Component
      * Value of the field.
      */
     #[Required]
-    public int|float|string|null $value;
+    public null|float|int|string $value;
 
     /**
      * Optional.
