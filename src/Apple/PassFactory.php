@@ -271,7 +271,7 @@ class PassFactory
         $allowed = $this->allowedImages[$class] ?? [];
 
         return in_array($name, $allowed, true)
-            || in_array($this->normalizeName($name), $allowed, true);
+               || in_array($this->normalizeName($name), $allowed, true);
     }
 
     /**
