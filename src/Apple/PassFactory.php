@@ -449,7 +449,7 @@ class PassFactory
             .' -legacy',
         ];
 
-        foreach ($commands as $count => $command) {
+        foreach ($commands as $command) {
             try {
                 $value = @shell_exec($command);
 
