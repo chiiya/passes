@@ -66,38 +66,23 @@ final class BarcodeType implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'aztec',
-            'code39',
-            'code128',
-            'codabar',
-            'dataMatrix',
-            'ean8',
-            'ean13',
-            'EAN13',
-            'itf14',
-            'pdf417',
-            'PDF417',
-            'qrCode',
-            'qrcode',
-            'upcA',
-            'textOnly',
-        ], [
-            self::AZTEC,
-            self::CODE_39,
-            self::CODE_128,
-            self::CODABAR,
-            self::DATA_MATRIX,
-            self::EAN_8,
-            self::EAN_13,
-            self::EAN_13,
-            self::ITF_14,
-            self::PDF_417,
-            self::PDF_417,
-            self::QR_CODE,
-            self::QR_CODE,
-            self::UPC_A,
-            self::TEXT_ONLY,
-        ], $value);
+        return match ($value) {
+            'aztec' => self::AZTEC,
+            'code39' => self::CODE_39,
+            'code128' => self::CODE_128,
+            'codabar' => self::CODABAR,
+            'dataMatrix' => self::DATA_MATRIX,
+            'ean8' => self::EAN_8,
+            'ean13' => self::EAN_13,
+            'EAN13' => self::EAN_13,
+            'itf14' => self::ITF_14,
+            'pdf417' => self::PDF_417,
+            'PDF417' => self::PDF_417,
+            'qrCode' => self::QR_CODE,
+            'qrcode' => self::QR_CODE,
+            'upcA' => self::UPC_A,
+            'textOnly' => self::TEXT_ONLY,
+            default => $value,
+        };
     }
 }

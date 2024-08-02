@@ -25,10 +25,11 @@ final class TicketStatus implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'used',
-            'refunded',
-            'exchanged',
-        ], [self::USED, self::REFUNDED, self::EXCHANGED], $value);
+        return match ($value) {
+            'used' => self::USED,
+            'refunded' => self::REFUNDED,
+            'exchanged' => self::EXCHANGED,
+            default => $value,
+        };
     }
 }

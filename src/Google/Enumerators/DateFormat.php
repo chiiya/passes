@@ -38,12 +38,13 @@ final class DateFormat implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'dateTime',
-            'dateOnly',
-            'timeOnly',
-            'dateTimeYear',
-            'dateYear',
-        ], [self::DATE_TIME, self::DATE_ONLY, self::TIME_ONLY, self::DATE_TIME_YEAR, self::DATE_YEAR], $value);
+        return match ($value) {
+            'dateTime' => self::DATE_TIME,
+            'dateOnly' => self::DATE_ONLY,
+            'timeOnly' => self::TIME_ONLY,
+            'dateTimeYear' => self::DATE_TIME_YEAR,
+            'dateYear' => self::DATE_YEAR,
+            default => $value,
+        };
     }
 }
