@@ -417,6 +417,7 @@ class PassFactory
     protected function openssl_pkcs12_read_wrapper(string $pkcs12, string $passphrase): array
     {
         $certs = [];
+
         // If the openssl_pkcs12_read function works ok, go with that
         if (openssl_pkcs12_read($pkcs12, $certs, $passphrase)) {
             return $certs;
@@ -448,6 +449,7 @@ class PassFactory
             if ($value) {
                 $certMatches = [];
                 $keyMatches = [];
+
                 // Search separately so that they can appear in either order
                 if (
                     preg_match('/-----BEGIN CERTIFICATE-----.*-----END CERTIFICATE-----/s', $value, $certMatches)
