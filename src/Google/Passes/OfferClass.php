@@ -58,6 +58,12 @@ class OfferClass extends BaseClass
 
     /**
      * Optional.
+     * The wide title image of the offer. When provided, this will be used in place of the title image in the top left of the card view.
+     */
+    public ?Image $wideTitleImage;
+
+    /**
+     * Optional.
      * The details of the offer.
      */
     public ?string $details;

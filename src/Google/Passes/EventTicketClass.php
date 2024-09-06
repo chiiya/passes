@@ -49,6 +49,12 @@ class EventTicketClass extends BaseClass
 
     /**
      * Optional.
+     * The wide logo of the ticket. When provided, this will be used in place of the logo in the top left of the card view.
+     */
+    public ?Image $wideLogo;
+
+    /**
+     * Optional.
      * Event venue details.
      */
     public ?EventVenue $venue;

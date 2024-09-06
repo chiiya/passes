@@ -41,6 +41,12 @@ class FlightCarrier extends Component
 
     /**
      * Optional.
+     * The wide logo image of the ticket. This image is displayed in the top title bar instead of the logo and card title.
+     */
+    public ?Image $wideAirlineLogo;
+
+    /**
+     * Optional.
      * A logo for the airline alliance, displayed above the QR code that the passenger scans to board.
      */
     public ?Image $airlineAllianceLogo;
