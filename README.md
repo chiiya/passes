@@ -26,7 +26,7 @@ First, acquire the necessary credentials and certificates as described in [docum
 ### Google Examples
 
 - [examples/google_offer.php](examples/google_offer.php)
-- [examples/google_generic_pass.php](examples/google_generic_pass.php)
+- [examples/google_generic.php](examples/google_generic.php)
 
 ## Testing
 
