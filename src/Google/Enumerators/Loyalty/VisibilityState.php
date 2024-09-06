@@ -25,10 +25,11 @@ final class VisibilityState implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'trustedTesters',
-            'live',
-            'disabled',
-        ], [self::TRUSTED_TESTERS, self::LIVE, self::DISABLED], $value);
+        return match ($value) {
+            'trustedTesters' => self::TRUSTED_TESTERS,
+            'live' => self::LIVE,
+            'disabled' => self::DISABLED,
+            default => $value,
+        };
     }
 }

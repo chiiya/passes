@@ -25,6 +25,11 @@ final class ConcessionCategory implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['adult', 'child', 'senior'], [self::ADULT, self::CHILD, self::SENIOR], $value);
+        return match ($value) {
+            'adult' => self::ADULT,
+            'child' => self::CHILD,
+            'senior' => self::SENIOR,
+            default => $value,
+        };
     }
 }

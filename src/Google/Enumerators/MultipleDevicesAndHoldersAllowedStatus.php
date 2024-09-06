@@ -30,10 +30,11 @@ final class MultipleDevicesAndHoldersAllowedStatus implements LegacyValueEnumera
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'multipleHolders',
-            'oneUserAllDevices',
-            'oneUserOneDevice',
-        ], [self::MULTIPLE_HOLDERS, self::ONE_USER_ALL_DEVICES, self::ONE_USER_ONE_DEVICE], $value);
+        return match ($value) {
+            'multipleHolders' => self::MULTIPLE_HOLDERS,
+            'oneUserAllDevices' => self::ONE_USER_ALL_DEVICES,
+            'oneUserOneDevice' => self::ONE_USER_ONE_DEVICE,
+            default => $value,
+        };
     }
 }

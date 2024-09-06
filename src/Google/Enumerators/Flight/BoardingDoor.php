@@ -22,6 +22,10 @@ final class BoardingDoor implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['front', 'back'], [self::FRONT, self::BACK], $value);
+        return match ($value) {
+            'front' => self::FRONT,
+            'back' => self::BACK,
+            default => $value,
+        };
     }
 }

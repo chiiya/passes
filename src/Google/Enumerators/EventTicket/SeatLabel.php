@@ -19,6 +19,9 @@ final class SeatLabel implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['seat'], [self::SEAT], $value);
+        return match ($value) {
+            'seat' => self::SEAT,
+            default => $value,
+        };
     }
 }

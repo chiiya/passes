@@ -30,10 +30,11 @@ final class TransitOption implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'originAndDestinationNames',
-            'originAndDestinationCodes',
-            'originName',
-        ], [self::ORIGIN_AND_DESTINATION_NAMES, self::ORIGIN_AND_DESTINATION_CODES, self::ORIGIN_NAME], $value);
+        return match ($value) {
+            'originAndDestinationNames' => self::ORIGIN_AND_DESTINATION_NAMES,
+            'originAndDestinationCodes' => self::ORIGIN_AND_DESTINATION_CODES,
+            'originName' => self::ORIGIN_NAME,
+            default => $value,
+        };
     }
 }

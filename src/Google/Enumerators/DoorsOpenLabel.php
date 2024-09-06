@@ -22,6 +22,10 @@ final class DoorsOpenLabel implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['doorsOpen', 'gatesOpen'], [self::DOORS_OPEN, self::GATES_OPEN], $value);
+        return match ($value) {
+            'doorsOpen' => self::DOORS_OPEN,
+            'gatesOpen' => self::GATES_OPEN,
+            default => $value,
+        };
     }
 }

@@ -25,6 +25,11 @@ final class GateLabel implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['gate', 'door', 'entrance'], [self::GATE, self::DOOR, self::ENTRANCE], $value);
+        return match ($value) {
+            'gate' => self::GATE,
+            'door' => self::DOOR,
+            'entrance' => self::ENTRANCE,
+            default => $value,
+        };
     }
 }

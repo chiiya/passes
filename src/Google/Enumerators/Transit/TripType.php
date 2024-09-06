@@ -22,6 +22,10 @@ final class TripType implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['roundTrip', 'oneWay'], [self::ROUND_TRIP, self::ONE_WAY], $value);
+        return match ($value) {
+            'roundTrip' => self::ROUND_TRIP,
+            'oneWay' => self::ONE_WAY,
+            default => $value,
+        };
     }
 }

@@ -42,13 +42,14 @@ final class FlightStatus implements LegacyValueEnumerator
 
     public function mapLegacyValues(string $value): string
     {
-        return str_replace(['scheduled', 'active', 'landed', 'cancelled', 'redirected', 'diverted'], [
-            self::SCHEDULED,
-            self::ACTIVE,
-            self::LANDED,
-            self::CANCELLED,
-            self::REDIRECTED,
-            self::DIVERTED,
-        ], $value);
+        return match ($value) {
+            'scheduled' => self::SCHEDULED,
+            'active' => self::ACTIVE,
+            'landed' => self::LANDED,
+            'cancelled' => self::CANCELLED,
+            'redirected' => self::REDIRECTED,
+            'diverted' => self::DIVERTED,
+            default => $value,
+        };
     }
 }
