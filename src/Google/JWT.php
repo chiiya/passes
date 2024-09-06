@@ -177,9 +177,8 @@ class JWT extends Component
      */
     public function sign(): string
     {
-        $payload = array_merge($this->except('key')->toArray(), [
-            'iat' => time(),
-        ]);
+        $payload = $this->removeEmptyValues($this->except('key')->toArray());
+        $payload['iat'] = time();
 
         return Encoder::encode($payload, $this->key, 'RS256');
     }
