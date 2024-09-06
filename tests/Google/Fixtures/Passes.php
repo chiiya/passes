@@ -20,6 +20,7 @@ use Chiiya\Passes\Google\Components\Generic\Notifications;
 use Chiiya\Passes\Google\Components\Generic\UpcomingNotification;
 use Chiiya\Passes\Google\Enumerators\BarcodeRenderEncoding;
 use Chiiya\Passes\Google\Enumerators\BarcodeType;
+use Chiiya\Passes\Google\Enumerators\Generic\GenericType;
 use Chiiya\Passes\Google\Enumerators\Offer\RedemptionChannel;
 use Chiiya\Passes\Google\Enumerators\ReviewStatus;
 use Chiiya\Passes\Google\Enumerators\State;
@@ -92,6 +93,7 @@ class Passes
     public static function genericObject(): array
     {
         return [
+            'genericType' => GenericType::GENERIC_TYPE_UNSPECIFIED,
             'id' => '1234567891234567891.fb1e9730-a83b-11ed-afa1-0242ac120002',
             'classId' => '1234567891234567891.718bf4ae-a7a5-11ed-afa1-0242ac120002',
             'cardTitle' => LocalizedString::make('en', 'Card title'),

@@ -1,6 +1,7 @@
 {
     "resources": [
         {
+            "genericType": "GENERIC_TYPE_UNSPECIFIED",
             "cardTitle": {
                 "kind": "walletobjects#localizedString",
                 "defaultValue": {
