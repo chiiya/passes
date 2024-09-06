@@ -11,6 +11,7 @@ use Google\Auth\HttpHandler\HttpClientCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Middleware\AuthTokenMiddleware;
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
 class GoogleAuthMiddleware
@@ -28,7 +29,7 @@ class GoogleAuthMiddleware
      */
     public static function getCache(): CacheItemPoolInterface
     {
-        if (self::$cache === null) {
+        if (! self::$cache instanceof CacheItemPoolInterface) {
             self::$cache = new MemoryCacheItemPool;
         }
 
@@ -56,7 +57,7 @@ class GoogleAuthMiddleware
             self::getCache(),
         );
 
-        if (($client = HttpClientCache::getHttpClient()) === null) {
+        if (! ($client = HttpClientCache::getHttpClient()) instanceof ClientInterface) {
             $client = new Client([
                 'base_uri' => self::BASE_URI,
             ]);
