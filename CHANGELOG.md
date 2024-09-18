@@ -2,6 +2,27 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v0.6.0 - 2024-09-18
+
+### What's Changed
+
+* Fix google example generic broken url by @skrskr in https://github.com/chiiya/passes/pull/32
+* Use match expressions in mapLegacyValues by @kauhat in https://github.com/chiiya/passes/pull/31
+* Resolve phpcsfixer warnings by @Jeroenwv in https://github.com/chiiya/passes/pull/29
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/chiiya/passes/pull/21
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/chiiya/passes/pull/23
+* Remove empty values before encoding by @Synchro in https://github.com/chiiya/passes/pull/25
+* Add support for the genericType field by @Synchro in https://github.com/chiiya/passes/pull/26
+* Add support for wide logo images by @Synchro in https://github.com/chiiya/passes/pull/27
+
+### New Contributors
+
+* @skrskr made their first contribution in https://github.com/chiiya/passes/pull/32
+* @kauhat made their first contribution in https://github.com/chiiya/passes/pull/31
+* @Jeroenwv made their first contribution in https://github.com/chiiya/passes/pull/29
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/0.5.0...0.6.0
+
 ## v0.5.0 - 2023-08-20
 
 ### What's Changed
