@@ -23,13 +23,16 @@
         "php": "^8.1",
         "ext-openssl": "*",
         "ext-zip": "*",
+        "antwerpes/data-transfer-object": "^1.0",
         "google/auth": "^1.18",
-        "spatie/data-transfer-object": "^3.7"
+        "spatie/data-transfer-object": "^3.7",
+        "symfony/validator": "^7.1"
     },
     "require-dev": {
         "chiiya/code-style-php": "^3.0",
         "phpro/grumphp": "^2.7",
         "phpunit/phpunit": "^11.3",
+        "symfony/var-dumper": "^7.1",
         "vlucas/phpdotenv": "^5.4"
     },
     "autoload": {
