@@ -2,22 +2,26 @@
 
 namespace Chiiya\Passes\Google\Components\Common\ClassTemplate;
 
+use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\MinItems;
-use Chiiya\Passes\Common\Validation\Required;
-use Spatie\DataTransferObject\Attributes\CastWith;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
+use Symfony\Component\Validator\Constraints\Count;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class FieldSelector extends Component
 {
-    /**
-     * Required.
-     * If more than one reference is supplied, then the first one that references a non-empty field will be displayed.
-     *
-     * @var FieldReference[]
-     */
-    #[CastWith(ArrayCaster::class, FieldReference::class)]
-    #[Required]
-    #[MinItems(1)]
-    public array $fields = [];
+    public function __construct(
+        /**
+         * Required.
+         * If more than one reference is supplied, then the first one that references a non-empty field will be displayed.
+         *
+         * @var FieldReference[]
+         */
+        #[Cast(ArrayCaster::class, FieldReference::class)]
+        #[NotBlank]
+        #[Count(min: 1)]
+        public array $fields = [],
+    ) {
+        parent::__construct();
+    }
 }

@@ -3,23 +3,25 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TotpParameters extends Component
 {
-    /**
-     * Required.
-     * The secret key used for the TOTP value generation, encoded as a Base16 string.
-     */
-    #[Required]
-    public ?string $key;
-
-    /**
-     * Required.
-     * The length of the TOTP value in decimal digits.
-     */
-    #[Required]
-    public ?int $valueLength;
+    public function __construct(
+        /**
+         * Required.
+         * The secret key used for the TOTP value generation, encoded as a Base16 string.
+         */
+        #[NotBlank]
+        public string $key,
+        /**
+         * Required.
+         * The length of the TOTP value in decimal digits.
+         */
+        public int $valueLength,
+    ) {
+        parent::__construct();
+    }
 
     /**
      * Helper method for creating new localized string, eg:

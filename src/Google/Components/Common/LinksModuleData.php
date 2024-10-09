@@ -2,17 +2,21 @@
 
 namespace Chiiya\Passes\Google\Components\Common;
 
+use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Common\Component;
-use Spatie\DataTransferObject\Attributes\CastWith;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class LinksModuleData extends Component
 {
-    /**
-     * The list of URIs.
-     *
-     * @var Uri[]
-     */
-    #[CastWith(ArrayCaster::class, Uri::class)]
-    public array $uris = [];
+    public function __construct(
+        /**
+         * The list of URIs.
+         *
+         * @var Uri[]
+         */
+        #[Cast(ArrayCaster::class, Uri::class)]
+        public array $uris = [],
+    ) {
+        parent::__construct();
+    }
 }

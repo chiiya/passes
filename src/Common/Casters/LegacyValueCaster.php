@@ -2,28 +2,36 @@
 
 namespace Chiiya\Passes\Common\Casters;
 
+use Antwerpes\DataTransferObject\CastsProperty;
 use Chiiya\Passes\Common\LegacyValueEnumerator;
-use LogicException;
-use Spatie\DataTransferObject\Caster;
 
-class LegacyValueCaster implements Caster
+class LegacyValueCaster implements CastsProperty
 {
     public function __construct(
-        private array $types,
-        private string $enum,
+        private readonly string $enum,
     ) {}
 
-    public function cast(mixed $value): string
+    public function unserialize(mixed $value): ?string
     {
-        foreach ($this->types as $type) {
-            if ($type === 'string') {
-                /** @var LegacyValueEnumerator $enum */
-                $enum = new $this->enum;
-
-                return $enum->mapLegacyValues($value);
-            }
+        if ($value === null) {
+            return null;
         }
 
-        throw new LogicException('Caster [LegacyValueCaster] may only be used to cast strings.');
+        /** @var LegacyValueEnumerator $enum */
+        $enum = new $this->enum;
+
+        return $enum->mapLegacyValues($value);
+    }
+
+    public function serialize(mixed $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        /** @var LegacyValueEnumerator $enum */
+        $enum = new $this->enum;
+
+        return $enum->mapLegacyValues($value);
     }
 }

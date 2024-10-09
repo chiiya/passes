@@ -3,16 +3,11 @@
 namespace Chiiya\Passes\Common\Casters;
 
 use DateTimeInterface;
-use Spatie\DataTransferObject\Caster;
 
-class W3CDateCaster implements Caster
+class W3CDateCaster extends DateCaster
 {
-    public function cast(mixed $value): string
+    protected function format(): string
     {
-        if ($value instanceof DateTimeInterface) {
-            return $value->format(DateTimeInterface::W3C);
-        }
-
-        return (string) $value;
+        return DateTimeInterface::W3C;
     }
 }

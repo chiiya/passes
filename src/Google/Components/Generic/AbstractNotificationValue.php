@@ -7,10 +7,13 @@ use Chiiya\Passes\Common\Validation\Required;
 
 abstract class AbstractNotificationValue extends Component
 {
-    /**
-     * Required.
-     * Indicates that the issuer would like GooglePay to send notifications.
-     */
-    #[Required]
-    public ?bool $enableNotification;
+    public function __construct(
+        /**
+         * Required.
+         * Indicates that the issuer would like GooglePay to send notifications.
+         */
+        public bool $enableNotification,
+    ) {
+        parent::__construct();
+    }
 }

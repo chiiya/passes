@@ -2,15 +2,17 @@
 
 namespace Chiiya\Passes\Google\Responses;
 
-use Chiiya\Passes\Common\Component;
+use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Google\Passes\TransitClass;
-use Spatie\DataTransferObject\Attributes\CastWith;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
 
-class TransitClassesResponse extends Component
+class TransitClassesResponse extends PaginatedResponse
 {
-    use HasPagination;
-
-    #[CastWith(ArrayCaster::class, TransitClass::class)]
-    public array $resources = [];
+    public function __construct(
+        #[Cast(ArrayCaster::class, TransitClass::class)]
+        public array $resources = [],
+        ...$args,
+    ) {
+        parent::__construct(...$args);
+    }
 }

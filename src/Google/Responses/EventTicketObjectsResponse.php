@@ -2,15 +2,17 @@
 
 namespace Chiiya\Passes\Google\Responses;
 
-use Chiiya\Passes\Common\Component;
+use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Google\Passes\EventTicketObject;
-use Spatie\DataTransferObject\Attributes\CastWith;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
 
-class EventTicketObjectsResponse extends Component
+class EventTicketObjectsResponse extends PaginatedResponse
 {
-    use HasPagination;
-
-    #[CastWith(ArrayCaster::class, EventTicketObject::class)]
-    public array $resources = [];
+    public function __construct(
+        #[Cast(ArrayCaster::class, EventTicketObject::class)]
+        public array $resources = [],
+        ...$args,
+    ) {
+        parent::__construct(...$args);
+    }
 }

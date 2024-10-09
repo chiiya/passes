@@ -11,37 +11,36 @@ use Chiiya\Passes\Apple\Passes\EventTicket;
 use Chiiya\Passes\Apple\PassFactory;
 use Chiiya\Passes\Exceptions\ValidationException;
 use Chiiya\Passes\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Group;
 
 class PassFactoryTest extends TestCase
 {
     protected PassFactory $factory;
 
+    #[Group('apple')]
     public function test_create_pass(): void
     {
-        $pass = new Coupon([
-            'description' => 'Example description',
-            'organizationName' => 'ACME',
-            'passTypeIdentifier' => 'pass.com.acme.test',
-            'serialNumber' => '1890038600058',
-            'teamIdentifier' => '12345ABCD',
-            'primaryFields' => [new Field(key: 'primary', value: '::value::', label: 'Coupon')],
-        ]);
+        $pass = new Coupon(
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '1890038600058',
+            teamIdentifier: '12345ABCD',
+            primaryFields: [new Field(key: 'primary', value: '::value::', label: 'Coupon')],
+        );
         $pass
             ->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png')))
             ->addImage(new Image(realpath(__DIR__.'/Fixtures/icon@2x.png'), ImageType::ICON, 2))
-            ->addLocalization(new Localization([
-                'language' => 'en',
-                'strings' => [
-                    'EXAMPLE' => 'Free Breakfast',
-                ],
+            ->addLocalization(new Localization(language: 'en', strings: [
+                'EXAMPLE' => 'Free Breakfast',
             ]))
-            ->addLocalization(new Localization([
-                'language' => 'de',
-                'strings' => [
+            ->addLocalization(new Localization(
+                language: 'de',
+                strings: [
                     'EXAMPLE' => 'Free Breakfast',
                 ],
-                'images' => [new Image(realpath(__DIR__.'/Fixtures/icon.png'), 'icon')],
-            ]));
+                images: [new Image(realpath(__DIR__.'/Fixtures/icon.png'), 'icon')],
+            ));
         $this->factory->setCertificate(getenv('PASSES_APPLE_CERT'));
         $this->factory->setPassword(getenv('PASSES_APPLE_PASSWORD'));
         $this->factory->setWwdr(getenv('PASSES_APPLE_WWDR'));
@@ -51,16 +50,17 @@ class PassFactoryTest extends TestCase
         $this->assertFileExists(__DIR__.'/1890038600058.pkpass');
     }
 
+    #[Group('apple')]
     public function test_that_it_can_skip_signature(): void
     {
-        $pass = new EventTicket([
-            'description' => 'Example description',
-            'organizationName' => 'ACME',
-            'passTypeIdentifier' => 'pass.com.acme.test',
-            'serialNumber' => '2890038600058',
-            'teamIdentifier' => '12345ABCD',
-            'primaryFields' => [new Field(key: 'primary', value: '::value::', label: 'Coupon')],
-        ]);
+        $pass = new EventTicket(
+            primaryFields: [new Field(key: 'primary', value: '::value::', label: 'Coupon')],
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '2890038600058',
+            teamIdentifier: '12345ABCD',
+        );
         $pass->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png'), 'icon'));
         $this->factory->setSkipSignature(true);
         $this->factory->setOutput(__DIR__);
@@ -68,15 +68,16 @@ class PassFactoryTest extends TestCase
         $this->assertFileExists(__DIR__.'/2890038600058.pkpass');
     }
 
+    #[Group('apple')]
     public function test_that_image_format_is_validated(): void
     {
-        $pass = new Coupon([
-            'description' => 'Example description',
-            'organizationName' => 'ACME',
-            'passTypeIdentifier' => 'pass.com.acme.test',
-            'serialNumber' => '1890038600058',
-            'teamIdentifier' => '12345ABCD',
-        ]);
+        $pass = new Coupon(
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '1890038600058',
+            teamIdentifier: '12345ABCD',
+        );
         $pass->addImage(new Image(realpath(__DIR__.'/Fixtures/format.jpg'), 'icon'));
         $this->factory->setSkipSignature(true);
         $this->factory->setOutput(__DIR__);
@@ -85,15 +86,16 @@ class PassFactoryTest extends TestCase
         $this->factory->create($pass);
     }
 
+    #[Group('apple')]
     public function test_that_image_type_is_validated(): void
     {
-        $pass = new Coupon([
-            'description' => 'Example description',
-            'organizationName' => 'ACME',
-            'passTypeIdentifier' => 'pass.com.acme.test',
-            'serialNumber' => '1890038600058',
-            'teamIdentifier' => '12345ABCD',
-        ]);
+        $pass = new Coupon(
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '1890038600058',
+            teamIdentifier: '12345ABCD',
+        );
         $pass->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png'), ImageType::BACKGROUND));
         $this->factory->setSkipSignature(true);
         $this->factory->setOutput(__DIR__);
@@ -116,15 +118,16 @@ class PassFactoryTest extends TestCase
         }
     }
 
+    #[Group('apple')]
     public function test_that_it_validates_illegal_image_combination(): void
     {
-        $pass = new EventTicket([
-            'description' => 'Example description',
-            'organizationName' => 'ACME',
-            'passTypeIdentifier' => 'pass.com.acme.test',
-            'serialNumber' => '1890038600058',
-            'teamIdentifier' => '12345ABCD',
-        ]);
+        $pass = new EventTicket(
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '1890038600058',
+            teamIdentifier: '12345ABCD',
+        );
         $pass
             ->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png'), ImageType::ICON))
             ->addImage(new Image(realpath(__DIR__.'/Fixtures/icon.png'), ImageType::STRIP))
@@ -136,6 +139,21 @@ class PassFactoryTest extends TestCase
         $this->factory->setSkipSignature(true);
         $this->factory->setOutput(__DIR__);
         $this->factory->create($pass);
+    }
+
+    #[Group('apple')]
+    public function test_validation(): void
+    {
+        $this->expectException(ValidationException::class);
+        $this->expectExceptionMessageMatches('/Field.dateStyle: The value you selected is not a valid choice./');
+        new Coupon(
+            description: 'Example description',
+            organizationName: 'ACME',
+            passTypeIdentifier: 'pass.com.acme.test',
+            serialNumber: '1890038600058',
+            teamIdentifier: '12345ABCD',
+            primaryFields: [new Field(key: 'primary', value: '::value::', label: 'Coupon', dateStyle: '::invalid::')],
+        );
     }
 
     protected function setUp(): void

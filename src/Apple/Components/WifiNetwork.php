@@ -3,23 +3,24 @@
 namespace Chiiya\Passes\Apple\Components;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-#[Strict]
 class WifiNetwork extends Component
 {
-    /**
-     * Required.
-     * The password for the WiFi network.
-     */
-    #[Required]
-    public ?string $password;
-
-    /**
-     * Required.
-     * The name for the WiFi network.
-     */
-    #[Required]
-    public ?string $ssid;
+    public function __construct(
+        /**
+         * Required.
+         * The password for the WiFi network.
+         */
+        #[NotBlank]
+        public string $password,
+        /**
+         * Required.
+         * The name for the WiFi network.
+         */
+        #[NotBlank]
+        public string $ssid,
+    ) {
+        parent::__construct();
+    }
 }

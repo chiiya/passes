@@ -4,9 +4,11 @@ namespace Chiiya\Passes\Tests\Apple\Components;
 
 use Chiiya\Passes\Apple\Components\Beacon;
 use Chiiya\Passes\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Group;
 
 class BeaconTest extends TestCase
 {
+    #[Group('apple')]
     public function test_attributes(): void
     {
         $attributes = [
@@ -15,7 +17,7 @@ class BeaconTest extends TestCase
             'minor' => 234,
             'relevantText' => "You're near my store",
         ];
-        $component = new Beacon($attributes);
-        $this->assertSameArray($attributes, $component->toArray());
+        $component = new Beacon(...$attributes);
+        $this->assertSameArray($attributes, $component->encode());
     }
 }
