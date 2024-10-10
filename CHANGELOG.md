@@ -2,6 +2,100 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v1.0.0 - 2024-10-10
+
+### What's Changed
+
+* Replaced deprecated `spatie/data-transfer-object` with `antwerpes/data-transfer-object`
+
+### Breaking Changes
+
+Replacing the package required several minor breaking changes:
+
+#### Error Messages
+
+In case you were manually matching and handling error messages (e.g. validation), these have now changed.
+
+#### Array Constructor Notation
+
+While not encouraged before, it was possible to pass an array as the only constructor argument to all classes. This is no longer possible. Use either the `::decode($array)` function or named parameters:
+
+```php
+// Before
+$pass = new Coupon([
+    'description' => '15% off purchases',
+    'organizationName' => 'ACME',
+    'passTypeIdentifier' => 'pass.acme.wallet',
+    'serialNumber' => '1464194291627',
+    'headerFields' => [
+        ['key' => 'coupon-type', 'value' => '#15-percent']
+    ],
+]);
+
+// After
+$pass = new Coupon(
+    description: '15% off purchases',
+    organizationName: 'ACME',
+    passTypeIdentifier: 'pass.acme.wallet',
+    serialNumber: '1464194291627',
+    teamIdentifier: '123456789',
+    headerFields: [
+        new SecondaryField(key: 'coupon-type', value: "#15-percent"),
+    ],
+);
+
+// Or alternatively
+$pass = Coupon::decode([
+    'description' => '15% off purchases',
+    'organizationName' => 'ACME',
+    'passTypeIdentifier' => 'pass.acme.wallet',
+    'serialNumber' => '1464194291627',
+    'headerFields' => [
+        ['key' => 'coupon-type', 'value' => '#15-percent']
+    ],
+]);
+
+```
+**Important:** The only documented example was the `JWT` class, for which this behavior has also changed:
+
+```php
+// Before
+$jwt = (new JWT([
+    'iss' => $credentials->client_email,
+    'key' => $credentials->private_key,
+    'origins' => ['https://example.org'],
+]))->addOfferObject($object)->sign();
+
+// After
+$jwt = (new JWT(
+    iss: $credentials->client_email,
+    key: $credentials->private_key,
+    origins: ['https://example.org'],
+))->addOfferObject($object)->sign();
+
+```
+#### Casts During Object Construction
+
+Casts are no longer applied when the constructor is executed, but only during the `encode()` oder `decode()` functions. In practice that means that:
+
+- You can still pass `DateTime` objects to date fields, they will be casted to string when encoded and serialized, just as before.
+- Legacy values are only casted when decoding responses from Google, not when you supply legacy values to the constructor. This may lead to errors if you're still using legacy values in your application.
+
+```php
+use Chiiya\Passes\Google\Enumerators\Offer\RedemptionChannel;
+
+// Before, this used to work
+$class = new OfferClass(
+    redemptionChannel: 'instore',
+);
+// Now should use valid values
+$class = new OfferClass(
+    redemptionChannel: RedemptionChannel::INSTORE,
+);
+
+```
+**Full Changelog**: https://github.com/chiiya/passes/compare/0.6.0...1.0.0
+
 ## v0.6.0 - 2024-09-18
 
 ### What's Changed
