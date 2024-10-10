@@ -2,21 +2,16 @@
 
 namespace Chiiya\Passes\Apple\Passes;
 
-use Chiiya\Passes\Apple\Traits\HasFields;
-use Spatie\DataTransferObject\Arr;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Chiiya\Passes\Common\ArrayHelper;
 
-#[Strict]
 class Coupon extends Pass
 {
-    use HasFields;
-
-    public function toArray(): array
+    public function encode(): array
     {
-        $array = parent::toArray();
-        $fields = Arr::only($array, $this->fields());
+        $array = parent::encode();
+        $fields = ArrayHelper::only($array, $this->fields());
 
-        return array_merge(Arr::except($array, $this->fields()), [
+        return array_merge(ArrayHelper::except($array, $this->fields()), [
             'coupon' => $fields,
         ]);
     }

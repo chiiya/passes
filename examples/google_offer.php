@@ -24,15 +24,15 @@ $client = GoogleClient::createAuthenticatedClient($credentials);
 $repository = new OfferClassRepository($client);
 
 $class = new OfferClass(
-    id: '1234567890123456789.coupon-15',
-    issuerName: 'ACME',
-    reviewStatus: ReviewStatus::UNDER_REVIEW,
     title: '15% off purchases',
     redemptionChannel: RedemptionChannel::INSTORE,
     provider: 'ACME',
     titleImage: Image::make('https://example.org/title.png'),
     helpUri: Uri::make('https://example.org/help'),
     localizedDetails: LocalizedString::make('en', '::value::'),
+    id: '1234567890123456789.coupon-15',
+    issuerName: 'ACME',
+    reviewStatus: ReviewStatus::UNDER_REVIEW,
     imageModulesData: [
         new ImageModuleData(mainImage: Image::make('https://example.org/wallet.png')),
     ],
@@ -60,8 +60,8 @@ $object = new OfferObject(
     ),
 );
 
-$jwt = (new JWT([
-    'iss' => $credentials->client_email,
-    'key' => $credentials->private_key,
-    'origins' => ['https://example.org'],
-]))->addOfferObject($object)->sign();
+$jwt = (new JWT(
+    iss: $credentials->client_email,
+    key: $credentials->private_key,
+    origins: ['https://example.org'],
+))->addOfferObject($object)->sign();

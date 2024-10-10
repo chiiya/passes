@@ -3,40 +3,39 @@
 namespace Chiiya\Passes\Apple\Components;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\NumberBetween;
-use Chiiya\Passes\Common\Validation\Required;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Range;
 
 /**
  * @since iOS v7.0
  */
-#[Strict]
 class Beacon extends Component
 {
-    /**
-     * Optional.
-     * Major identifier of a Bluetooth Low Energy location beacon.
-     */
-    #[NumberBetween(0, 65535)]
-    public ?int $major;
-
-    /**
-     * Optional.
-     * Minor identifier of a Bluetooth Low Energy location beacon.
-     */
-    #[NumberBetween(0, 65535)]
-    public ?int $minor;
-
-    /**
-     * Required.
-     * Unique identifier of a Bluetooth Low Energy location beacon.
-     */
-    #[Required]
-    public ?string $proximityUUID;
-
-    /**
-     * Optional.
-     * Text displayed on the lock screen when the pass is currently relevant.
-     */
-    public ?string $relevantText;
+    public function __construct(
+        /**
+         * Required.
+         * Unique identifier of a Bluetooth Low Energy location beacon.
+         */
+        #[NotBlank]
+        public string $proximityUUID,
+        /**
+         * Optional.
+         * Major identifier of a Bluetooth Low Energy location beacon.
+         */
+        #[Range(min: 0, max: 65535)]
+        public ?int $major = null,
+        /**
+         * Optional.
+         * Minor identifier of a Bluetooth Low Energy location beacon.
+         */
+        #[Range(min: 0, max: 65535)]
+        public ?int $minor = null,
+        /**
+         * Optional.
+         * Text displayed on the lock screen when the pass is currently relevant.
+         */
+        public ?string $relevantText = null,
+    ) {
+        parent::__construct();
+    }
 }

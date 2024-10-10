@@ -3,17 +3,21 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
-use Chiiya\Passes\Common\Validation\ValueIn;
 use Chiiya\Passes\Google\Enumerators\AnimationType;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class SecurityAnimation extends Component
 {
-    /**
-     * Required.
-     * Type of animation.
-     */
-    #[Required]
-    #[ValueIn([AnimationType::ANIMATION_UNSPECIFIED, AnimationType::FOIL_SHIMMER])]
-    public ?string $animationType;
+    public function __construct(
+        /**
+         * Required.
+         * Type of animation.
+         */
+        #[NotBlank]
+        #[Choice([AnimationType::ANIMATION_UNSPECIFIED, AnimationType::FOIL_SHIMMER])]
+        public string $animationType,
+    ) {
+        parent::__construct();
+    }
 }

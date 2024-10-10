@@ -64,7 +64,7 @@ final class BarcodeType implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'aztec' => self::AZTEC,
@@ -73,13 +73,10 @@ final class BarcodeType implements LegacyValueEnumerator
             'codabar' => self::CODABAR,
             'dataMatrix' => self::DATA_MATRIX,
             'ean8' => self::EAN_8,
-            'ean13' => self::EAN_13,
-            'EAN13' => self::EAN_13,
+            'ean13', 'EAN13' => self::EAN_13,
             'itf14' => self::ITF_14,
-            'pdf417' => self::PDF_417,
-            'PDF417' => self::PDF_417,
-            'qrCode' => self::QR_CODE,
-            'qrcode' => self::QR_CODE,
+            'pdf417', 'PDF417' => self::PDF_417,
+            'qrCode', 'qrcode' => self::QR_CODE,
             'upcA' => self::UPC_A,
             'textOnly' => self::TEXT_ONLY,
             default => $value,

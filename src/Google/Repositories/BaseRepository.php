@@ -25,7 +25,7 @@ abstract class BaseRepository
         $class = $this->getInstanceClass();
         $response = $this->client->get($this->buildEntityUrl($id));
 
-        return new $class($response);
+        return $class::decode($response);
     }
 
     /**
@@ -37,7 +37,7 @@ abstract class BaseRepository
         $class = $this->getInstanceClass();
         $response = $this->client->post($this->buildResourceUrl(), $instance);
 
-        return new $class($response);
+        return $class::decode($response);
     }
 
     /**
@@ -49,7 +49,7 @@ abstract class BaseRepository
         $class = $this->getInstanceClass();
         $response = $this->client->put($this->buildEntityUrl($instance->id), $instance);
 
-        return new $class($response);
+        return $class::decode($response);
     }
 
     /**

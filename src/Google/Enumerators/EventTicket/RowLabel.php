@@ -17,7 +17,7 @@ final class RowLabel implements LegacyValueEnumerator
         return [self::ROW_LABEL_UNSPECIFIED, self::ROW];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'row' => self::ROW,

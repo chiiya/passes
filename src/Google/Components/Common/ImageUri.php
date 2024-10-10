@@ -3,10 +3,14 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ImageUri extends Component
 {
-    #[Required]
-    public ?string $uri;
+    public function __construct(
+        #[NotBlank]
+        public string $uri,
+    ) {
+        parent::__construct();
+    }
 }

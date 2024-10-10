@@ -28,7 +28,7 @@ final class TransitOption implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'originAndDestinationNames' => self::ORIGIN_AND_DESTINATION_NAMES,

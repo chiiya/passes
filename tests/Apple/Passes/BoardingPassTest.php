@@ -6,22 +6,24 @@ use Chiiya\Passes\Apple\Enumerators\TransitType;
 use Chiiya\Passes\Apple\Passes\BoardingPass;
 use Chiiya\Passes\Tests\Apple\Fixtures\Components;
 use Chiiya\Passes\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Group;
 
 class BoardingPassTest extends TestCase
 {
+    #[Group('apple')]
     public function test_is_serialized_correctly(): void
     {
         $attributes = array_merge(Components::passAttributes(), Components::fields(), [
             'groupingIdentifier' => 'ID-123',
             'transitType' => TransitType::AIR,
         ]);
-        $pass = new BoardingPass($attributes);
+        $pass = new BoardingPass(...$attributes);
         $expected = array_merge(Components::passAttributes(), Components::nullablePassAttributes(), [
             'boardingPass' => array_merge(Components::fieldValues(), [
                 'transitType' => TransitType::AIR,
             ]),
             'groupingIdentifier' => 'ID-123',
         ]);
-        $this->assertSameArray($expected, $pass->toArray());
+        $this->assertSameArray($expected, $pass->encode());
     }
 }

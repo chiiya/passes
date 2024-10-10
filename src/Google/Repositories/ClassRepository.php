@@ -18,6 +18,6 @@ abstract class ClassRepository extends BaseRepository implements ClassRepository
         $class = $this->getResponseClass();
         $response = $this->client->get($url);
 
-        return new $class($response);
+        return $class::decode($response);
     }
 }

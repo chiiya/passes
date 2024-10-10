@@ -32,7 +32,7 @@ final class SeatClassPolicy implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'cabinBased' => self::CABIN_BASED,

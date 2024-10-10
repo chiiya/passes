@@ -3,23 +3,24 @@
 namespace Chiiya\Passes\Apple\Components;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-#[Strict]
 class SemanticLocation extends Component
 {
-    /**
-     * Required.
-     * Latitude, in degrees, of the location.
-     */
-    #[Required]
-    public ?float $latitude;
-
-    /**
-     * Required.
-     * Longitude, in degrees, of the location.
-     */
-    #[Required]
-    public ?float $longitude;
+    public function __construct(
+        /**
+         * Required.
+         * Latitude, in degrees, of the location.
+         */
+        #[NotBlank]
+        public float $latitude,
+        /**
+         * Required.
+         * Longitude, in degrees, of the location.
+         */
+        #[NotBlank]
+        public float $longitude,
+    ) {
+        parent::__construct();
+    }
 }

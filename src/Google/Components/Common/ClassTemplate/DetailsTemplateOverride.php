@@ -2,20 +2,24 @@
 
 namespace Chiiya\Passes\Google\Components\Common\ClassTemplate;
 
+use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
-use Spatie\DataTransferObject\Attributes\CastWith;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class DetailsTemplateOverride extends Component
 {
-    /**
-     * Required.
-     * Information for the "nth" item displayed in the details list.
-     *
-     * @var FieldReference[]
-     */
-    #[CastWith(ArrayCaster::class, DetailsItemInfo::class)]
-    #[Required]
-    public array $detailsItemInfos = [];
+    public function __construct(
+        /**
+         * Required.
+         * Information for the "nth" item displayed in the details list.
+         *
+         * @var FieldReference[]
+         */
+        #[Cast(ArrayCaster::class, DetailsItemInfo::class)]
+        #[NotBlank]
+        public array $detailsItemInfos = [],
+    ) {
+        parent::__construct();
+    }
 }

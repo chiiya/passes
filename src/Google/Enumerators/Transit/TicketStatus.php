@@ -23,7 +23,7 @@ final class TicketStatus implements LegacyValueEnumerator
         return [self::TICKET_STATUS_UNSPECIFIED, self::USED, self::REFUNDED, self::EXCHANGED];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'used' => self::USED,

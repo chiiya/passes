@@ -4,5 +4,5 @@ namespace Chiiya\Passes\Common;
 
 interface LegacyValueEnumerator
 {
-    public function mapLegacyValues(string $value): string;
+    public static function mapLegacyValues(string $value): string;
 }

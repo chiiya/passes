@@ -3,14 +3,16 @@
 namespace Chiiya\Passes\Google\Components\Common\ClassTemplate;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
 
 class BarcodeSectionDetail extends Component
 {
-    /**
-     * Required.
-     * A reference to an existing text-based or image field to display.
-     */
-    #[Required]
-    public ?FieldSelector $fieldSelector;
+    public function __construct(
+        /**
+         * Required.
+         * A reference to an existing text-based or image field to display.
+         */
+        public FieldSelector $fieldSelector,
+    ) {
+        parent::__construct();
+    }
 }

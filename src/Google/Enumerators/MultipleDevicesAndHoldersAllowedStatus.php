@@ -28,7 +28,7 @@ final class MultipleDevicesAndHoldersAllowedStatus implements LegacyValueEnumera
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'multipleHolders' => self::MULTIPLE_HOLDERS,

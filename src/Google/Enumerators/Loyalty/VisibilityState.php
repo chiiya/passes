@@ -23,7 +23,7 @@ final class VisibilityState implements LegacyValueEnumerator
         return [self::STATE_UNSPECIFIED, self::TRUSTED_TESTERS, self::LIVE, self::DISABLED];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'trustedTesters' => self::TRUSTED_TESTERS,

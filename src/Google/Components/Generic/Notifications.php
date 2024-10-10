@@ -12,6 +12,10 @@ use Chiiya\Passes\Common\Component;
  */
 class Notifications extends Component
 {
-    public ?ExpiryNotification $expiryNotification;
-    public ?UpcomingNotification $upcomingNotification;
+    public function __construct(
+        public ?ExpiryNotification $expiryNotification = null,
+        public ?UpcomingNotification $upcomingNotification = null,
+    ) {
+        parent::__construct();
+    }
 }

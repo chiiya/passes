@@ -2,23 +2,29 @@
 
 namespace Chiiya\Passes\Apple\Passes;
 
-use Chiiya\Passes\Apple\Traits\HasFields;
-use Chiiya\Passes\Apple\Traits\HasGroupingIdentifier;
-use Spatie\DataTransferObject\Arr;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Chiiya\Passes\Common\ArrayHelper;
 
-#[Strict]
 class EventTicket extends Pass
 {
-    use HasFields;
-    use HasGroupingIdentifier;
+    public function __construct(
+        /**
+         * Optional.
+         * Identifier used to group related passes. If a grouping identifier is specified, passes with the same style,
+         * pass type identifier, and grouping identifier are displayed as a group. Otherwise, passes are grouped
+         * automatically.
+         */
+        public ?string $groupingIdentifier = null,
+        ...$args,
+    ) {
+        parent::__construct(...$args);
+    }
 
-    public function toArray(): array
+    public function encode(): array
     {
-        $array = parent::toArray();
-        $fields = Arr::only($array, $this->fields());
+        $array = parent::encode();
+        $fields = ArrayHelper::only($array, $this->fields());
 
-        return array_merge(Arr::except($array, $this->fields()), [
+        return array_merge(ArrayHelper::except($array, $this->fields()), [
             'eventTicket' => $fields,
         ]);
     }

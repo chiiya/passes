@@ -3,16 +3,20 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Image extends Component
 {
-    /**
-     * Required.
-     * The location of the image. URIs must have a scheme.
-     */
-    #[Required]
-    public ?ImageUri $sourceUri;
+    public function __construct(
+        /**
+         * Required.
+         * The location of the image. URIs must have a scheme.
+         */
+        #[NotBlank]
+        public ImageUri $sourceUri,
+    ) {
+        parent::__construct();
+    }
 
     /**
      * Helper method for creating new localized string:

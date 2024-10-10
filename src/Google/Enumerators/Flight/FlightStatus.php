@@ -40,7 +40,7 @@ final class FlightStatus implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'scheduled' => self::SCHEDULED,

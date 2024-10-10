@@ -3,21 +3,29 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TranslatedString extends Component
 {
-    /**
-     * Required.
-     * Represents the BCP 47 language tag. Example values are "en-US", "en-GB", "de", or "de-AT".
-     */
-    #[Required]
-    public ?string $language;
+    public function __construct(
+        /**
+         * Required.
+         * Represents the BCP 47 language tag. Example values are "en-US", "en-GB", "de", or "de-AT".
+         */
+        #[NotBlank]
+        public string $language,
+        /**
+         * Required.
+         * The UTF-8 encoded translated string.
+         */
+        #[NotBlank]
+        public string $value,
+    ) {
+        parent::__construct();
+    }
 
-    /**
-     * Required.
-     * The UTF-8 encoded translated string.
-     */
-    #[Required]
-    public ?string $value;
+    public static function create(array $values): static
+    {
+        return new self(...$values);
+    }
 }
