@@ -18,6 +18,6 @@ abstract class ObjectRepository extends BaseRepository implements ObjectReposito
         $class = $this->getResponseClass();
         $response = $this->client->get($url);
 
-        return new $class($response);
+        return $class::decode($response);
     }
 }

@@ -5,6 +5,7 @@ namespace Chiiya\Passes\Google\Components\Common;
 use Antwerpes\DataTransferObject\Attributes\Cast;
 use Chiiya\Passes\Common\Casters\ISO8601DateCaster;
 use Chiiya\Passes\Common\Component;
+use DateTimeInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class DateTime extends Component
@@ -16,7 +17,7 @@ class DateTime extends Component
          */
         #[NotBlank]
         #[Cast(ISO8601DateCaster::class)]
-        public string $date,
+        public DateTimeInterface|string $date,
     ) {
         parent::__construct();
     }

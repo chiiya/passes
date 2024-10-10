@@ -21,11 +21,13 @@ use Chiiya\Passes\Google\Components\Generic\UpcomingNotification;
 use Chiiya\Passes\Google\Enumerators\BarcodeRenderEncoding;
 use Chiiya\Passes\Google\Enumerators\BarcodeType;
 use Chiiya\Passes\Google\Enumerators\Generic\GenericType;
+use Chiiya\Passes\Google\Enumerators\MultipleDevicesAndHoldersAllowedStatus;
 use Chiiya\Passes\Google\Enumerators\Offer\RedemptionChannel;
 use Chiiya\Passes\Google\Enumerators\ReviewStatus;
 use Chiiya\Passes\Google\Enumerators\State;
 use Chiiya\Passes\Google\Enumerators\TotpAlgorithm;
 use Chiiya\Passes\Google\Enumerators\ViewUnlockRequirement;
+use Chiiya\Passes\Google\Passes\OfferClass;
 
 class Passes
 {
@@ -58,7 +60,7 @@ class Passes
         return [
             'id' => '1234567890123456789.002e4fb7-1c92-47cc-873f-46dba4a1b665',
             'classId' => '1234567890123456789.coupon-15',
-            'classReference' => self::offerClass(),
+            'classReference' => new OfferClass(...self::offerClass()),
             'state' => State::EXPIRED,
             'barcode' => new Barcode(type: BarcodeType::EAN_13, value: '1464194291627'),
             'validTimeInterval' => new TimeInterval(
@@ -82,7 +84,7 @@ class Passes
                     new Uri(uri: 'https://domain.com/link-2', description: 'Sample link 2'),
                 ],
             ),
-            'multipleDevicesAndHoldersAllowedStatus' => 'oneUserAllDevices',
+            'multipleDevicesAndHoldersAllowedStatus' => MultipleDevicesAndHoldersAllowedStatus::ONE_USER_ALL_DEVICES,
             'callbackOptions' => new CallbackOptions(
                 url: 'https://domain.com/callback',
                 updateRequestUrl: 'https://domain.com/update-callback',
@@ -108,8 +110,8 @@ class Passes
             'state' => State::ACTIVE,
             'barcode' => new Barcode(
                 type: BarcodeType::QR_CODE,
-                renderEncoding: BarcodeRenderEncoding::UTF_8,
                 value: '123456789',
+                renderEncoding: BarcodeRenderEncoding::UTF_8,
             ),
             'validTimeInterval' => new TimeInterval(
                 start: new DateTime(date: '2023-01-01T12:00:00+00:00'),
@@ -119,19 +121,19 @@ class Passes
                 upcomingNotification: new UpcomingNotification(enableNotification: true),
             ),
             'textModulesData' => [
-                new TextModuleData(id: 'id-1', header: 'header-1', body: 'body-1'),
-                new TextModuleData(id: 'id-2', header: 'header-2', body: 'body-2'),
+                new TextModuleData(header: 'header-1', body: 'body-1', id: 'id-1'),
+                new TextModuleData(header: 'header-2', body: 'body-2', id: 'id-2'),
             ],
             'groupingInfo' => new GroupingInfo(groupingId: 'group-1'),
             'rotatingBarcode' => new RotatingBarcode(
                 type: BarcodeType::QR_CODE,
-                renderEncoding: BarcodeRenderEncoding::UTF_8,
                 valuePattern: '12345',
                 totpDetails: new TotpDetails(
-                    periodMillis: 1000,
+                    periodMillis: '1000',
                     algorithm: TotpAlgorithm::TOTP_SHA1,
                     parameters: [TotpParameters::make('key-1', 123), TotpParameters::make('key-2', 124)],
                 ),
+                renderEncoding: BarcodeRenderEncoding::UTF_8,
                 alternateText: 'alternate-text',
                 showCodeText: LocalizedString::make('en', 'show-code-text-en'),
             ),
