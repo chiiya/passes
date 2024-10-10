@@ -25,7 +25,6 @@
         "ext-zip": "*",
         "antwerpes/data-transfer-object": "^1.0",
         "google/auth": "^1.18",
-        "spatie/data-transfer-object": "^3.7",
         "symfony/validator": "^7.1"
     },
     "require-dev": {
