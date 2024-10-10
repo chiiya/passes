@@ -75,7 +75,7 @@ class GoogleAuthMiddleware
     protected static function createApplicationDefaultCredentials(
         ServiceCredentials $credentials,
     ): ServiceAccountCredentials {
-        return new ServiceAccountCredentials([self::SCOPE], array_merge($credentials->toArray(), [
+        return new ServiceAccountCredentials([self::SCOPE], array_merge($credentials->encode(), [
             'type' => 'service_account',
         ]));
     }

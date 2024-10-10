@@ -2,9 +2,10 @@
 
 namespace Chiiya\Passes\Google;
 
+use Antwerpes\DataTransferObject\DataTransferObject;
 use InvalidArgumentException;
 
-class ServiceCredentials
+class ServiceCredentials extends DataTransferObject
 {
     public function __construct(
         public string $client_id,
