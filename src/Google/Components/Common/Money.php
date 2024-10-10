@@ -3,7 +3,6 @@
 namespace Chiiya\Passes\Google\Components\Common;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Money extends Component

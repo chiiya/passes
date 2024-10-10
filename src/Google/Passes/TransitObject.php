@@ -3,6 +3,7 @@
 namespace Chiiya\Passes\Google\Passes;
 
 use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Common\Casters\LegacyValueCaster;
 use Chiiya\Passes\Google\Components\Common\LocalizedString;
 use Chiiya\Passes\Google\Components\Transit\PurchaseDetails;
@@ -12,7 +13,6 @@ use Chiiya\Passes\Google\Enumerators\Transit\ConcessionCategory;
 use Chiiya\Passes\Google\Enumerators\Transit\PassengerType;
 use Chiiya\Passes\Google\Enumerators\Transit\TicketStatus;
 use Chiiya\Passes\Google\Enumerators\Transit\TripType;
-use Spatie\DataTransferObject\Casters\ArrayCaster;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\CssColor;
 use Symfony\Component\Validator\Constraints\NotBlank;
