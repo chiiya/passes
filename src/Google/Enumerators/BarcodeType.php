@@ -64,7 +64,7 @@ final class BarcodeType implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'aztec' => self::AZTEC,

@@ -23,7 +23,7 @@ final class ConcessionCategory implements LegacyValueEnumerator
         return [self::CONCESSION_CATEGORY_UNSPECIFIED, self::ADULT, self::CHILD, self::SENIOR];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'adult' => self::ADULT,

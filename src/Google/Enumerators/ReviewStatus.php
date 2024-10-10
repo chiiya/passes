@@ -26,7 +26,7 @@ final class ReviewStatus implements LegacyValueEnumerator
         return [self::REVIEW_STATUS_UNSPECIFIED, self::UNDER_REVIEW, self::APPROVED, self::REJECTED, self::DRAFT];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'underReview' => self::UNDER_REVIEW,

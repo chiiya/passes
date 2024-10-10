@@ -17,7 +17,7 @@ final class SeatLabel implements LegacyValueEnumerator
         return [self::SEAT_LABEL_UNSPECIFIED, self::SEAT];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'seat' => self::SEAT,

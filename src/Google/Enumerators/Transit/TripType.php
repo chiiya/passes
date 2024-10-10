@@ -20,7 +20,7 @@ final class TripType implements LegacyValueEnumerator
         return [self::TRIP_TYPE_UNSPECIFIED, self::ROUND_TRIP, self::ONE_WAY];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'roundTrip' => self::ROUND_TRIP,

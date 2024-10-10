@@ -28,7 +28,7 @@ final class BoardingPolicy implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'zoneBased' => self::ZONE_BASED,

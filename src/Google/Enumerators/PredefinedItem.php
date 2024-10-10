@@ -24,7 +24,7 @@ final class PredefinedItem implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'frequentFlyerProgramNameAndNumber' => self::FREQUENT_FLYER_PROGRAM_NAME_AND_NUMBER,

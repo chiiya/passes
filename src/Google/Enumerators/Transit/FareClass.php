@@ -23,7 +23,7 @@ final class FareClass implements LegacyValueEnumerator
         return [self::FARE_CLASS_UNSPECIFIED, self::ECONOMY, self::FIRST, self::BUSINESS];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'economy' => self::ECONOMY,

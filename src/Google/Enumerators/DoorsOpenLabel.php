@@ -20,7 +20,7 @@ final class DoorsOpenLabel implements LegacyValueEnumerator
         return [self::DOORS_OPEN_LABEL_UNSPECIFIED, self::DOORS_OPEN, self::GATES_OPEN];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'doorsOpen' => self::DOORS_OPEN,

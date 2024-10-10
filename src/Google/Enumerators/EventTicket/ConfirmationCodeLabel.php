@@ -32,7 +32,7 @@ final class ConfirmationCodeLabel implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'confirmationCode' => self::CONFIRMATION_CODE,

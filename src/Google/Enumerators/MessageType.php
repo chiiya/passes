@@ -20,7 +20,7 @@ final class MessageType implements LegacyValueEnumerator
         return [self::MESSAGE_TYPE_UNSPECIFIED, self::TEXT, self::EXPIRATION_NOTIFICATION];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
         return match ($value) {
             'text' => self::TEXT,
