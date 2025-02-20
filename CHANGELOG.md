@@ -2,6 +2,12 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v1.2.0 - 2025-02-20
+
+- Fixed localizations not being included in the manifest
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/1.1.0...1.2.0
+
 ## v1.1.0 - 2025-02-20
 
 ### What's Changed
@@ -67,6 +73,7 @@ $pass = Coupon::decode([
 ]);
 
 
+
 ```
 **Important:** The only documented example was the `JWT` class, for which this behavior has also changed:
 
@@ -84,6 +91,7 @@ $jwt = (new JWT(
     key: $credentials->private_key,
     origins: ['https://example.org'],
 ))->addOfferObject($object)->sign();
+
 
 
 ```
@@ -105,6 +113,7 @@ $class = new OfferClass(
 $class = new OfferClass(
     redemptionChannel: RedemptionChannel::INSTORE,
 );
+
 
 
 ```
