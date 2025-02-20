@@ -28,6 +28,8 @@ jobs:
           PASSES_APPLE_PASSWORD: ${{ secrets.PASSES_APPLE_PASSWORD }}
           PASSES_APPLE_CERT: ${{ secrets.PASSES_APPLE_CERT }}
           PASSES_APPLE_WWDR: ${{ secrets.PASSES_APPLE_WWDR }}
+          PASSES_APPLE_TEAM_ID: ${{ secrets.PASSES_APPLE_TEAM_ID }}
+          PASSES_APPLE_IDENTIFIER: ${{ secrets.PASSES_APPLE_IDENTIFIER }}
         run: |
           mkdir tests/certs
           echo "$CERTIFICATE_CONTENT" | base64 --decode > tests/certs/certificate.p12
