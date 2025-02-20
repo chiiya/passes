@@ -8,12 +8,14 @@ use Chiiya\Passes\Apple\Enumerators\BarcodeFormat;
 use Chiiya\Passes\Apple\Passes\Coupon;
 use Chiiya\Passes\Tests\Apple\Fixtures\Components;
 use Chiiya\Passes\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Group;
 
 class PassTest extends TestCase
 {
+    #[Group('apple')]
     public function test_images_can_be_added(): void
     {
-        $pass = new Coupon(Components::passAttributes());
+        $pass = new Coupon(...Components::passAttributes());
         $pass->addImage(new Image(realpath(__DIR__.'/../Fixtures/icon.png'), 'icon'));
         $pass->addImage(new Image(realpath(__DIR__.'/../Fixtures/icon@2x.png')));
         $images = $pass->getImages();
@@ -21,21 +23,12 @@ class PassTest extends TestCase
         $this->assertSame('icon', $images[0]->getName());
     }
 
+    #[Group('apple')]
     public function test_localizations_can_be_added(): void
     {
-        $pass = new Coupon(Components::passAttributes());
-        $pass->addLocalization(new Localization([
-            'language' => 'en',
-            'strings' => [
-                'example' => 'EXAMPLE',
-            ],
-        ]));
-        $pass->addLocalization(new Localization([
-            'language' => 'de',
-            'strings' => [
-                'example' => 'BEISPIEL',
-            ],
-        ]));
+        $pass = new Coupon(...Components::passAttributes());
+        $pass->addLocalization(new Localization(language: 'en', strings: ['example' => 'EXAMPLE']));
+        $pass->addLocalization(new Localization(language: 'de', strings: ['example' => 'BEISPIEL']));
         $localizations = $pass->getLocalizations();
         $this->assertCount(2, $localizations);
         $this->assertSame('en', $localizations[0]->language);
@@ -44,9 +37,11 @@ class PassTest extends TestCase
         ], $localizations[0]->strings);
     }
 
+    #[Group('apple')]
     public function test_pass_is_serialized_correctly(): void
     {
-        $pass = new Coupon(array_merge(Components::fullPassAttributes(), Components::fields()));
+        $attributes = array_merge(Components::fullPassAttributes(), Components::fields());
+        $pass = new Coupon(...$attributes);
         $expected = array_merge(Components::fullPassAttributes(), [
             'expirationDate' => '2025-12-31T23:59:59+00:00',
             'beacons' => [[
@@ -86,6 +81,6 @@ class PassTest extends TestCase
                 'wifiAccess' => [Components::wifiNetwork()],
             ]),
         ]);
-        $this->assertSameArray($expected, $pass->toArray());
+        $this->assertSameArray($expected, $pass->encode());
     }
 }

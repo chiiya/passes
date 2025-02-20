@@ -32,13 +32,14 @@ final class SeatClassPolicy implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'cabinBased',
-            'classBased',
-            'tierBased',
-            'seatClassPolicyOther',
-        ], [self::CABIN_BASED, self::CLASS_BASED, self::TIER_BASED, self::SEAT_CLASS_POLICY_OTHER], $value);
+        return match ($value) {
+            'cabinBased' => self::CABIN_BASED,
+            'classBased' => self::CLASS_BASED,
+            'tierBased' => self::TIER_BASED,
+            'seatClassPolicyOther' => self::SEAT_CLASS_POLICY_OTHER,
+            default => $value,
+        };
     }
 }

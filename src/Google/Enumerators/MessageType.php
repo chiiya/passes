@@ -20,11 +20,12 @@ final class MessageType implements LegacyValueEnumerator
         return [self::MESSAGE_TYPE_UNSPECIFIED, self::TEXT, self::EXPIRATION_NOTIFICATION];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'text',
-            'expirationNotification',
-        ], [self::TEXT, self::EXPIRATION_NOTIFICATION], $value);
+        return match ($value) {
+            'text' => self::TEXT,
+            'expirationNotification' => self::EXPIRATION_NOTIFICATION,
+            default => $value,
+        };
     }
 }

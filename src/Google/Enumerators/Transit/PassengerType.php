@@ -20,11 +20,12 @@ final class PassengerType implements LegacyValueEnumerator
         return [self::PASSENGER_TYPE_UNSPECIFIED, self::SINGLE_PASSENGER, self::MULTIPLE_PASSENGERS];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'singlePassenger',
-            'multiplePassengers',
-        ], [self::SINGLE_PASSENGER, self::MULTIPLE_PASSENGERS], $value);
+        return match ($value) {
+            'singlePassenger' => self::SINGLE_PASSENGER,
+            'multiplePassengers' => self::MULTIPLE_PASSENGERS,
+            default => $value,
+        };
     }
 }

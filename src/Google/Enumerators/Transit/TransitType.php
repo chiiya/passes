@@ -29,14 +29,15 @@ final class TransitType implements LegacyValueEnumerator
         return [self::TRANSIT_TYPE_UNSPECIFIED, self::BUS, self::RAIL, self::TRAM, self::FERRY, self::OTHER];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'bus',
-            'rail',
-            'tram',
-            'ferry',
-            'other',
-        ], [self::BUS, self::RAIL, self::TRAM, self::FERRY, self::OTHER], $value);
+        return match ($value) {
+            'bus' => self::BUS,
+            'rail' => self::RAIL,
+            'tram' => self::TRAM,
+            'ferry' => self::FERRY,
+            'other' => self::OTHER,
+            default => $value,
+        };
     }
 }

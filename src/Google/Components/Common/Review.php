@@ -6,6 +6,10 @@ use Chiiya\Passes\Common\Component;
 
 class Review extends Component
 {
-    /** The review comments. */
-    public ?string $comments;
+    public function __construct(
+        /** The review comments. */
+        public ?string $comments = null,
+    ) {
+        parent::__construct();
+    }
 }

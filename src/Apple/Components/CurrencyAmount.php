@@ -3,20 +3,21 @@
 namespace Chiiya\Passes\Apple\Components;
 
 use Chiiya\Passes\Common\Component;
-use Spatie\DataTransferObject\Attributes\Strict;
 
-#[Strict]
 class CurrencyAmount extends Component
 {
-    /**
-     * Optional.
-     * The amount of money.
-     */
-    public ?string $amount;
-
-    /**
-     * Optional.
-     * The currency code for amount.
-     */
-    public ?string $currencyCode;
+    public function __construct(
+        /**
+         * Optional.
+         * The amount of money.
+         */
+        public ?string $amount = null,
+        /**
+         * Optional.
+         * The currency code for amount.
+         */
+        public ?string $currencyCode = null,
+    ) {
+        parent::__construct();
+    }
 }

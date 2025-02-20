@@ -21,15 +21,17 @@
     ],
     "require": {
         "php": "^8.1",
-        "google/auth": "^1.18",
-        "spatie/data-transfer-object": "^3.7",
+        "ext-openssl": "*",
         "ext-zip": "*",
-        "ext-openssl": "*"
+        "antwerpes/data-transfer-object": "^1.0",
+        "google/auth": "^1.18",
+        "symfony/validator": "^7.1"
     },
     "require-dev": {
-        "chiiya/code-style-php": "^2.6",
-        "phpro/grumphp": "^1.9",
-        "phpunit/phpunit": "^9.5",
+        "chiiya/code-style-php": "^3.0",
+        "phpro/grumphp": "^2.7",
+        "phpunit/phpunit": "^11.3",
+        "symfony/var-dumper": "^7.1",
         "vlucas/phpdotenv": "^5.4"
     },
     "autoload": {

@@ -28,12 +28,13 @@ final class BoardingPolicy implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'zoneBased',
-            'groupBased',
-            'boardingPolicyOther',
-        ], [self::ZONE_BASED, self::GROUP_BASED, self::BOARDING_POLICY_OTHER], $value);
+        return match ($value) {
+            'zoneBased' => self::ZONE_BASED,
+            'groupBased' => self::GROUP_BASED,
+            'boardingPolicyOther' => self::BOARDING_POLICY_OTHER,
+            default => $value,
+        };
     }
 }

@@ -20,8 +20,12 @@ final class SectionLabel implements LegacyValueEnumerator
         return [self::SECTION_LABEL_UNSPECIFIED, self::SECTION, self::THEATER];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace(['section', 'theater'], [self::SECTION, self::THEATER], $value);
+        return match ($value) {
+            'section' => self::SECTION,
+            'theater' => self::THEATER,
+            default => $value,
+        };
     }
 }

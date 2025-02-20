@@ -27,41 +27,37 @@ class Components
 {
     public static function location(): Location
     {
-        return new Location([
-            'altitude' => 10.0,
-            'latitude' => 37.331,
-            'longitude' => -122.029,
-            'relevantText' => 'Store nearby on 3rd and Main.',
-        ]);
+        return new Location(
+            latitude: 37.331,
+            longitude: -122.029,
+            altitude: 10.0,
+            relevantText: 'Store nearby on 3rd and Main.',
+        );
     }
 
     public static function beacon(): Beacon
     {
-        return new Beacon([
-            'proximityUUID' => 'F8F589E9-C07E-58B0-AEAB-A36BE4D48FAC',
-            'major' => 23423,
-            'minor' => 234,
-            'relevantText' => "You're near my store",
-        ]);
+        return new Beacon(
+            proximityUUID: 'F8F589E9-C07E-58B0-AEAB-A36BE4D48FAC',
+            major: 23423,
+            minor: 234,
+            relevantText: "You're near my store",
+        );
     }
 
-    public static function barcode(array $attributes = []): Barcode
+    public static function barcode(): Barcode
     {
-        return new Barcode(array_merge([
-            'format' => BarcodeFormat::PDF417,
-            'message' => 'ABCD 123 EFGH 456 IJKL 789 MNOP',
-            'messageEncoding' => 'iso-8859-2',
-            'altText' => 'Barcode: ABCD 123 EFGH 456 IJKL 789 MNOP',
-        ], $attributes));
+        return new Barcode(
+            format: BarcodeFormat::PDF417,
+            message: 'ABCD 123 EFGH 456 IJKL 789 MNOP',
+            messageEncoding: 'iso-8859-2',
+            altText: 'Barcode: ABCD 123 EFGH 456 IJKL 789 MNOP',
+        );
     }
 
     public static function nfc(): Nfc
     {
-        return new Nfc([
-            'message' => 'Example message',
-            'encryptionPublicKey' => 'ABC123',
-            'requiresAuthentication' => true,
-        ]);
+        return new Nfc(message: 'Example message', encryptionPublicKey: 'ABC123', requiresAuthentication: true);
     }
 
     public static function passAttributes(): array
@@ -95,7 +91,7 @@ class Components
             'locations' => [$location],
             'maxDistance' => 10,
             'relevantDate' => '2020-12-01',
-            'semantics' => new Semantics(self::semantics()),
+            'semantics' => new Semantics(...self::semantics()),
             'barcodes' => [$barcode],
             'backgroundColor' => 'rgb(255, 255, 255)',
             'foregroundColor' => 'rgb(155, 155, 155)',
@@ -145,7 +141,7 @@ class Components
             ],
             'primaryFields' => [new Field(key: 'primary', value: '::value::')],
             'secondaryFields' => [
-                new SecondaryField(key: 'secondary1', value: '::value::', textAlignment: TextAlignment::RIGHT),
+                new SecondaryField(textAlignment: TextAlignment::RIGHT, key: 'secondary1', value: '::value::'),
                 new SecondaryField(key: 'secondary2', value: '::value::'),
             ],
             'auxiliaryFields' => [new AuxiliaryField(key: 'aux', value: '::value::')],
@@ -287,7 +283,7 @@ class Components
             'awayTeamAbbreviation' => '::awayTeamAbbreviation::',
             'awayTeamLocation' => '::awayTeamLocation::',
             'awayTeamName' => '::awayTeamName::',
-            'balance' => new CurrencyAmount(self::currencyAmount()),
+            'balance' => new CurrencyAmount(...self::currencyAmount()),
             'boardingGroup' => '::boardingGroup::',
             'boardingSequenceNumber' => '::boardingSequenceNumber::',
             'carNumber' => '::carNumber::',
@@ -298,7 +294,7 @@ class Components
             'departureAirportCode' => '::departureAirportCode::',
             'departureAirportName' => '::departureAirportName::',
             'departureGate' => '::departureGate::',
-            'departureLocation' => new SemanticLocation(self::semanticLocation()),
+            'departureLocation' => new SemanticLocation(...self::semanticLocation()),
             'departureLocationDescription' => '::departureLocationDescription::',
             'departurePlatform' => '::departurePlatform::',
             'departureStationName' => '::departureStationName::',
@@ -306,7 +302,7 @@ class Components
             'destinationAirportCode' => '::destinationAirportCode::',
             'destinationAirportName' => '::destinationAirportName::',
             'destinationGate' => '::destinationGate::',
-            'destinationLocation' => new SemanticLocation(self::semanticLocation()),
+            'destinationLocation' => new SemanticLocation(...self::semanticLocation()),
             'destinationLocationDescription' => '::destinationLocationDescription::',
             'destinationPlatform' => '::destinationPlatform::',
             'destinationStationName' => '::destinationStationName::',
@@ -329,14 +325,14 @@ class Components
             'originalArrivalDate' => '::originalArrivalDate::',
             'originalBoardingDate' => '::originalBoardingDate::',
             'originalDepartureDate' => '::originalDepartureDate::',
-            'passengerName' => new PersonName(self::personName()),
+            'passengerName' => new PersonName(...self::personName()),
             'performerNames' => ['::performerNames::'],
             'priorityStatus' => '::priorityStatus::',
-            'seats' => [new Seat(self::seat())],
+            'seats' => [new Seat(...self::seat())],
             'securityScreening' => '::securityScreening::',
             'silenceRequested' => false,
             'sportName' => '::sportName::',
-            'totalPrice' => new CurrencyAmount(self::currencyAmount()),
+            'totalPrice' => new CurrencyAmount(...self::currencyAmount()),
             'transitProvider' => '::transitProvider::',
             'transitStatus' => '::transitStatus::',
             'transitStatusReason' => '::transitStatusReason::',
@@ -344,11 +340,11 @@ class Components
             'vehicleNumber' => '::vehicleNumber::',
             'vehicleType' => '::vehicleType::',
             'venueEntrance' => '::venueEntrance::',
-            'venueLocation' => new SemanticLocation(self::semanticLocation()),
+            'venueLocation' => new SemanticLocation(...self::semanticLocation()),
             'venueName' => '::venueName::',
             'venuePhoneNumber' => '::venuePhoneNumber::',
             'venueRoom' => '::venueRoom::',
-            'wifiAccess' => [new WifiNetwork(self::wifiNetwork())],
+            'wifiAccess' => [new WifiNetwork(...self::wifiNetwork())],
         ];
     }
 }

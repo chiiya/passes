@@ -18,3 +18,4 @@ node_modules
 service-credentials.json
 .env
 /tests/certs
+.phpunit.cache/

@@ -1,4 +1,5 @@
 {
+    "genericType": "GENERIC_TYPE_UNSPECIFIED",
     "cardTitle": {
         "kind": "walletobjects#localizedString",
         "defaultValue": {
@@ -82,6 +83,12 @@
         },
         "end": {
             "date": "2023-01-01T13:00:00+00:00"
+        }
+    },
+    "wideLogo": {
+        "kind": "walletobjects#image",
+        "sourceUri": {
+            "uri": "https:\/\/domain.com\/wide-logo.png"
         }
     },
     "textModulesData": [

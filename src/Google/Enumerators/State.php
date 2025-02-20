@@ -26,13 +26,14 @@ final class State implements LegacyValueEnumerator
         return [self::STATE_UNSPECIFIED, self::ACTIVE, self::COMPLETED, self::EXPIRED, self::INACTIVE];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'active',
-            'completed',
-            'expired',
-            'inactive',
-        ], [self::ACTIVE, self::COMPLETED, self::EXPIRED, self::INACTIVE], $value);
+        return match ($value) {
+            'active' => self::ACTIVE,
+            'completed' => self::COMPLETED,
+            'expired' => self::EXPIRED,
+            'inactive' => self::INACTIVE,
+            default => $value,
+        };
     }
 }

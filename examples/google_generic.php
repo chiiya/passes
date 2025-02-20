@@ -29,13 +29,6 @@ $repository = new GenericClassRepository($client);
 
 $class = new GenericClass(
     id: '1234567890123456789.generic-object',
-    multipleDevicesAndHoldersAllowedStatus: MultipleDevicesAndHoldersAllowedStatus::MULTIPLE_HOLDERS,
-    linksModuleData: new LinksModuleData(
-        uris: [
-            new Uri(uri: 'https://example.org/app', description: 'App'),
-            new Uri(uri: 'https://example.org', description: 'Homepage'),
-        ]
-    ),
     imageModulesData: [
         new ImageModuleData(
             mainImage: Image::make('https://example.org/image.png')
@@ -46,44 +39,51 @@ $class = new GenericClass(
             header: 'Lorem ipsum',
             body: 'Dolor sit amet'
         )
-    ]
+    ],
+    linksModuleData: new LinksModuleData(
+        uris: [
+            new Uri(uri: 'https://example.org/app', description: 'App'),
+            new Uri(uri: 'https://example.org', description: 'Homepage'),
+        ]
+    ),
+    multipleDevicesAndHoldersAllowedStatus: MultipleDevicesAndHoldersAllowedStatus::MULTIPLE_HOLDERS
 );
 $repository->create($class);
 
 $object = new GenericObject(
-    classId: '1234567890123456789.generic-object',
-    id: '1234567890123456789.'.Str::uuid()->toString(),
     cardTitle: LocalizedString::make('en', '::cardTitle::'),
-    subheader: LocalizedString::make('en', '::subheader::'),
     header: LocalizedString::make('en', '::header::'),
+    subheader: LocalizedString::make('en', '::subheader::'),
     logo: Image::make('https://example.org/logo.png'),
-    heroImage: Image::make('https://example.org/hero-image.png'),
     hexBackgroundColor: '#333',
-    state: State::ACTIVE,
-    barcode: new Barcode(
-        type: BarcodeType::QR_CODE,
-        renderEncoding: BarcodeRenderEncoding::UTF_8,
-        value: '1464194291627',
-    ),
-    validTimeInterval: new TimeInterval(
-        start: new DateTime(date: now()),
-        end: new DateTime(now()->addMonth())
-    ),
     notifications: new Notifications(
         upcomingNotification: new UpcomingNotification(
             enableNotification: true
         ),
     ),
+    classId: '1234567890123456789.generic-object',
+    id: '1234567890123456789.'.Str::uuid()->toString(),
+    heroImage: Image::make('https://example.org/hero-image.png'),
+    state: State::ACTIVE,
+    barcode: new Barcode(
+        type: BarcodeType::QR_CODE,
+        value: '1464194291627',
+        renderEncoding: BarcodeRenderEncoding::UTF_8,
+    ),
+    validTimeInterval: new TimeInterval(
+        start: new DateTime(date: now()),
+        end: new DateTime(now()->addMonth())
+    ),
     textModulesData: [
         new TextModuleData(
-            id: 'key-1',
             header: 'label-1',
             body: 'value-1',
+            id: 'key-1',
         ),
         new TextModuleData(
-            id: 'key-2',
             header: 'label-2',
             body: 'value-2',
+            id: 'key-2',
         )
     ],
     groupingInfo: new GroupingInfo(
@@ -91,8 +91,8 @@ $object = new GenericObject(
     )
 );
 
-$jwt = (new JWT([
-    'iss' => $credentials->client_email,
-    'key' => $credentials->private_key,
-    'origins' => ['https://example.org'],
-]))->addOfferObject($object)->sign();
+$jwt = (new JWT(
+    iss: $credentials->client_email,
+    key: $credentials->private_key,
+    origins: ['https://example.org'],
+))->addGenericObject($object)->sign();

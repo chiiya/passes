@@ -17,8 +17,11 @@ final class BarcodeRenderEncoding implements LegacyValueEnumerator
         return [self::RENDER_ENCODING_UNSPECIFIED, self::UTF_8];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace(['UTF_8'], [self::UTF_8], $value);
+        return match ($value) {
+            'UTF_8' => self::UTF_8,
+            default => $value,
+        };
     }
 }

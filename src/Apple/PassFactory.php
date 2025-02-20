@@ -16,6 +16,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
 use SplFileInfo;
+use Symfony\Component\Validator\Validation;
 use Throwable;
 use ZipArchive;
 
@@ -196,10 +197,20 @@ class PassFactory
      */
     protected function validate(Pass $pass): void
     {
-        $errors = $this->validateImages($pass);
+        $validator = Validation::createValidatorBuilder()->enableAttributeMapping()->getValidator();
+        $messages = [];
+        $errors = $validator->validate($pass);
 
         if (count($errors) > 0) {
-            throw new ValidationException('Invalid pass', $errors);
+            foreach ($errors as $error) {
+                $messages[] = $error->getPropertyPath().': '.$error->getMessage();
+            }
+        }
+
+        $messages = array_merge($messages, $this->validateImages($pass));
+
+        if (count($messages) > 0) {
+            throw new ValidationException('Invalid pass', $messages);
         }
     }
 
@@ -342,10 +353,10 @@ class PassFactory
             foreach ($localization->strings as $key => $value) {
                 $strings .= '"'.addslashes($key).'" = "'.addslashes($value).'";'.PHP_EOL;
             }
-            file_put_contents($localizationDir.self::STRINGS_FILENAME, $strings);
+            file_put_contents($localizationDir.'/'.self::STRINGS_FILENAME, $strings);
 
             foreach ($localization->images as $image) {
-                $filename = $localizationDir.($image->getName() ?? $image->getFilename());
+                $filename = $localizationDir.'/'.($image->getName() ?? $image->getFilename());
                 copy($image->getPathname(), $filename);
             }
         }

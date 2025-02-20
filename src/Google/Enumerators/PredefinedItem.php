@@ -24,11 +24,12 @@ final class PredefinedItem implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace(['frequentFlyerProgramNameAndNumber', 'flightNumberAndOperatingFlightNumber'], [
-            self::FREQUENT_FLYER_PROGRAM_NAME_AND_NUMBER,
-            self::FLIGHT_NUMBER_AND_OPERATING_FLIGHT_NUMBER,
-        ], $value);
+        return match ($value) {
+            'frequentFlyerProgramNameAndNumber' => self::FREQUENT_FLYER_PROGRAM_NAME_AND_NUMBER,
+            'flightNumberAndOperatingFlightNumber' => self::FLIGHT_NUMBER_AND_OPERATING_FLIGHT_NUMBER,
+            default => $value,
+        };
     }
 }

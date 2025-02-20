@@ -6,6 +6,10 @@ use Chiiya\Passes\Common\Component;
 
 class AppTarget extends Component
 {
-    /** Optional. */
-    public ?Uri $targetUri;
+    public function __construct(
+        /** Optional. */
+        public ?Uri $targetUri = null,
+    ) {
+        parent::__construct();
+    }
 }

@@ -32,13 +32,14 @@ final class RedemptionChannel implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace([
-            'instore',
-            'online',
-            'both',
-            'temporaryPriceReduction',
-        ], [self::INSTORE, self::ONLINE, self::BOTH, self::TEMPORARY_PRICE_REDUCTION], $value);
+        return match ($value) {
+            'instore' => self::INSTORE,
+            'online' => self::ONLINE,
+            'both' => self::BOTH,
+            'temporaryPriceReduction' => self::TEMPORARY_PRICE_REDUCTION,
+            default => $value,
+        };
     }
 }

@@ -3,15 +3,19 @@
 namespace Chiiya\Passes\Google\Components\EventTicket;
 
 use Chiiya\Passes\Common\Component;
-use Chiiya\Passes\Common\Validation\Required;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class EventReservationInfo extends Component
 {
-    /**
-     * Required.
-     * The confirmation code of the event reservation. This may also take the form of an "order number",
-     * "confirmation number", "reservation number", or other equivalent.
-     */
-    #[Required]
-    public ?string $confirmationCode;
+    public function __construct(
+        /**
+         * Required.
+         * The confirmation code of the event reservation. This may also take the form of an "order number",
+         * "confirmation number", "reservation number", or other equivalent.
+         */
+        #[NotBlank]
+        public string $confirmationCode,
+    ) {
+        parent::__construct();
+    }
 }

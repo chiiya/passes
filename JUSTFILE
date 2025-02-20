@@ -21,14 +21,14 @@ down:
 
 # [DDEV] Lint files
 @lint:
-	ddev exec "./vendor/bin/ecs check --fix"
-	ddev exec "./vendor/bin/php-cs-fixer fix"
-	ddev exec "./vendor/bin/rector process"
+	./vendor/bin/ecs check --fix
+	./vendor/bin/php-cs-fixer fix
+	./vendor/bin/rector process
 
 # [DDEV] Run unit and integration tests
 @test:
 	echo "Running unit and integration tests"; \
-	ddev exec {{PHPUNIT}}
+	vendor/bin/phpunit -d xdebug.max_nesting_level=250 -d memory_limit=1024M --coverage-html reports/
 
 # [DDEV] Run tests and create code-coverage report
 @coverage:

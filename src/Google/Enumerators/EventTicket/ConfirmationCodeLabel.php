@@ -32,13 +32,14 @@ final class ConfirmationCodeLabel implements LegacyValueEnumerator
         ];
     }
 
-    public function mapLegacyValues(string $value): string
+    public static function mapLegacyValues(string $value): string
     {
-        return str_replace(['confirmationCode', 'confirmationNumber', 'orderNumber', 'reservationNumber'], [
-            self::CONFIRMATION_CODE,
-            self::CONFIRMATION_NUMBER,
-            self::ORDER_NUMBER,
-            self::RESERVATION_NUMBER,
-        ], $value);
+        return match ($value) {
+            'confirmationCode' => self::CONFIRMATION_CODE,
+            'confirmationNumber' => self::CONFIRMATION_NUMBER,
+            'orderNumber' => self::ORDER_NUMBER,
+            'reservationNumber' => self::RESERVATION_NUMBER,
+            default => $value,
+        };
     }
 }

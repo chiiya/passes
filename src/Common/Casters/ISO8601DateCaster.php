@@ -3,16 +3,11 @@
 namespace Chiiya\Passes\Common\Casters;
 
 use DateTimeInterface;
-use Spatie\DataTransferObject\Caster;
 
-class ISO8601DateCaster implements Caster
+class ISO8601DateCaster extends DateCaster
 {
-    public function cast(mixed $value): string
+    protected function format(): string
     {
-        if ($value instanceof DateTimeInterface) {
-            return $value->format(DateTimeInterface::ATOM);
-        }
-
-        return (string) $value;
+        return DateTimeInterface::ATOM;
     }
 }

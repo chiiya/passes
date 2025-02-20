@@ -3,16 +3,19 @@
 namespace Chiiya\Passes\Apple\Components;
 
 use Chiiya\Passes\Apple\Enumerators\TextAlignment;
-use Chiiya\Passes\Common\Validation\ValueIn;
-use Spatie\DataTransferObject\Attributes\Strict;
+use Symfony\Component\Validator\Constraints\Choice;
 
-#[Strict]
 class SecondaryField extends Field
 {
-    /**
-     * Optional.
-     * Alignment for the field’s contents. Defaults to NATURAL.
-     */
-    #[ValueIn([TextAlignment::LEFT, TextAlignment::CENTER, TextAlignment::RIGHT, TextAlignment::NATURAL])]
-    public ?string $textAlignment;
+    public function __construct(
+        /**
+         * Optional.
+         * Alignment for the field’s contents. Defaults to NATURAL.
+         */
+        #[Choice([TextAlignment::LEFT, TextAlignment::CENTER, TextAlignment::RIGHT, TextAlignment::NATURAL])]
+        public ?string $textAlignment = null,
+        ...$args,
+    ) {
+        parent::__construct(...$args);
+    }
 }
