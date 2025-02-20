@@ -56,7 +56,7 @@ $object = new OfferObject(
     ),
     validTimeInterval: new TimeInterval(
         start: new DateTime(date: now()),
-        end: new DateTime(now()->addMonth())
+        end: new DateTime(date: now()->addMonth())
     ),
 );
 
