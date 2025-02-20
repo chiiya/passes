@@ -12,5 +12,5 @@ In order to start creating passes, you will need to create some certificates and
 8. Download the G4 WWDR certificate from https://www.apple.com/certificateauthority/. It can be exported from Keychain into a .pem file.
 
 ## Google
-1. Follow the first 3 steps of the following manual to gain access to the Google Pay for Passes API: https://developers.google.com/pay/passes/guides/basic-setup/get-access-to-rest-api
+1. Follow [these instructions](https://developers.google.com/wallet/generic/getting-started/auth/rest) to gain access to the Google Wallet REST API.
 2. Store the service account credentials JSON file you downloaded in step 2 in a non-publicly accessible folder.
