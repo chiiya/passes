@@ -23,14 +23,6 @@ abstract class BaseClass extends AbstractClass
     public function __construct(
         /**
          * Required.
-         * The issuer name. Recommended maximum length is 20 characters to ensure full string is displayed on
-         * smaller screens.
-         */
-        #[NotBlank]
-        #[Length(max: 20)]
-        public string $issuerName,
-        /**
-         * Required.
          * The status of the class.
          */
         #[NotBlank]
@@ -43,6 +35,13 @@ abstract class BaseClass extends AbstractClass
         ])]
         #[Cast(LegacyValueCaster::class, ReviewStatus::class)]
         public string $reviewStatus,
+        /**
+         * Required when creating.
+         * The issuer name. Recommended maximum length is 20 characters to ensure full string is displayed on
+         * smaller screens.
+         */
+        #[Length(max: 20)]
+        public ?string $issuerName = null,
         /**
          * Optional.
          * An array of messages displayed in the app. All users of this object will receive its associated messages.

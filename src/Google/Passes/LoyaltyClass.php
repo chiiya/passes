@@ -6,7 +6,6 @@ use Chiiya\Passes\Google\Components\Common\Image;
 use Chiiya\Passes\Google\Components\Common\LocalizedString;
 use Chiiya\Passes\Google\Components\Loyalty\DiscoverableProgram;
 use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class LoyaltyClass extends BaseClass
 {
@@ -16,17 +15,16 @@ class LoyaltyClass extends BaseClass
     public function __construct(
         /**
          * Required.
-         * The program name, such as "Adam's Apparel". The app may display an ellipsis after the first 20
-         * characters to ensure full string is displayed on smaller screens.
-         */
-        #[NotBlank]
-        public string $programName,
-        /**
-         * Required.
          * The logo of the loyalty program or company. This logo is displayed in both the details and list
          * views of the app.
          */
         public Image $programLogo,
+        /**
+         * Required when creating.
+         * The program name, such as "Adam's Apparel". The app may display an ellipsis after the first 20
+         * characters to ensure full string is displayed on smaller screens.
+         */
+        public ?string $programName = null,
         /**
          * Optional.
          * The wide logo of the loyalty program or company. When provided, this will be used in place of the program logo in the top left of the card view.
