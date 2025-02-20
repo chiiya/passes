@@ -2,6 +2,17 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v1.1.0 - 2025-02-20
+
+### What's Changed
+
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/chiiya/passes/pull/34
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.3.0 by @dependabot in https://github.com/chiiya/passes/pull/36
+* Improve openssl pkcs12 file compatibility by @Jeroenwv in https://github.com/chiiya/passes/pull/30
+* Fix issue with missing properties on Google API responses [!12](https://github.com/chiiya/passes/issues/12)
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/1.0.1...1.1.0
+
 ## v1.0.0 - 2024-10-10
 
 ### What's Changed
@@ -55,6 +66,7 @@ $pass = Coupon::decode([
     ],
 ]);
 
+
 ```
 **Important:** The only documented example was the `JWT` class, for which this behavior has also changed:
 
@@ -72,6 +84,7 @@ $jwt = (new JWT(
     key: $credentials->private_key,
     origins: ['https://example.org'],
 ))->addOfferObject($object)->sign();
+
 
 ```
 #### Casts During Object Construction
@@ -92,6 +105,7 @@ $class = new OfferClass(
 $class = new OfferClass(
     redemptionChannel: RedemptionChannel::INSTORE,
 );
+
 
 ```
 **Full Changelog**: https://github.com/chiiya/passes/compare/0.6.0...1.0.0
