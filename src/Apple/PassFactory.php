@@ -356,7 +356,7 @@ class PassFactory
             file_put_contents($localizationDir.'/'.self::STRINGS_FILENAME, $strings);
 
             foreach ($localization->images as $image) {
-                $filename = $localizationDir.'/'.($image->getName() ?? $image->getFilename());
+                $filename = $localizationDir.'/'.$this->getImageName($image).'.'.$image->getExtension();
                 copy($image->getPathname(), $filename);
             }
         }
@@ -368,7 +368,7 @@ class PassFactory
     protected function createManifest(string $dir): void
     {
         $manifest = [];
-        $files = new FilesystemIterator($dir);
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
 
         /** @var SplFileInfo $file */
         foreach ($files as $file) {
@@ -453,11 +453,11 @@ class PassFactory
         $commands = [
             'openssl pkcs12 -in '.escapeshellarg($this->certificate)
             .' -passin '.escapeshellarg('pass:'.$passphrase)
-            .' -passout '.escapeshellarg('pass:'.$passphrase),
-            'openssl pkcs12 -in '.escapeshellarg($this->certificate)
-            .' -passin '.escapeshellarg('pass:'.$passphrase)
             .' -passout '.escapeshellarg('pass:'.$passphrase)
             .' -legacy',
+            'openssl pkcs12 -in '.escapeshellarg($this->certificate)
+            .' -passin '.escapeshellarg('pass:'.$passphrase)
+            .' -passout '.escapeshellarg('pass:'.$passphrase),
         ];
 
         foreach ($commands as $command) {

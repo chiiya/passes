@@ -23,9 +23,9 @@ class PassFactoryTest extends TestCase
         $pass = new Coupon(
             description: 'Example description',
             organizationName: 'ACME',
-            passTypeIdentifier: 'pass.com.acme.test',
+            passTypeIdentifier: getenv('PASSES_APPLE_IDENTIFIER'),
             serialNumber: '1890038600058',
-            teamIdentifier: '12345ABCD',
+            teamIdentifier: getenv('PASSES_APPLE_TEAM_ID'),
             primaryFields: [new Field(key: 'primary', value: '::value::', label: 'Coupon')],
         );
         $pass
