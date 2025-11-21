@@ -11,14 +11,9 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class CardTemplateOverride extends Component
 {
     public function __construct(
-        /**
-         * Required.
-         *
-         * @var FieldReference[]
-         */
         #[Cast(ArrayCaster::class, CardRowTemplateInfo::class)]
         #[NotBlank]
-        #[Count(max: 2)]
+        #[Count(max: 3)]
         public array $cardRowTemplateInfos = [],
     ) {
         parent::__construct();
