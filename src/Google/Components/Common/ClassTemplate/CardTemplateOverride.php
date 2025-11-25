@@ -13,12 +13,12 @@ class CardTemplateOverride extends Component
     public function __construct(
         /**
          * Required.
-         *
-         * @var FieldReference[]
+         * 
+         * @var CardRowTemplateInfo[]
          */
         #[Cast(ArrayCaster::class, CardRowTemplateInfo::class)]
         #[NotBlank]
-        #[Count(max: 2)]
+        #[Count(max: 3)]
         public array $cardRowTemplateInfos = [],
     ) {
         parent::__construct();
