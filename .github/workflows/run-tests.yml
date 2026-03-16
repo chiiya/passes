@@ -20,7 +20,7 @@ jobs:
           extensions: zip
           coverage: none
       - name: Install composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
       - name: Execute tests
         env:
           WWDR_CONTENT: ${{ secrets.WWDR_CONTENT }}
