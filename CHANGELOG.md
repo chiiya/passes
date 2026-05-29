@@ -2,6 +2,17 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v1.4.0 - 2026-05-29
+
+### What's Changed
+
+* Fix date decoding for RFC3339 timestamps from Google API by @chiiya in https://github.com/chiiya/passes/pull/51
+* Fix EventDateTime cast failing on date properties by @chiiya in https://github.com/chiiya/passes/pull/52
+* Add missing TEXT_AND_NOTIFY message type by @chiiya in https://github.com/chiiya/passes/pull/53
+* Skip validation when decoding API responses by @chiiya in https://github.com/chiiya/passes/pull/54
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/1.3.0...1.4.0
+
 ## v1.3.0 - 2026-05-29
 
 ### What's Changed
@@ -98,6 +109,7 @@ $pass = Coupon::decode([
 
 
 
+
 ```
 **Important:** The only documented example was the `JWT` class, for which this behavior has also changed:
 
@@ -115,6 +127,7 @@ $jwt = (new JWT(
     key: $credentials->private_key,
     origins: ['https://example.org'],
 ))->addOfferObject($object)->sign();
+
 
 
 
@@ -138,6 +151,7 @@ $class = new OfferClass(
 $class = new OfferClass(
     redemptionChannel: RedemptionChannel::INSTORE,
 );
+
 
 
 
