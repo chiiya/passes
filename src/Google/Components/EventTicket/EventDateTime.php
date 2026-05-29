@@ -8,6 +8,7 @@ use Chiiya\Passes\Common\Casters\LegacyValueCaster;
 use Chiiya\Passes\Common\Component;
 use Chiiya\Passes\Google\Components\Common\LocalizedString;
 use Chiiya\Passes\Google\Enumerators\DoorsOpenLabel;
+use DateTimeInterface;
 use Symfony\Component\Validator\Constraints\Choice;
 
 class EventDateTime extends Component
@@ -19,21 +20,21 @@ class EventDateTime extends Component
          * ISO 8601 + optional offset.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public ?string $doorsOpen = null,
+        public DateTimeInterface|string|null $doorsOpen = null,
         /**
          * Optional.
          * The date/time when the event starts.
          * ISO 8601 + optional offset.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public ?string $start = null,
+        public DateTimeInterface|string|null $start = null,
         /**
          * Optional.
          * The date/time when the event ends.
          * ISO 8601 + optional offset.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public ?string $end = null,
+        public DateTimeInterface|string|null $end = null,
         /**
          * Optional.
          * The label to use for the doors open value (doorsOpen) on the card detail view.
