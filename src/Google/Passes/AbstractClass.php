@@ -78,7 +78,7 @@ abstract class AbstractClass extends Component
          * Optional.
          * Identifies whether multiple users and devices will save the same object referencing this class.
          */
-        #[Choice([
+        #[Choice(choices: [
             MultipleDevicesAndHoldersAllowedStatus::STATUS_UNSPECIFIED,
             MultipleDevicesAndHoldersAllowedStatus::MULTIPLE_HOLDERS,
             MultipleDevicesAndHoldersAllowedStatus::ONE_USER_ALL_DEVICES,
@@ -96,7 +96,7 @@ abstract class AbstractClass extends Component
          * Optional
          * Defines what unlock mechanism, if any, is required to view the card.
          */
-        #[Choice([
+        #[Choice(choices: [
             ViewUnlockRequirement::VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED,
             ViewUnlockRequirement::UNLOCK_NOT_REQUIRED,
             ViewUnlockRequirement::UNLOCK_REQUIRED_TO_VIEW,

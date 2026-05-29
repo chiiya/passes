@@ -12,7 +12,7 @@ class FirstRowOption extends Component
 {
     public function __construct(
         /** Optional. */
-        #[Choice([
+        #[Choice(choices: [
             TransitOption::ORIGIN_AND_DESTINATION_CODES,
             TransitOption::ORIGIN_AND_DESTINATION_NAMES,
             TransitOption::ORIGIN_NAME,

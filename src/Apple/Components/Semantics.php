@@ -184,7 +184,7 @@ class Semantics extends Component
          * Optional.
          * The type of event. Use this key for any type of event ticket.
          */
-        #[Choice([
+        #[Choice(choices: [
             EventType::GENERIC,
             EventType::LIVE_PERFORMANCE,
             EventType::MOVIE,

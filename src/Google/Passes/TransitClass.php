@@ -20,7 +20,7 @@ class TransitClass extends BaseClass
          * Required.
          * The type of transit this class represents, such as "bus".
          */
-        #[Choice([
+        #[Choice(choices: [
             TransitType::TRANSIT_TYPE_UNSPECIFIED,
             TransitType::BUS,
             TransitType::RAIL,

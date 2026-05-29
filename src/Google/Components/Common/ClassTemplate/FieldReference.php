@@ -24,7 +24,7 @@ class FieldReference extends Component
          * Only valid if the fieldPath references a date field. Chooses how the date field will be
          * formatted and displayed in the UI.
          */
-        #[Choice([
+        #[Choice(choices: [
             DateFormat::DATE_FORMAT_UNSPECIFIED,
             DateFormat::DATE_ONLY,
             DateFormat::TIME_ONLY,

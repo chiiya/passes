@@ -18,7 +18,7 @@ class BoardingAndSeatingPolicy extends Component
          *
          * @see BoardingPolicy
          */
-        #[Choice([
+        #[Choice(choices: [
             BoardingPolicy::BOARDING_POLICY_UNSPECIFIED,
             BoardingPolicy::ZONE_BASED,
             BoardingPolicy::GROUP_BASED,
@@ -30,7 +30,7 @@ class BoardingAndSeatingPolicy extends Component
          * Optional.
          * Seating policy which dictates how we display the seat class. If unset, Google will default to CABIN_BASED.
          */
-        #[Choice([
+        #[Choice(choices: [
             SeatClassPolicy::SEAT_CLASS_POLICY_UNSPECIFIED,
             SeatClassPolicy::CABIN_BASED,
             SeatClassPolicy::CLASS_BASED,

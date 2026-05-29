@@ -23,7 +23,7 @@ class TotpDetails extends Component
          * The TOTP algorithm used to generate the OTP.
          */
         #[NotBlank]
-        #[Choice([TotpAlgorithm::TOTP_ALGORITHM_UNSPECIFIED, TotpAlgorithm::TOTP_SHA1])]
+        #[Choice(choices: [TotpAlgorithm::TOTP_ALGORITHM_UNSPECIFIED, TotpAlgorithm::TOTP_SHA1])]
         public string $algorithm,
         /**
          * Required.

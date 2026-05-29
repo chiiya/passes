@@ -15,14 +15,14 @@ class CallbackOptions extends Component
          * the URL path to be accessible by UserAgent:Google-Valuables.
          */
         #[NotBlank]
-        #[Url]
+        #[Url(requireTld: true)]
         public string $url,
         /**
          * Optional.
          * URL for the merchant endpoint that would be called to request updates. The URL should be hosted on HTTPS
          * and robots.txt should allow the URL path to be accessible by UserAgent:Google-Valuables.
          */
-        #[Url]
+        #[Url(requireTld: true)]
         public ?string $updateRequestUrl = null,
     ) {
         parent::__construct();

@@ -17,7 +17,7 @@ class BoardingPass extends Pass
          * @see TransitType
          */
         #[NotBlank]
-        #[Choice([TransitType::AIR, TransitType::BOAT, TransitType::BUS, TransitType::TRAIN, TransitType::GENERIC])]
+        #[Choice(choices: [TransitType::AIR, TransitType::BOAT, TransitType::BUS, TransitType::TRAIN, TransitType::GENERIC])]
         public string $transitType,
         /**
          * Optional.

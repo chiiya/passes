@@ -18,7 +18,7 @@ class RotatingBarcode extends Component
          * The type of barcode.
          */
         #[NotBlank]
-        #[Choice([
+        #[Choice(choices: [
             BarcodeType::BARCODE_TYPE_UNSPECIFIED,
             BarcodeType::AZTEC,
             BarcodeType::CODE_39,
@@ -54,7 +54,7 @@ class RotatingBarcode extends Component
          * The render encoding for the barcode. When specified, barcode is rendered in the given encoding.
          * Otherwise, best known encoding is chosen by Google.
          */
-        #[Choice([BarcodeRenderEncoding::UTF_8, BarcodeRenderEncoding::RENDER_ENCODING_UNSPECIFIED])]
+        #[Choice(choices: [BarcodeRenderEncoding::UTF_8, BarcodeRenderEncoding::RENDER_ENCODING_UNSPECIFIED])]
         #[Cast(LegacyValueCaster::class, BarcodeRenderEncoding::class)]
         public ?string $renderEncoding = null,
         /**

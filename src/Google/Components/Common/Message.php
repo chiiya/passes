@@ -35,7 +35,7 @@ class Message extends Component
          * Optional.
          * The type of the message. Currently, this can only be set for offers.
          */
-        #[Choice([MessageType::EXPIRATION_NOTIFICATION, MessageType::MESSAGE_TYPE_UNSPECIFIED, MessageType::TEXT])]
+        #[Choice(choices: [MessageType::EXPIRATION_NOTIFICATION, MessageType::MESSAGE_TYPE_UNSPECIFIED, MessageType::TEXT])]
         #[Cast(LegacyValueCaster::class, MessageType::class)]
         public ?string $messageType = null,
         /**

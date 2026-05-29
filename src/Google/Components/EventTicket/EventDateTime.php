@@ -38,7 +38,7 @@ class EventDateTime extends Component
          * Optional.
          * The label to use for the doors open value (doorsOpen) on the card detail view.
          */
-        #[Choice([
+        #[Choice(choices: [
             DoorsOpenLabel::DOORS_OPEN,
             DoorsOpenLabel::GATES_OPEN,
             DoorsOpenLabel::DOORS_OPEN_LABEL_UNSPECIFIED,

@@ -15,7 +15,7 @@ class SecurityAnimation extends Component
          * Type of animation.
          */
         #[NotBlank]
-        #[Choice([AnimationType::ANIMATION_UNSPECIFIED, AnimationType::FOIL_SHIMMER])]
+        #[Choice(choices: [AnimationType::ANIMATION_UNSPECIFIED, AnimationType::FOIL_SHIMMER])]
         public string $animationType,
     ) {
         parent::__construct();

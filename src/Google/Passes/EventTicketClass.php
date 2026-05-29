@@ -61,7 +61,7 @@ class EventTicketClass extends BaseClass
          * Optional.
          * The label to use for the confirmation code value on the card detail view.
          */
-        #[Choice([
+        #[Choice(choices: [
             ConfirmationCodeLabel::CONFIRMATION_CODE_LABEL_UNSPECIFIED,
             ConfirmationCodeLabel::CONFIRMATION_CODE,
             ConfirmationCodeLabel::CONFIRMATION_NUMBER,
@@ -79,7 +79,7 @@ class EventTicketClass extends BaseClass
          * Optional.
          * The label to use for the seat value on the card detail view.
          */
-        #[Choice([SeatLabel::SEAT, SeatLabel::SEAT_LABEL_UNSPECIFIED])]
+        #[Choice(choices: [SeatLabel::SEAT, SeatLabel::SEAT_LABEL_UNSPECIFIED])]
         #[Cast(LegacyValueCaster::class, SeatLabel::class)]
         public ?string $seatLabel = null,
         /**
@@ -91,7 +91,7 @@ class EventTicketClass extends BaseClass
          * Optional.
          * The label to use for the row value on the card detail view.
          */
-        #[Choice([RowLabel::ROW, RowLabel::ROW_LABEL_UNSPECIFIED])]
+        #[Choice(choices: [RowLabel::ROW, RowLabel::ROW_LABEL_UNSPECIFIED])]
         #[Cast(LegacyValueCaster::class, RowLabel::class)]
         public ?string $rowLabel = null,
         /**
@@ -103,7 +103,7 @@ class EventTicketClass extends BaseClass
          * Optional.
          * The label to use for the section value on the card detail view.
          */
-        #[Choice([SectionLabel::SECTION, SectionLabel::THEATER, SectionLabel::SECTION_LABEL_UNSPECIFIED])]
+        #[Choice(choices: [SectionLabel::SECTION, SectionLabel::THEATER, SectionLabel::SECTION_LABEL_UNSPECIFIED])]
         #[Cast(LegacyValueCaster::class, SectionLabel::class)]
         public ?string $sectionLabel = null,
         /**
@@ -115,7 +115,7 @@ class EventTicketClass extends BaseClass
          * Optional.
          * The label to use for the gate value on the card detail view.
          */
-        #[Choice([GateLabel::GATE_LABEL_UNSPECIFIED, GateLabel::GATE, GateLabel::DOOR, GateLabel::ENTRANCE])]
+        #[Choice(choices: [GateLabel::GATE_LABEL_UNSPECIFIED, GateLabel::GATE, GateLabel::DOOR, GateLabel::ENTRANCE])]
         #[Cast(LegacyValueCaster::class, GateLabel::class)]
         public ?string $gateLabel = null,
         /**

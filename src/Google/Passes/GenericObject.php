@@ -29,7 +29,7 @@ class GenericObject extends AbstractObject
          * Optional
          * The type of the generic card.
          */
-        #[Choice([
+        #[Choice(choices: [
             GenericType::GENERIC_TYPE_UNSPECIFIED,
             GenericType::GENERIC_SEASON_PASS,
             GenericType::GENERIC_UTILITY_BILLS,

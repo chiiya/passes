@@ -52,7 +52,7 @@ class Field extends Component
          * Provide an empty array to use no data detectors.
          */
         #[All([
-            new Choice([
+            new Choice(choices: [
                 DataDetector::PHONE_NUMBER,
                 DataDetector::LINK,
                 DataDetector::ADDRESS,
@@ -64,7 +64,7 @@ class Field extends Component
          * Optional.
          * Style of date to display. MUST be used in conjunction with $timeStyle.
          */
-        #[Choice([DateStyle::NONE, DateStyle::SHORT, DateStyle::MEDIUM, DateStyle::LONG, DateStyle::FULL])]
+        #[Choice(choices: [DateStyle::NONE, DateStyle::SHORT, DateStyle::MEDIUM, DateStyle::LONG, DateStyle::FULL])]
         public ?string $dateStyle = null,
         /**
          * Optional.
@@ -82,7 +82,7 @@ class Field extends Component
          * Optional.
          * Style of time to display. MUST be used in conjunction with $dateStyle.
          */
-        #[Choice([DateStyle::NONE, DateStyle::SHORT, DateStyle::MEDIUM, DateStyle::LONG, DateStyle::FULL])]
+        #[Choice(choices: [DateStyle::NONE, DateStyle::SHORT, DateStyle::MEDIUM, DateStyle::LONG, DateStyle::FULL])]
         public ?string $timeStyle = null,
         /**
          * Optional.
@@ -93,7 +93,7 @@ class Field extends Component
          * Optional.
          * Style of number to display. Only allowed for numeric field values.
          */
-        #[Choice([NumberStyle::DECIMAL, NumberStyle::PERCENT, NumberStyle::SCIENTIFIC, NumberStyle::SPELL_OUT])]
+        #[Choice(choices: [NumberStyle::DECIMAL, NumberStyle::PERCENT, NumberStyle::SCIENTIFIC, NumberStyle::SPELL_OUT])]
         public ?string $numberStyle = null,
     ) {
         parent::__construct();

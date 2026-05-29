@@ -42,7 +42,7 @@ class AbstractObject extends Component
          * Required.
          * The state of the object. This field is used to determine how an object is displayed in the app.
          */
-        #[Choice([State::STATE_UNSPECIFIED, State::ACTIVE, State::COMPLETED, State::EXPIRED, State::INACTIVE])]
+        #[Choice(choices: [State::STATE_UNSPECIFIED, State::ACTIVE, State::COMPLETED, State::EXPIRED, State::INACTIVE])]
         #[Cast(LegacyValueCaster::class, State::class)]
         #[NotBlank]
         public string $state,

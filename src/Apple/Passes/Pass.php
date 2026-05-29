@@ -180,7 +180,7 @@ abstract class Pass extends Component
          *
          * @see https://developer.apple.com/library/archive/documentation/PassKit/Reference/PassKit_WebService/WebService.html#//apple_ref/doc/uid/TP40011988
          */
-        #[Url]
+        #[Url(requireTld: true)]
         public ?string $webServiceURL = null,
         /**
          * Optional.

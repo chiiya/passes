@@ -17,7 +17,7 @@ class Barcode extends Component
          * @see BarcodeFormat
          */
         #[NotBlank]
-        #[Choice([BarcodeFormat::QR, BarcodeFormat::AZTEC, BarcodeFormat::GS1_128, BarcodeFormat::PDF417])]
+        #[Choice(choices: [BarcodeFormat::QR, BarcodeFormat::AZTEC, BarcodeFormat::GS1_128, BarcodeFormat::PDF417])]
         public string $format,
         /**
          * Required.

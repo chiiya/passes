@@ -64,7 +64,7 @@ class FlightClass extends BaseClass
          * Optional.
          * If unset, Google will compute status based on data from other sources, such as FlightStats, etc.
          */
-        #[Choice([
+        #[Choice(choices: [
             FlightStatus::FLIGHT_STATUS_UNSPECIFIED,
             FlightStatus::SCHEDULED,
             FlightStatus::ACTIVE,

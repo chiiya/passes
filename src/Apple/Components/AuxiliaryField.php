@@ -12,7 +12,7 @@ class AuxiliaryField extends SecondaryField
          * A number you use to add a row to the auxiliary field in an event ticket pass type.
          * Set the value to 1 to add an auxiliary row. Each row displays up to four fields.
          */
-        #[Choice([0, 1])]
+        #[Choice(choices: [0, 1])]
         public ?int $row = null,
         ...$args,
     ) {

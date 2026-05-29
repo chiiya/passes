@@ -26,7 +26,7 @@ abstract class BaseClass extends AbstractClass
          * The status of the class.
          */
         #[NotBlank]
-        #[Choice([
+        #[Choice(choices: [
             ReviewStatus::REVIEW_STATUS_UNSPECIFIED,
             ReviewStatus::UNDER_REVIEW,
             ReviewStatus::APPROVED,

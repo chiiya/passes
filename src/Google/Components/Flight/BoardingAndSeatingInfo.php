@@ -51,7 +51,7 @@ class BoardingAndSeatingInfo extends Component
          * print the door location on the boarding pass. Most airlines route their passengers to the right door or bridge
          * by refering to doors/bridges by the seatClass. In those cases boardingDoor should not be set.
          */
-        #[Choice([BoardingDoor::BACK, BoardingDoor::FRONT, BoardingDoor::BOARDING_DOOR_UNSPECIFIED])]
+        #[Choice(choices: [BoardingDoor::BACK, BoardingDoor::FRONT, BoardingDoor::BOARDING_DOOR_UNSPECIFIED])]
         #[Cast(LegacyValueCaster::class, BoardingDoor::class)]
         public ?string $boardingDoor = null,
         /**

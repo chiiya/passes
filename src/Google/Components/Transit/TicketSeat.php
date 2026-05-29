@@ -18,7 +18,7 @@ class TicketSeat extends Component
          *
          * @see FareClass
          */
-        #[Choice([FareClass::FARE_CLASS_UNSPECIFIED, FareClass::ECONOMY, FareClass::FIRST, FareClass::BUSINESS])]
+        #[Choice(choices: [FareClass::FARE_CLASS_UNSPECIFIED, FareClass::ECONOMY, FareClass::FIRST, FareClass::BUSINESS])]
         #[Cast(LegacyValueCaster::class, FareClass::class)]
         public ?string $fareClass = null,
         /**

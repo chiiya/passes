@@ -28,7 +28,7 @@ class TransitObject extends BaseObject
          * The type of trip this transit object represents. Used to determine which symbol to use between
          * the origin and destination.
          */
-        #[Choice([TripType::TRIP_TYPE_UNSPECIFIED, TripType::ROUND_TRIP, TripType::ONE_WAY])]
+        #[Choice(choices: [TripType::TRIP_TYPE_UNSPECIFIED, TripType::ROUND_TRIP, TripType::ONE_WAY])]
         #[Cast(LegacyValueCaster::class, TripType::class)]
         #[NotBlank]
         public string $tripType,
@@ -46,7 +46,7 @@ class TransitObject extends BaseObject
          * Optional.
          * The number of passengers.
          */
-        #[Choice([
+        #[Choice(choices: [
             PassengerType::PASSENGER_TYPE_UNSPECIFIED,
             PassengerType::SINGLE_PASSENGER,
             PassengerType::MULTIPLE_PASSENGERS,
@@ -68,7 +68,7 @@ class TransitObject extends BaseObject
          * Optional.
          * The status of the ticket. For states which affect display, use the state field instead.
          */
-        #[Choice([
+        #[Choice(choices: [
             TicketStatus::TICKET_STATUS_UNSPECIFIED,
             TicketStatus::USED,
             TicketStatus::REFUNDED,
@@ -86,7 +86,7 @@ class TransitObject extends BaseObject
          * Optional.
          * The concession category for the ticket.
          */
-        #[Choice([
+        #[Choice(choices: [
             ConcessionCategory::CONCESSION_CATEGORY_UNSPECIFIED,
             ConcessionCategory::ADULT,
             ConcessionCategory::CHILD,

@@ -25,7 +25,7 @@ class TemplateItem extends Component
          * Optional.
          * A predefined item to display. Only one of firstValue or predefinedItem may be set.
          */
-        #[Choice([
+        #[Choice(choices: [
             PredefinedItem::FLIGHT_NUMBER_AND_OPERATING_FLIGHT_NUMBER,
             PredefinedItem::FREQUENT_FLYER_PROGRAM_NAME_AND_NUMBER,
             PredefinedItem::PREDEFINED_ITEM_UNSPECIFIED,

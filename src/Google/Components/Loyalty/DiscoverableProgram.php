@@ -27,7 +27,7 @@ class DiscoverableProgram extends Component
          * Optional.
          * Visibility state of the discoverable program.
          */
-        #[Choice([
+        #[Choice(choices: [
             VisibilityState::STATE_UNSPECIFIED,
             VisibilityState::TRUSTED_TESTERS,
             VisibilityState::LIVE,

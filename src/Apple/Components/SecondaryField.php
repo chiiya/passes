@@ -12,7 +12,7 @@ class SecondaryField extends Field
          * Optional.
          * Alignment for the field’s contents. Defaults to NATURAL.
          */
-        #[Choice([TextAlignment::LEFT, TextAlignment::CENTER, TextAlignment::RIGHT, TextAlignment::NATURAL])]
+        #[Choice(choices: [TextAlignment::LEFT, TextAlignment::CENTER, TextAlignment::RIGHT, TextAlignment::NATURAL])]
         public ?string $textAlignment = null,
         ...$args,
     ) {

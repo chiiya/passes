@@ -30,7 +30,7 @@ class OfferClass extends BaseClass
          * Required.
          * The redemption channels applicable to this offer.
          */
-        #[Choice([
+        #[Choice(choices: [
             RedemptionChannel::REDEMPTION_CHANNEL_UNSPECIFIED,
             RedemptionChannel::INSTORE,
             RedemptionChannel::ONLINE,

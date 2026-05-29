@@ -21,7 +21,7 @@ class DiscoverableProgramMerchantSignupInfo extends Component
          * then shared so that the merchant's website can prefill fields used to enroll the user for the
          * discoverable program.
          */
-        #[Choice([
+        #[Choice(choices: [
             SharedDataType::SHARED_DATA_TYPE_UNSPECIFIED,
             SharedDataType::FIRST_NAME,
             SharedDataType::LAST_NAME,
