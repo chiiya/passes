@@ -2,6 +2,29 @@
 
 All notable changes to `passes` will be documented in this file.
 
+## v1.3.0 - 2026-05-29
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/chiiya/passes/pull/38
+* Bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/chiiya/passes/pull/41
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/chiiya/passes/pull/40
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/chiiya/passes/pull/43
+* Update Google CardRowTemplateInfo count by @AndreaTroianiello in https://github.com/chiiya/passes/pull/42
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/chiiya/passes/pull/44
+* support symfony validator 8.0 and 8.1 by @kov-lucas in https://github.com/chiiya/passes/pull/50
+* Fix for deprecations from Symfony Validator 7.4 by @robjenman in https://github.com/chiiya/passes/pull/49
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.1.0 by @dependabot[bot] in https://github.com/chiiya/passes/pull/48
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/chiiya/passes/pull/46
+
+### New Contributors
+
+* @AndreaTroianiello made their first contribution in https://github.com/chiiya/passes/pull/42
+* @kov-lucas made their first contribution in https://github.com/chiiya/passes/pull/50
+* @robjenman made their first contribution in https://github.com/chiiya/passes/pull/49
+
+**Full Changelog**: https://github.com/chiiya/passes/compare/1.2.0...1.3.0
+
 ## v1.2.0 - 2025-02-20
 
 - Fixed localizations not being included in the manifest
@@ -74,6 +97,7 @@ $pass = Coupon::decode([
 
 
 
+
 ```
 **Important:** The only documented example was the `JWT` class, for which this behavior has also changed:
 
@@ -91,6 +115,7 @@ $jwt = (new JWT(
     key: $credentials->private_key,
     origins: ['https://example.org'],
 ))->addOfferObject($object)->sign();
+
 
 
 
@@ -113,6 +138,7 @@ $class = new OfferClass(
 $class = new OfferClass(
     redemptionChannel: RedemptionChannel::INSTORE,
 );
+
 
 
 
