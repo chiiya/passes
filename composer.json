@@ -25,7 +25,7 @@
         "ext-zip": "*",
         "antwerpes/data-transfer-object": "^1.0",
         "google/auth": "^1.18",
-        "symfony/validator": "^7.1"
+        "symfony/validator": "^7.1 || ^8.0 || ^8.1"
     },
     "require-dev": {
         "chiiya/code-style-php": "^3.0",
