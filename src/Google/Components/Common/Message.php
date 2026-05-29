@@ -39,6 +39,7 @@ class Message extends Component
             MessageType::EXPIRATION_NOTIFICATION,
             MessageType::MESSAGE_TYPE_UNSPECIFIED,
             MessageType::TEXT,
+            MessageType::TEXT_AND_NOTIFY,
         ])]
         #[Cast(LegacyValueCaster::class, MessageType::class)]
         public ?string $messageType = null,
