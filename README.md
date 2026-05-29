@@ -1,8 +1,8 @@
 # Passes
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/chiiya/passes.svg?style=flat-square)](https://packagist.org/packages/chiiya/passes)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/chiiya/passes/run-tests?label=tests)](https://github.com/chiiya/passes/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/chiiya/passes/lint?label=code%20style)](https://github.com/chiiya/passes/actions?query=workflow%3Alint+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/chiiya/passes/run-tests.yml?branch=master)](https://github.com/chiiya/passes/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/chiiya/passes/lint.yml?branch=master)](https://github.com/chiiya/passes/actions?query=workflow%3Alint+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/chiiya/passes.svg?style=flat-square)](https://packagist.org/packages/chiiya/passes)
 
 PHP library for creating iOS and Android Wallet Passes.

@@ -28,7 +28,7 @@ down:
 # [DDEV] Run unit and integration tests
 @test:
 	echo "Running unit and integration tests"; \
-	vendor/bin/phpunit -d xdebug.max_nesting_level=250 -d memory_limit=1024M --coverage-html reports/
+	vendor/bin/phpunit
 
 # [DDEV] Run tests and create code-coverage report
 @coverage:

@@ -86,7 +86,7 @@ class PassFactory
     public function __construct(array $config = [])
     {
         $this->tempDir = isset($config['temp_dir'])
-            ? rtrim($config['temp_dir'], DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR
+            ? mb_rtrim($config['temp_dir'], DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR
             : sys_get_temp_dir().DIRECTORY_SEPARATOR;
 
         if (isset($config['output'])) {
@@ -108,14 +108,14 @@ class PassFactory
 
     public function setTempDir(string $tempDir): self
     {
-        $this->tempDir = rtrim($tempDir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+        $this->tempDir = mb_rtrim($tempDir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 
         return $this;
     }
 
     public function setOutput(string $output): self
     {
-        $this->output = rtrim($output, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+        $this->output = mb_rtrim($output, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 
         return $this;
     }
@@ -499,7 +499,7 @@ class PassFactory
         $end = '------';
         $signature = mb_substr($signature, mb_strpos($signature, $begin) + mb_strlen($begin));
         $signature = mb_substr($signature, 0, mb_strpos($signature, $end));
-        $signature = trim($signature);
+        $signature = mb_trim($signature);
 
         return base64_decode($signature, true);
     }
