@@ -93,7 +93,12 @@ class Field extends Component
          * Optional.
          * Style of number to display. Only allowed for numeric field values.
          */
-        #[Choice(choices: [NumberStyle::DECIMAL, NumberStyle::PERCENT, NumberStyle::SCIENTIFIC, NumberStyle::SPELL_OUT])]
+        #[Choice(choices: [
+            NumberStyle::DECIMAL,
+            NumberStyle::PERCENT,
+            NumberStyle::SCIENTIFIC,
+            NumberStyle::SPELL_OUT,
+        ])]
         public ?string $numberStyle = null,
     ) {
         parent::__construct();
