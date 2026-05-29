@@ -214,13 +214,13 @@ abstract class Pass extends Component
          * Date and time when the pass expires.
          */
         #[Cast(W3CDateCaster::class)]
-        public null|DateTimeInterface|string $expirationDate = null,
+        public DateTimeInterface|string|null $expirationDate = null,
         /**
          * Optional.
          * Date and time when the pass becomes relevant.
          */
         #[Cast(W3CDateCaster::class)]
-        public null|DateTimeInterface|string $relevantDate = null,
+        public DateTimeInterface|string|null $relevantDate = null,
         /** @var SecondaryField[] */
         #[All([new Type(SecondaryField::class)])]
         #[Count(max: 3)]

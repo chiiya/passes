@@ -13,7 +13,7 @@ class CardTemplateOverride extends Component
     public function __construct(
         /**
          * Required.
-         * 
+         *
          * @var CardRowTemplateInfo[]
          */
         #[Cast(ArrayCaster::class, CardRowTemplateInfo::class)]

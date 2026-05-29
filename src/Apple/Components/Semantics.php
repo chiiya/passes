@@ -374,51 +374,51 @@ class Semantics extends Component
          * and time. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $currentArrivalDate = null,
+        public DateTimeInterface|string|null $currentArrivalDate = null,
         /**
          * Optional.
          * The updated date and time of boarding, if different from the originally scheduled date
          * and time. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $currentBoardingDate = null,
+        public DateTimeInterface|string|null $currentBoardingDate = null,
         /**
          * Optional.
          * The updated departure date and time, if different from the originally
          * scheduled date and time. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $currentDepartureDate = null,
+        public DateTimeInterface|string|null $currentDepartureDate = null,
         /**
          * Optional.
          * The date and time the event ends. Use this key for any type of event ticket.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $eventEndDate = null,
+        public DateTimeInterface|string|null $eventEndDate = null,
         /**
          * Optional.
          * The date and time the event starts. Use this key for any type of event ticket.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $eventStartDate = null,
+        public DateTimeInterface|string|null $eventStartDate = null,
         /**
          * Optional.
          * The originally scheduled date and time of arrival. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $originalArrivalDate = null,
+        public DateTimeInterface|string|null $originalArrivalDate = null,
         /**
          * Optional.
          * The originally scheduled date and time of boarding. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $originalBoardingDate = null,
+        public DateTimeInterface|string|null $originalBoardingDate = null,
         /**
          * Optional.
          * The originally scheduled date and time of departure. Use this key for any type of boarding pass.
          */
         #[Cast(ISO8601DateCaster::class)]
-        public null|DateTimeInterface|string $originalDepartureDate = null,
+        public DateTimeInterface|string|null $originalDepartureDate = null,
     ) {
         parent::__construct();
     }
