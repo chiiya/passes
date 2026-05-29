@@ -9,8 +9,19 @@ use Symfony\Component\Validator\Validation;
 
 abstract class Component extends DataTransferObject implements JsonSerializable
 {
+    /**
+     * Whether constructed components should be validated. Disabled while decoding API
+     * responses, since responses may legitimately omit fields that are only required
+     * when creating a pass. Validation still runs for objects constructed directly.
+     */
+    private static bool $validate = true;
+
     public function __construct()
     {
+        if (! self::$validate) {
+            return;
+        }
+
         $validator = Validation::createValidatorBuilder()->enableAttributeMapping()->getValidator();
         $errors = $validator->validate($this);
 
@@ -22,6 +33,18 @@ abstract class Component extends DataTransferObject implements JsonSerializable
             }
 
             throw new ValidationException('Invalid arguments', $messages);
+        }
+    }
+
+    public static function decode(array $data): static
+    {
+        $previous = self::$validate;
+        self::$validate = false;
+
+        try {
+            return parent::decode($data);
+        } finally {
+            self::$validate = $previous;
         }
     }
 
